@@ -140,7 +140,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         break;
                     
                     default:
-                        resultado += lexer.lexeme + ": Es un "+ tokens + " En Columna: " + lexer.column1 + " y Linea: " + lexer.line + "\n";
+                        resultado += lexer.lexeme + ": Es un "+ tokens + " En Columna: " + lexer.column1 +" a Columna: " + lexer.column2 + " y Linea: " + lexer.line + "\n";
                 }
             }
         } catch (FileNotFoundException ex) {
