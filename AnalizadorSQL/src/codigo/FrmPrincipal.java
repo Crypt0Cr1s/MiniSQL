@@ -137,10 +137,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 switch (tokens) {
                     case ERROR:
                         resultado += lexer.lexeme + " Simbolo no definido" + " En Columna: " + lexer.column1 + " y Linea: " + lexer.line + "\n";
+                        resultado +=  "------------------------------------------------------------------------------------\n";
                         break;
                     
                     default:
                         resultado += lexer.lexeme + ": Es un "+ tokens + " En Columna: " + lexer.column1 +" a Columna: " + lexer.column2 + " y Linea: " + lexer.line + "\n";
+                        resultado +=  "------------------------------------------------------------------------------------\n";
                 }
             }
         } catch (FileNotFoundException ex) {

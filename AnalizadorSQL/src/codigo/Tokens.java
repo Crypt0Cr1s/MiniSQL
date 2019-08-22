@@ -10,6 +10,7 @@ package codigo;
  * @author cristobal
  */
 public enum Tokens {
+    Puntuacion,
     Entero,
     Bit,
     Cadena,
@@ -18,6 +19,6 @@ public enum Tokens {
     Identificador,
     IdentificadorTruncado,
     ComentarioE,
-    Puntuacion,
+    //Puntuacion,
     ERROR
 }
