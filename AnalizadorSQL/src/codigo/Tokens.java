@@ -14,6 +14,7 @@ public enum Tokens {
     Entero,
     Bit,
     Cadena,
+    CadenaIn,
     Float,
     PalabraClave,
     Identificador,
