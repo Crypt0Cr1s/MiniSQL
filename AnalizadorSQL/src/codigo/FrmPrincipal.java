@@ -156,7 +156,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void btnExaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExaminarActionPerformed
         // TODO add your handling code here:
         JFileChooser Seleccionar = new JFileChooser();
-        //Seleccionar.addChoosableFileFilter(new FileNameExtensionFilter("Archivo de Texto (.frag)", "frag"));
+        Seleccionar.addChoosableFileFilter(new FileNameExtensionFilter("Archivo de Texto (.sql)", "sql"));
         Seleccionar.addChoosableFileFilter(new FileNameExtensionFilter("Archivo de Texto (.txt)", "txt"));                
         Seleccionar.setAcceptAllFileFilterUsed(false);
         Seleccionar.showDialog(this,"Seleccionar");
