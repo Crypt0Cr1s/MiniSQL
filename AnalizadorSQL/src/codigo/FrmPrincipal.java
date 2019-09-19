@@ -5,6 +5,7 @@
  */
 package codigo;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -26,6 +28,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class FrmPrincipal extends javax.swing.JFrame {
     public File Entrada;
     public String Ruta;
+    public ArrayList<String> ListaTokens = new ArrayList();
     /**
      * Creates new form FrmPrincipal
      */
@@ -139,7 +142,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         resultado += lexer.lexeme + " Simbolo no definido" + " En Columna: " + lexer.column1 + " y Linea: " + lexer.line + "\n";
                         resultado +=  "------------------------------------------------------------------------------------\n";
                         break;
-                    
+                    case Identificador:
+                        ListaTokens.add("IDENTIFICADOR");
                     default:
                         resultado += lexer.lexeme + ": Es un "+ tokens + " En Columna: " + lexer.column1 +" a Columna: " + lexer.column2 + " y Linea: " + lexer.line + "\n";
                         resultado +=  "------------------------------------------------------------------------------------\n";
