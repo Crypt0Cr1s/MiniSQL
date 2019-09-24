@@ -1,10 +1,10 @@
-DECLARE: Es un PalabraClave En Columna: 0 a Columna: 6 y Linea: 1
+null: Es un DECLARE En Columna: null a Columna: null y Linea: null
 ------------------------------------------------------------------------------------
 @: Es un Puntuacion En Columna: 8 a Columna: 8 y Linea: 1
 ------------------------------------------------------------------------------------
 sid_in: Es un Identificador En Columna: 9 a Columna: 14 y Linea: 1
 ------------------------------------------------------------------------------------
-VARCHAR: Es un PalabraClave En Columna: 16 a Columna: 22 y Linea: 1
+sid_in: Es un VARCHAR En Columna: 9 a Columna: 14 y Linea: 1
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 23 a Columna: 23 y Linea: 1
 ------------------------------------------------------------------------------------
@@ -14,7 +14,7 @@ VARCHAR: Es un PalabraClave En Columna: 16 a Columna: 22 y Linea: 1
 ------------------------------------------------------------------------------------
 ;: Es un Puntuacion En Columna: 28 a Columna: 28 y Linea: 1
 ------------------------------------------------------------------------------------
-SET: Es un PalabraClave En Columna: 0 a Columna: 2 y Linea: 2
+;: Es un SET En Columna: 28 a Columna: 28 y Linea: 1
 ------------------------------------------------------------------------------------
 @: Es un Puntuacion En Columna: 4 a Columna: 4 y Linea: 2
 ------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ sid_in: Es un Identificador En Columna: 5 a Columna: 10 y Linea: 2
 ------------------------------------------------------------------------------------
 ;: Es un Puntuacion En Columna: 62 a Columna: 62 y Linea: 2
 ------------------------------------------------------------------------------------
-DECLARE: Es un PalabraClave En Columna: 0 a Columna: 6 y Linea: 4
+;: Es un DECLARE En Columna: 62 a Columna: 62 y Linea: 2
 ------------------------------------------------------------------------------------
 @: Es un Puntuacion En Columna: 8 a Columna: 8 y Linea: 4
 ------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ NVARCHAR: Es un Identificador En Columna: 13 a Columna: 20 y Linea: 4
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 21 a Columna: 21 y Linea: 4
 ------------------------------------------------------------------------------------
-MAX: Es un PalabraClave En Columna: 22 a Columna: 24 y Linea: 4
+(: Es un MAX En Columna: 21 a Columna: 21 y Linea: 4
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 25 a Columna: 25 y Linea: 4
 ------------------------------------------------------------------------------------
@@ -46,11 +46,11 @@ MAX: Es un PalabraClave En Columna: 22 a Columna: 24 y Linea: 4
 ------------------------------------------------------------------------------------
 +: Es un Puntuacion En Columna: 74 a Columna: 74 y Linea: 4
 ------------------------------------------------------------------------------------
-CONVERT: Es un PalabraClave En Columna: 76 a Columna: 82 y Linea: 4
++: Es un CONVERT En Columna: 74 a Columna: 74 y Linea: 4
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 83 a Columna: 83 y Linea: 4
 ------------------------------------------------------------------------------------
-VARCHAR: Es un PalabraClave En Columna: 84 a Columna: 90 y Linea: 4
+(: Es un VARCHAR En Columna: 83 a Columna: 83 y Linea: 4
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 91 a Columna: 91 y Linea: 4
 ------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ VARCHAR: Es un PalabraClave En Columna: 84 a Columna: 90 y Linea: 4
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 95 a Columna: 95 y Linea: 4
 ------------------------------------------------------------------------------------
-CONVERT: Es un PalabraClave En Columna: 97 a Columna: 103 y Linea: 4
+,: Es un CONVERT En Columna: 95 a Columna: 95 y Linea: 4
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 104 a Columna: 104 y Linea: 4
 ------------------------------------------------------------------------------------
@@ -98,13 +98,13 @@ sid_in: Es un Identificador En Columna: 128 a Columna: 133 y Linea: 4
 ------------------------------------------------------------------------------------
 ;: Es un Puntuacion En Columna: 146 a Columna: 146 y Linea: 4
 ------------------------------------------------------------------------------------
-PRINT: Es un PalabraClave En Columna: 0 a Columna: 4 y Linea: 6
+;: Es un PRINT En Columna: 146 a Columna: 146 y Linea: 4
 ------------------------------------------------------------------------------------
 @: Es un Puntuacion En Columna: 6 a Columna: 6 y Linea: 6
 ------------------------------------------------------------------------------------
 sql: Es un Identificador En Columna: 7 a Columna: 9 y Linea: 6
 ------------------------------------------------------------------------------------
-EXEC: Es un PalabraClave En Columna: 0 a Columna: 3 y Linea: 7
+sql: Es un EXEC En Columna: 7 a Columna: 9 y Linea: 6
 ------------------------------------------------------------------------------------
 sys: Es un Identificador En Columna: 5 a Columna: 7 y Linea: 7
 ------------------------------------------------------------------------------------
@@ -136,13 +136,13 @@ sql: Es un Identificador En Columna: 24 a Columna: 26 y Linea: 7
 ------------------------------------------------------------------------------------
 /: Es un Puntuacion En Columna: 85 a Columna: 85 y Linea: 10
 ------------------------------------------------------------------------------------
-SELECT: Es un PalabraClave En Columna: 0 a Columna: 5 y Linea: 14
+/: Es un SELECT En Columna: 85 a Columna: 85 y Linea: 10
 ------------------------------------------------------------------------------------
 SUSER_SNAME: Es un Identificador En Columna: 7 a Columna: 17 y Linea: 14
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 18 a Columna: 18 y Linea: 14
 ------------------------------------------------------------------------------------
-CONVERT: Es un PalabraClave En Columna: 19 a Columna: 25 y Linea: 14
+(: Es un CONVERT En Columna: 18 a Columna: 18 y Linea: 14
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 26 a Columna: 26 y Linea: 14
 ------------------------------------------------------------------------------------
@@ -172,9 +172,9 @@ sid_in: Es un Identificador En Columna: 50 a Columna: 55 y Linea: 14
 ------------------------------------------------------------------------------------
 ;: Es un Puntuacion En Columna: 59 a Columna: 59 y Linea: 14
 ------------------------------------------------------------------------------------
-ALTER: Es un PalabraClave En Columna: 0 a Columna: 4 y Linea: 17
+;: Es un ALTER En Columna: 59 a Columna: 59 y Linea: 14
 ------------------------------------------------------------------------------------
-TABLE: Es un PalabraClave En Columna: 6 a Columna: 10 y Linea: 17
+;: Es un TABLE En Columna: 59 a Columna: 59 y Linea: 14
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 12 a Columna: 12 y Linea: 17
 ------------------------------------------------------------------------------------
@@ -190,9 +190,9 @@ InformeViajes: Es un Identificador En Columna: 19 a Columna: 31 y Linea: 17
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 32 a Columna: 32 y Linea: 17
 ------------------------------------------------------------------------------------
-DROP: Es un PalabraClave En Columna: 34 a Columna: 37 y Linea: 17
+]: Es un DROP En Columna: 32 a Columna: 32 y Linea: 17
 ------------------------------------------------------------------------------------
-CONSTRAINT: Es un PalabraClave En Columna: 39 a Columna: 48 y Linea: 17
+]: Es un CONSTRAINT En Columna: 32 a Columna: 32 y Linea: 17
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 50 a Columna: 50 y Linea: 17
 ------------------------------------------------------------------------------------
@@ -200,11 +200,11 @@ FK__InformeVi__NITCo__6A30C649: Es un Identificador En Columna: 51 a Columna: 80
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 81 a Columna: 81 y Linea: 17
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 18
+]: Es un GO En Columna: 81 a Columna: 81 y Linea: 17
 ------------------------------------------------------------------------------------
-ALTER: Es un PalabraClave En Columna: 0 a Columna: 4 y Linea: 19
+]: Es un ALTER En Columna: 81 a Columna: 81 y Linea: 17
 ------------------------------------------------------------------------------------
-TABLE: Es un PalabraClave En Columna: 6 a Columna: 10 y Linea: 19
+]: Es un TABLE En Columna: 81 a Columna: 81 y Linea: 17
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 12 a Columna: 12 y Linea: 19
 ------------------------------------------------------------------------------------
@@ -220,9 +220,9 @@ InformeViajes: Es un Identificador En Columna: 19 a Columna: 31 y Linea: 19
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 32 a Columna: 32 y Linea: 19
 ------------------------------------------------------------------------------------
-DROP: Es un PalabraClave En Columna: 34 a Columna: 37 y Linea: 19
+]: Es un DROP En Columna: 32 a Columna: 32 y Linea: 19
 ------------------------------------------------------------------------------------
-CONSTRAINT: Es un PalabraClave En Columna: 39 a Columna: 48 y Linea: 19
+]: Es un CONSTRAINT En Columna: 32 a Columna: 32 y Linea: 19
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 50 a Columna: 50 y Linea: 19
 ------------------------------------------------------------------------------------
@@ -230,11 +230,11 @@ FK__InformeVi__Codig__6B24EA82: Es un Identificador En Columna: 51 a Columna: 80
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 81 a Columna: 81 y Linea: 19
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 20
+]: Es un GO En Columna: 81 a Columna: 81 y Linea: 19
 ------------------------------------------------------------------------------------
-ALTER: Es un PalabraClave En Columna: 0 a Columna: 4 y Linea: 21
+]: Es un ALTER En Columna: 81 a Columna: 81 y Linea: 19
 ------------------------------------------------------------------------------------
-TABLE: Es un PalabraClave En Columna: 6 a Columna: 10 y Linea: 21
+]: Es un TABLE En Columna: 81 a Columna: 81 y Linea: 19
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 12 a Columna: 12 y Linea: 21
 ------------------------------------------------------------------------------------
@@ -250,9 +250,9 @@ Inactividad: Es un Identificador En Columna: 19 a Columna: 29 y Linea: 21
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 30 a Columna: 30 y Linea: 21
 ------------------------------------------------------------------------------------
-DROP: Es un PalabraClave En Columna: 32 a Columna: 35 y Linea: 21
+]: Es un DROP En Columna: 30 a Columna: 30 y Linea: 21
 ------------------------------------------------------------------------------------
-CONSTRAINT: Es un PalabraClave En Columna: 37 a Columna: 46 y Linea: 21
+]: Es un CONSTRAINT En Columna: 30 a Columna: 30 y Linea: 21
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 48 a Columna: 48 y Linea: 21
 ------------------------------------------------------------------------------------
@@ -260,11 +260,11 @@ FK__Inactivid__Placa__4CA06362: Es un Identificador En Columna: 49 a Columna: 78
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 79 a Columna: 79 y Linea: 21
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 22
+]: Es un GO En Columna: 79 a Columna: 79 y Linea: 21
 ------------------------------------------------------------------------------------
-ALTER: Es un PalabraClave En Columna: 0 a Columna: 4 y Linea: 23
+]: Es un ALTER En Columna: 79 a Columna: 79 y Linea: 21
 ------------------------------------------------------------------------------------
-TABLE: Es un PalabraClave En Columna: 6 a Columna: 10 y Linea: 23
+]: Es un TABLE En Columna: 79 a Columna: 79 y Linea: 21
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 12 a Columna: 12 y Linea: 23
 ------------------------------------------------------------------------------------
@@ -280,9 +280,9 @@ Despidos: Es un Identificador En Columna: 19 a Columna: 26 y Linea: 23
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 27 a Columna: 27 y Linea: 23
 ------------------------------------------------------------------------------------
-DROP: Es un PalabraClave En Columna: 29 a Columna: 32 y Linea: 23
+]: Es un DROP En Columna: 27 a Columna: 27 y Linea: 23
 ------------------------------------------------------------------------------------
-CONSTRAINT: Es un PalabraClave En Columna: 34 a Columna: 43 y Linea: 23
+]: Es un CONSTRAINT En Columna: 27 a Columna: 27 y Linea: 23
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 45 a Columna: 45 y Linea: 23
 ------------------------------------------------------------------------------------
@@ -290,11 +290,11 @@ FK__Despidos__NITDes__59063A47: Es un Identificador En Columna: 46 a Columna: 75
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 76 a Columna: 76 y Linea: 23
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 24
+]: Es un GO En Columna: 76 a Columna: 76 y Linea: 23
 ------------------------------------------------------------------------------------
-ALTER: Es un PalabraClave En Columna: 0 a Columna: 4 y Linea: 25
+]: Es un ALTER En Columna: 76 a Columna: 76 y Linea: 23
 ------------------------------------------------------------------------------------
-TABLE: Es un PalabraClave En Columna: 6 a Columna: 10 y Linea: 25
+]: Es un TABLE En Columna: 76 a Columna: 76 y Linea: 23
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 12 a Columna: 12 y Linea: 25
 ------------------------------------------------------------------------------------
@@ -310,9 +310,9 @@ Conductor: Es un Identificador En Columna: 19 a Columna: 27 y Linea: 25
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 28 a Columna: 28 y Linea: 25
 ------------------------------------------------------------------------------------
-DROP: Es un PalabraClave En Columna: 30 a Columna: 33 y Linea: 25
+]: Es un DROP En Columna: 28 a Columna: 28 y Linea: 25
 ------------------------------------------------------------------------------------
-CONSTRAINT: Es un PalabraClave En Columna: 35 a Columna: 44 y Linea: 25
+]: Es un CONSTRAINT En Columna: 28 a Columna: 28 y Linea: 25
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 46 a Columna: 46 y Linea: 25
 ------------------------------------------------------------------------------------
@@ -320,11 +320,11 @@ FK__Conductor__Placa__5070F446: Es un Identificador En Columna: 47 a Columna: 76
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 77 a Columna: 77 y Linea: 25
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 26
+]: Es un GO En Columna: 77 a Columna: 77 y Linea: 25
 ------------------------------------------------------------------------------------
-ALTER: Es un PalabraClave En Columna: 0 a Columna: 4 y Linea: 27
+]: Es un ALTER En Columna: 77 a Columna: 77 y Linea: 25
 ------------------------------------------------------------------------------------
-TABLE: Es un PalabraClave En Columna: 6 a Columna: 10 y Linea: 27
+]: Es un TABLE En Columna: 77 a Columna: 77 y Linea: 25
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 12 a Columna: 12 y Linea: 27
 ------------------------------------------------------------------------------------
@@ -340,9 +340,9 @@ Conductor: Es un Identificador En Columna: 19 a Columna: 27 y Linea: 27
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 28 a Columna: 28 y Linea: 27
 ------------------------------------------------------------------------------------
-DROP: Es un PalabraClave En Columna: 30 a Columna: 33 y Linea: 27
+]: Es un DROP En Columna: 28 a Columna: 28 y Linea: 27
 ------------------------------------------------------------------------------------
-CONSTRAINT: Es un PalabraClave En Columna: 35 a Columna: 44 y Linea: 27
+]: Es un CONSTRAINT En Columna: 28 a Columna: 28 y Linea: 27
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 46 a Columna: 46 y Linea: 27
 ------------------------------------------------------------------------------------
@@ -350,11 +350,11 @@ FK__Conductor__NITCo__4F7CD00D: Es un Identificador En Columna: 47 a Columna: 76
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 77 a Columna: 77 y Linea: 27
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 28
+]: Es un GO En Columna: 77 a Columna: 77 y Linea: 27
 ------------------------------------------------------------------------------------
-ALTER: Es un PalabraClave En Columna: 0 a Columna: 4 y Linea: 29
+]: Es un ALTER En Columna: 77 a Columna: 77 y Linea: 27
 ------------------------------------------------------------------------------------
-TABLE: Es un PalabraClave En Columna: 6 a Columna: 10 y Linea: 29
+]: Es un TABLE En Columna: 77 a Columna: 77 y Linea: 27
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 12 a Columna: 12 y Linea: 29
 ------------------------------------------------------------------------------------
@@ -370,9 +370,9 @@ Averia_Reparacion: Es un Identificador En Columna: 19 a Columna: 35 y Linea: 29
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 36 a Columna: 36 y Linea: 29
 ------------------------------------------------------------------------------------
-DROP: Es un PalabraClave En Columna: 38 a Columna: 41 y Linea: 29
+]: Es un DROP En Columna: 36 a Columna: 36 y Linea: 29
 ------------------------------------------------------------------------------------
-CONSTRAINT: Es un PalabraClave En Columna: 43 a Columna: 52 y Linea: 29
+]: Es un CONSTRAINT En Columna: 36 a Columna: 36 y Linea: 29
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 54 a Columna: 54 y Linea: 29
 ------------------------------------------------------------------------------------
@@ -380,11 +380,11 @@ FK__Averia_Re__Pieza__6477ECF3: Es un Identificador En Columna: 55 a Columna: 84
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 85 a Columna: 85 y Linea: 29
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 30
+]: Es un GO En Columna: 85 a Columna: 85 y Linea: 29
 ------------------------------------------------------------------------------------
-CREATE: Es un PalabraClave En Columna: 0 a Columna: 5 y Linea: 32
+]: Es un CREATE En Columna: 85 a Columna: 85 y Linea: 29
 ------------------------------------------------------------------------------------
-TABLE: Es un PalabraClave En Columna: 7 a Columna: 11 y Linea: 32
+]: Es un TABLE En Columna: 85 a Columna: 85 y Linea: 29
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 13 a Columna: 13 y Linea: 32
 ------------------------------------------------------------------------------------
@@ -414,7 +414,7 @@ int: Es un Identificador En Columna: 11 a Columna: 13 y Linea: 33
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 14 a Columna: 14 y Linea: 33
 ------------------------------------------------------------------------------------
-IDENTITY: Es un PalabraClave En Columna: 16 a Columna: 23 y Linea: 33
+]: Es un IDENTITY En Columna: 14 a Columna: 14 y Linea: 33
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 24 a Columna: 24 y Linea: 33
 ------------------------------------------------------------------------------------
@@ -426,9 +426,9 @@ IDENTITY: Es un PalabraClave En Columna: 16 a Columna: 23 y Linea: 33
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 28 a Columna: 28 y Linea: 33
 ------------------------------------------------------------------------------------
-NOT: Es un PalabraClave En Columna: 30 a Columna: 32 y Linea: 33
+): Es un NOT En Columna: 28 a Columna: 28 y Linea: 33
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 34 a Columna: 37 y Linea: 33
+): Es un NULL En Columna: 28 a Columna: 28 y Linea: 33
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 38 a Columna: 38 y Linea: 33
 ------------------------------------------------------------------------------------
@@ -450,7 +450,7 @@ nvarchar: Es un Identificador En Columna: 17 a Columna: 24 y Linea: 34
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 30 a Columna: 30 y Linea: 34
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 32 a Columna: 35 y Linea: 34
+): Es un NULL En Columna: 30 a Columna: 30 y Linea: 34
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 36 a Columna: 36 y Linea: 34
 ------------------------------------------------------------------------------------
@@ -466,9 +466,9 @@ date: Es un Identificador En Columna: 20 a Columna: 23 y Linea: 35
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 24 a Columna: 24 y Linea: 35
 ------------------------------------------------------------------------------------
-NOT: Es un PalabraClave En Columna: 26 a Columna: 28 y Linea: 35
+]: Es un NOT En Columna: 24 a Columna: 24 y Linea: 35
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 30 a Columna: 33 y Linea: 35
+]: Es un NULL En Columna: 24 a Columna: 24 y Linea: 35
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 34 a Columna: 34 y Linea: 35
 ------------------------------------------------------------------------------------
@@ -490,15 +490,15 @@ nvarchar: Es un Identificador En Columna: 13 a Columna: 20 y Linea: 36
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 26 a Columna: 26 y Linea: 36
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 28 a Columna: 31 y Linea: 36
+): Es un NULL En Columna: 26 a Columna: 26 y Linea: 36
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 32 a Columna: 32 y Linea: 36
 ------------------------------------------------------------------------------------
-PRIMARY: Es un PalabraClave En Columna: 0 a Columna: 6 y Linea: 37
+,: Es un PRIMARY En Columna: 32 a Columna: 32 y Linea: 36
 ------------------------------------------------------------------------------------
-KEY: Es un PalabraClave En Columna: 8 a Columna: 10 y Linea: 37
+,: Es un KEY En Columna: 32 a Columna: 32 y Linea: 36
 ------------------------------------------------------------------------------------
-CLUSTERED: Es un PalabraClave En Columna: 12 a Columna: 20 y Linea: 37
+,: Es un CLUSTERED En Columna: 32 a Columna: 32 y Linea: 36
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 0 a Columna: 0 y Linea: 38
 ------------------------------------------------------------------------------------
@@ -508,41 +508,41 @@ Codigo: Es un Identificador En Columna: 2 a Columna: 7 y Linea: 39
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 8 a Columna: 8 y Linea: 39
 ------------------------------------------------------------------------------------
-ASC: Es un PalabraClave En Columna: 10 a Columna: 12 y Linea: 39
+]: Es un ASC En Columna: 8 a Columna: 8 y Linea: 39
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 0 a Columna: 0 y Linea: 40
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 0 a Columna: 0 y Linea: 41
 ------------------------------------------------------------------------------------
-ON: Es un PalabraClave En Columna: 2 a Columna: 3 y Linea: 41
+): Es un ON En Columna: 0 a Columna: 0 y Linea: 41
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 5 a Columna: 5 y Linea: 41
 ------------------------------------------------------------------------------------
-PRIMARY: Es un PalabraClave En Columna: 6 a Columna: 12 y Linea: 41
+[: Es un PRIMARY En Columna: 5 a Columna: 5 y Linea: 41
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 13 a Columna: 13 y Linea: 41
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 42
+]: Es un GO En Columna: 13 a Columna: 13 y Linea: 41
 ------------------------------------------------------------------------------------
-SET: Es un PalabraClave En Columna: 0 a Columna: 2 y Linea: 44
+]: Es un SET En Columna: 13 a Columna: 13 y Linea: 41
 ------------------------------------------------------------------------------------
 ANSI_NULLS: Es un Identificador En Columna: 4 a Columna: 13 y Linea: 44
 ------------------------------------------------------------------------------------
-ON: Es un PalabraClave En Columna: 15 a Columna: 16 y Linea: 44
+ANSI_NULLS: Es un ON En Columna: 4 a Columna: 13 y Linea: 44
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 45
+ANSI_NULLS: Es un GO En Columna: 4 a Columna: 13 y Linea: 44
 ------------------------------------------------------------------------------------
-SET: Es un PalabraClave En Columna: 0 a Columna: 2 y Linea: 46
+ANSI_NULLS: Es un SET En Columna: 4 a Columna: 13 y Linea: 44
 ------------------------------------------------------------------------------------
 QUOTED_IDENTIFIER: Es un Identificador En Columna: 4 a Columna: 20 y Linea: 46
 ------------------------------------------------------------------------------------
-ON: Es un PalabraClave En Columna: 22 a Columna: 23 y Linea: 46
+QUOTED_IDENTIFIER: Es un ON En Columna: 4 a Columna: 20 y Linea: 46
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 47
+QUOTED_IDENTIFIER: Es un GO En Columna: 4 a Columna: 20 y Linea: 46
 ------------------------------------------------------------------------------------
-CREATE: Es un PalabraClave En Columna: 0 a Columna: 5 y Linea: 48
+QUOTED_IDENTIFIER: Es un CREATE En Columna: 4 a Columna: 20 y Linea: 46
 ------------------------------------------------------------------------------------
-TABLE: Es un PalabraClave En Columna: 7 a Columna: 11 y Linea: 48
+QUOTED_IDENTIFIER: Es un TABLE En Columna: 4 a Columna: 20 y Linea: 46
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 13 a Columna: 13 y Linea: 48
 ------------------------------------------------------------------------------------
@@ -572,7 +572,7 @@ int: Es un Identificador En Columna: 11 a Columna: 13 y Linea: 49
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 14 a Columna: 14 y Linea: 49
 ------------------------------------------------------------------------------------
-IDENTITY: Es un PalabraClave En Columna: 16 a Columna: 23 y Linea: 49
+]: Es un IDENTITY En Columna: 14 a Columna: 14 y Linea: 49
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 24 a Columna: 24 y Linea: 49
 ------------------------------------------------------------------------------------
@@ -584,9 +584,9 @@ IDENTITY: Es un PalabraClave En Columna: 16 a Columna: 23 y Linea: 49
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 28 a Columna: 28 y Linea: 49
 ------------------------------------------------------------------------------------
-NOT: Es un PalabraClave En Columna: 30 a Columna: 32 y Linea: 49
+): Es un NOT En Columna: 28 a Columna: 28 y Linea: 49
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 34 a Columna: 37 y Linea: 49
+): Es un NULL En Columna: 28 a Columna: 28 y Linea: 49
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 38 a Columna: 38 y Linea: 49
 ------------------------------------------------------------------------------------
@@ -608,9 +608,9 @@ nvarchar: Es un Identificador En Columna: 11 a Columna: 18 y Linea: 50
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 24 a Columna: 24 y Linea: 50
 ------------------------------------------------------------------------------------
-NOT: Es un PalabraClave En Columna: 26 a Columna: 28 y Linea: 50
+): Es un NOT En Columna: 24 a Columna: 24 y Linea: 50
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 30 a Columna: 33 y Linea: 50
+): Es un NULL En Columna: 24 a Columna: 24 y Linea: 50
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 34 a Columna: 34 y Linea: 50
 ------------------------------------------------------------------------------------
@@ -632,9 +632,9 @@ nvarchar: Es un Identificador En Columna: 12 a Columna: 19 y Linea: 51
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 25 a Columna: 25 y Linea: 51
 ------------------------------------------------------------------------------------
-NOT: Es un PalabraClave En Columna: 27 a Columna: 29 y Linea: 51
+): Es un NOT En Columna: 25 a Columna: 25 y Linea: 51
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 31 a Columna: 34 y Linea: 51
+): Es un NULL En Columna: 25 a Columna: 25 y Linea: 51
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 35 a Columna: 35 y Linea: 51
 ------------------------------------------------------------------------------------
@@ -656,9 +656,9 @@ nvarchar: Es un Identificador En Columna: 11 a Columna: 18 y Linea: 52
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 24 a Columna: 24 y Linea: 52
 ------------------------------------------------------------------------------------
-NOT: Es un PalabraClave En Columna: 26 a Columna: 28 y Linea: 52
+): Es un NOT En Columna: 24 a Columna: 24 y Linea: 52
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 30 a Columna: 33 y Linea: 52
+): Es un NULL En Columna: 24 a Columna: 24 y Linea: 52
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 34 a Columna: 34 y Linea: 52
 ------------------------------------------------------------------------------------
@@ -674,15 +674,15 @@ int: Es un Identificador En Columna: 10 a Columna: 12 y Linea: 53
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 13 a Columna: 13 y Linea: 53
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 15 a Columna: 18 y Linea: 53
+]: Es un NULL En Columna: 13 a Columna: 13 y Linea: 53
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 19 a Columna: 19 y Linea: 53
 ------------------------------------------------------------------------------------
-PRIMARY: Es un PalabraClave En Columna: 0 a Columna: 6 y Linea: 54
+,: Es un PRIMARY En Columna: 19 a Columna: 19 y Linea: 53
 ------------------------------------------------------------------------------------
-KEY: Es un PalabraClave En Columna: 8 a Columna: 10 y Linea: 54
+,: Es un KEY En Columna: 19 a Columna: 19 y Linea: 53
 ------------------------------------------------------------------------------------
-CLUSTERED: Es un PalabraClave En Columna: 12 a Columna: 20 y Linea: 54
+,: Es un CLUSTERED En Columna: 19 a Columna: 19 y Linea: 53
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 0 a Columna: 0 y Linea: 55
 ------------------------------------------------------------------------------------
@@ -692,29 +692,29 @@ Codigo: Es un Identificador En Columna: 2 a Columna: 7 y Linea: 56
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 8 a Columna: 8 y Linea: 56
 ------------------------------------------------------------------------------------
-ASC: Es un PalabraClave En Columna: 10 a Columna: 12 y Linea: 56
+]: Es un ASC En Columna: 8 a Columna: 8 y Linea: 56
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 0 a Columna: 0 y Linea: 57
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 0 a Columna: 0 y Linea: 58
 ------------------------------------------------------------------------------------
-ON: Es un PalabraClave En Columna: 2 a Columna: 3 y Linea: 58
+): Es un ON En Columna: 0 a Columna: 0 y Linea: 58
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 5 a Columna: 5 y Linea: 58
 ------------------------------------------------------------------------------------
-PRIMARY: Es un PalabraClave En Columna: 6 a Columna: 12 y Linea: 58
+[: Es un PRIMARY En Columna: 5 a Columna: 5 y Linea: 58
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 13 a Columna: 13 y Linea: 58
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 59
+]: Es un GO En Columna: 13 a Columna: 13 y Linea: 58
 ------------------------------------------------------------------------------------
-DECLARE: Es un PalabraClave En Columna: 0 a Columna: 6 y Linea: 61
+]: Es un DECLARE En Columna: 13 a Columna: 13 y Linea: 58
 ------------------------------------------------------------------------------------
 @: Es un Puntuacion En Columna: 8 a Columna: 8 y Linea: 61
 ------------------------------------------------------------------------------------
 var: Es un Identificador En Columna: 9 a Columna: 11 y Linea: 61
 ------------------------------------------------------------------------------------
-CHAR: Es un PalabraClave En Columna: 13 a Columna: 16 y Linea: 61
+var: Es un CHAR En Columna: 9 a Columna: 11 y Linea: 61
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 17 a Columna: 17 y Linea: 61
 ------------------------------------------------------------------------------------
@@ -738,9 +738,9 @@ $ Simbolo no definido En Columna: 11 y Linea: 62
 ------------------------------------------------------------------------------------
 ;: Es un Puntuacion En Columna: 15 a Columna: 15 y Linea: 62
 ------------------------------------------------------------------------------------
-DROP: Es un PalabraClave En Columna: 0 a Columna: 3 y Linea: 65
+;: Es un DROP En Columna: 15 a Columna: 15 y Linea: 62
 ------------------------------------------------------------------------------------
-DATABASE: Es un PalabraClave En Columna: 5 a Columna: 12 y Linea: 65
+;: Es un DATABASE En Columna: 15 a Columna: 15 y Linea: 62
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 14 a Columna: 14 y Linea: 65
 ------------------------------------------------------------------------------------
@@ -748,11 +748,11 @@ LineaDorada: Es un Identificador En Columna: 15 a Columna: 25 y Linea: 65
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 26 a Columna: 26 y Linea: 65
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 66
+]: Es un GO En Columna: 26 a Columna: 26 y Linea: 65
 ------------------------------------------------------------------------------------
-CREATE: Es un PalabraClave En Columna: 0 a Columna: 5 y Linea: 68
+]: Es un CREATE En Columna: 26 a Columna: 26 y Linea: 65
 ------------------------------------------------------------------------------------
-DATABASE: Es un PalabraClave En Columna: 7 a Columna: 14 y Linea: 68
+]: Es un DATABASE En Columna: 26 a Columna: 26 y Linea: 65
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 16 a Columna: 16 y Linea: 68
 ------------------------------------------------------------------------------------
@@ -764,11 +764,11 @@ CONTAINMENT: Es un Identificador En Columna: 1 a Columna: 11 y Linea: 69
 ------------------------------------------------------------------------------------
 =: Es un Puntuacion En Columna: 13 a Columna: 13 y Linea: 69
 ------------------------------------------------------------------------------------
-NULL: Es un PalabraClave En Columna: 15 a Columna: 18 y Linea: 69
+=: Es un NULL En Columna: 13 a Columna: 13 y Linea: 69
 ------------------------------------------------------------------------------------
-ON: Es un PalabraClave En Columna: 1 a Columna: 2 y Linea: 70
+=: Es un ON En Columna: 13 a Columna: 13 y Linea: 69
 ------------------------------------------------------------------------------------
-PRIMARY: Es un PalabraClave En Columna: 5 a Columna: 11 y Linea: 70
+=: Es un PRIMARY En Columna: 13 a Columna: 13 y Linea: 69
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 0 a Columna: 0 y Linea: 71
 ------------------------------------------------------------------------------------
@@ -788,7 +788,7 @@ FILENAME: Es un Identificador En Columna: 24 a Columna: 31 y Linea: 71
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 102 a Columna: 102 y Linea: 71
 ------------------------------------------------------------------------------------
-SIZE: Es un PalabraClave En Columna: 104 a Columna: 107 y Linea: 71
+,: Es un SIZE En Columna: 102 a Columna: 102 y Linea: 71
 ------------------------------------------------------------------------------------
 =: Es un Puntuacion En Columna: 109 a Columna: 109 y Linea: 71
 ------------------------------------------------------------------------------------
@@ -816,7 +816,7 @@ FILEGROWTH: Es un Identificador En Columna: 143 a Columna: 152 y Linea: 71
 ------------------------------------------------------------------------------------
 LOG: Es un Identificador En Columna: 1 a Columna: 3 y Linea: 72
 ------------------------------------------------------------------------------------
-ON: Es un PalabraClave En Columna: 5 a Columna: 6 y Linea: 72
+LOG: Es un ON En Columna: 1 a Columna: 3 y Linea: 72
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 0 a Columna: 0 y Linea: 73
 ------------------------------------------------------------------------------------
@@ -836,7 +836,7 @@ FILENAME: Es un Identificador En Columna: 28 a Columna: 35 y Linea: 73
 ------------------------------------------------------------------------------------
 ,: Es un Puntuacion En Columna: 109 a Columna: 109 y Linea: 73
 ------------------------------------------------------------------------------------
-SIZE: Es un PalabraClave En Columna: 111 a Columna: 114 y Linea: 73
+,: Es un SIZE En Columna: 109 a Columna: 109 y Linea: 73
 ------------------------------------------------------------------------------------
 =: Es un Puntuacion En Columna: 116 a Columna: 116 y Linea: 73
 ------------------------------------------------------------------------------------
@@ -868,11 +868,11 @@ E0000000002: Es un Identificador En Columna: 162 a Columna: 172 y Linea: 73
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 174 a Columna: 174 y Linea: 73
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 74
+): Es un GO En Columna: 174 a Columna: 174 y Linea: 73
 ------------------------------------------------------------------------------------
-ALTER: Es un PalabraClave En Columna: 0 a Columna: 4 y Linea: 75
+): Es un ALTER En Columna: 174 a Columna: 174 y Linea: 73
 ------------------------------------------------------------------------------------
-DATABASE: Es un PalabraClave En Columna: 6 a Columna: 13 y Linea: 75
+): Es un DATABASE En Columna: 174 a Columna: 174 y Linea: 73
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 15 a Columna: 15 y Linea: 75
 ------------------------------------------------------------------------------------
@@ -880,7 +880,7 @@ LineaDorada: Es un Identificador En Columna: 16 a Columna: 26 y Linea: 75
 ------------------------------------------------------------------------------------
 ]: Es un Puntuacion En Columna: 27 a Columna: 27 y Linea: 75
 ------------------------------------------------------------------------------------
-SET: Es un PalabraClave En Columna: 29 a Columna: 31 y Linea: 75
+]: Es un SET En Columna: 27 a Columna: 27 y Linea: 75
 ------------------------------------------------------------------------------------
 COMPATIBILITY_LEVEL: Es un Identificador En Columna: 33 a Columna: 51 y Linea: 75
 ------------------------------------------------------------------------------------
@@ -888,9 +888,9 @@ COMPATIBILITY_LEVEL: Es un Identificador En Columna: 33 a Columna: 51 y Linea: 7
 ------------------------------------------------------------------------------------
 140: Es un Entero En Columna: 55 a Columna: 57 y Linea: 75
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 76
+140: Es un GO En Columna: 55 a Columna: 57 y Linea: 75
 ------------------------------------------------------------------------------------
-IF: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 77
+140: Es un IF En Columna: 55 a Columna: 57 y Linea: 75
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 3 a Columna: 3 y Linea: 77
 ------------------------------------------------------------------------------------
@@ -910,7 +910,7 @@ SERVERPROPERTYGLOBALFULLTEXTSER: Es un IdentificadorTruncado En Columna: 8 a Col
 ------------------------------------------------------------------------------------
 begin: Es un Identificador En Columna: 0 a Columna: 4 y Linea: 78
 ------------------------------------------------------------------------------------
-EXEC: Es un PalabraClave En Columna: 0 a Columna: 3 y Linea: 79
+begin: Es un EXEC En Columna: 0 a Columna: 4 y Linea: 78
 ------------------------------------------------------------------------------------
 [: Es un Puntuacion En Columna: 5 a Columna: 5 y Linea: 79
 ------------------------------------------------------------------------------------
@@ -944,19 +944,19 @@ action: Es un Identificador En Columna: 49 a Columna: 54 y Linea: 79
 ------------------------------------------------------------------------------------
 end: Es un Identificador En Columna: 0 a Columna: 2 y Linea: 80
 ------------------------------------------------------------------------------------
-GO: Es un PalabraClave En Columna: 0 a Columna: 1 y Linea: 81
+end: Es un GO En Columna: 0 a Columna: 2 y Linea: 80
 ------------------------------------------------------------------------------------
-DECLARE: Es un PalabraClave En Columna: 0 a Columna: 6 y Linea: 83
+end: Es un DECLARE En Columna: 0 a Columna: 2 y Linea: 80
 ------------------------------------------------------------------------------------
 @: Es un Puntuacion En Columna: 8 a Columna: 8 y Linea: 83
 ------------------------------------------------------------------------------------
 number: Es un Identificador En Columna: 9 a Columna: 14 y Linea: 83
 ------------------------------------------------------------------------------------
-INT: Es un PalabraClave En Columna: 16 a Columna: 18 y Linea: 83
+number: Es un INT En Columna: 9 a Columna: 14 y Linea: 83
 ------------------------------------------------------------------------------------
 ;: Es un Puntuacion En Columna: 19 a Columna: 19 y Linea: 83
 ------------------------------------------------------------------------------------
-SET: Es un PalabraClave En Columna: 0 a Columna: 2 y Linea: 84
+;: Es un SET En Columna: 19 a Columna: 19 y Linea: 83
 ------------------------------------------------------------------------------------
 @: Es un Puntuacion En Columna: 4 a Columna: 4 y Linea: 84
 ------------------------------------------------------------------------------------
@@ -972,23 +972,23 @@ number: Es un Identificador En Columna: 5 a Columna: 10 y Linea: 84
 ------------------------------------------------------------------------------------
 /* comment without ending, should continue: Es un ComentarioE En Columna: 0 a Columna: 42 y Linea: 86
 ------------------------------------------------------------------------------------
-DECLARE: Es un PalabraClave En Columna: 0 a Columna: 6 y Linea: 88
+/* comment without ending, should continue: Es un DECLARE En Columna: 0 a Columna: 42 y Linea: 86
 ------------------------------------------------------------------------------------
 @: Es un Puntuacion En Columna: 8 a Columna: 8 y Linea: 88
 ------------------------------------------------------------------------------------
 path: Es un Identificador En Columna: 9 a Columna: 12 y Linea: 88
 ------------------------------------------------------------------------------------
-VARCHAR: Es un PalabraClave En Columna: 14 a Columna: 20 y Linea: 88
+path: Es un VARCHAR En Columna: 9 a Columna: 12 y Linea: 88
 ------------------------------------------------------------------------------------
 (: Es un Puntuacion En Columna: 21 a Columna: 21 y Linea: 88
 ------------------------------------------------------------------------------------
-MAX: Es un PalabraClave En Columna: 22 a Columna: 24 y Linea: 88
+(: Es un MAX En Columna: 21 a Columna: 21 y Linea: 88
 ------------------------------------------------------------------------------------
 ): Es un Puntuacion En Columna: 25 a Columna: 25 y Linea: 88
 ------------------------------------------------------------------------------------
 ;: Es un Puntuacion En Columna: 26 a Columna: 26 y Linea: 88
 ------------------------------------------------------------------------------------
-SET: Es un PalabraClave En Columna: 0 a Columna: 2 y Linea: 89
+;: Es un SET En Columna: 26 a Columna: 26 y Linea: 88
 ------------------------------------------------------------------------------------
 @: Es un Puntuacion En Columna: 4 a Columna: 4 y Linea: 89
 ------------------------------------------------------------------------------------

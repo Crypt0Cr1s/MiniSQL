@@ -123,6 +123,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
             while (true) {
                 Tokens tokens = lexer.yylex();
                 if (tokens == null) {
+                    SintacticoDescendente parser = new SintacticoDescendente();
+                    parser.parsear(ListaTokens);
                     resultado += "Fin";
                     txtResultado.setText(resultado);
                     FileWriter w = new FileWriter("Salida.out");
@@ -144,6 +146,960 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         break;
                     case Identificador:
                         ListaTokens.add("IDENTIFICADOR");
+                        ListaTokens.add(lexer.line);
+                    case Puntuacion:
+                        ListaTokens.add("PUNTUACION");
+                        ListaTokens.add(lexer.line);
+                    case Entero:
+                        ListaTokens.add("ENTERO");
+                        ListaTokens.add(lexer.line);
+                    case Cadena:
+                        ListaTokens.add("CADENA");
+                        ListaTokens.add(lexer.line);
+                    case Float:
+                        ListaTokens.add("FLOAT");
+                        ListaTokens.add(lexer.line);
+                    
+                    case ADD:
+                            ListaTokens.add("ADD");
+                            ListaTokens.add(lexer.line);
+                    case ALL:
+                            ListaTokens.add("ALL");
+                            ListaTokens.add(lexer.line);
+                    case ALTER:
+                            ListaTokens.add("ALTER");
+                            ListaTokens.add(lexer.line);
+                    case AND:
+                            ListaTokens.add("AND");
+                            ListaTokens.add(lexer.line);
+                    case ANY:
+                            ListaTokens.add("ANY");
+                            ListaTokens.add(lexer.line);
+                    case AS:
+                            ListaTokens.add("AS");
+                            ListaTokens.add(lexer.line);
+                    case ASC:
+                            ListaTokens.add("ASC");
+                            ListaTokens.add(lexer.line);
+                    case AUTHORIZATION:
+                            ListaTokens.add("AUTHORIZATION");
+                            ListaTokens.add(lexer.line);
+                    case BACKUP:
+                            ListaTokens.add("BACKUP");
+                            ListaTokens.add(lexer.line);
+                    case BEGIN:
+                            ListaTokens.add("BEGIN");
+                            ListaTokens.add(lexer.line);
+                    case BETWEEN:
+                            ListaTokens.add("BETWEEN");
+                            ListaTokens.add(lexer.line);
+                    case BREAK:
+                            ListaTokens.add("BREAK");
+                            ListaTokens.add(lexer.line);
+                    case BROWSE:
+                            ListaTokens.add("BROWSE");
+                            ListaTokens.add(lexer.line);
+                    case BULK:
+                            ListaTokens.add("BULK");
+                            ListaTokens.add(lexer.line);
+                    case BY:
+                            ListaTokens.add("BY");
+                            ListaTokens.add(lexer.line);
+                    case CASCADE:
+                            ListaTokens.add("CASCADE");
+                            ListaTokens.add(lexer.line);
+                    case CASE:
+                            ListaTokens.add("CASE");
+                            ListaTokens.add(lexer.line);
+                    case CHECK:
+                            ListaTokens.add("CHECK");
+                            ListaTokens.add(lexer.line);
+                    case CHECKPOINT:
+                            ListaTokens.add("CHECKPOINT");
+                            ListaTokens.add(lexer.line);
+                    case CLOSE:
+                            ListaTokens.add("CLOSE");
+                            ListaTokens.add(lexer.line);
+                    case CLUSTERED:
+                            ListaTokens.add("CLUSTERED");
+                            ListaTokens.add(lexer.line);
+                    case COALESCE:
+                            ListaTokens.add("COALESCE");
+                            ListaTokens.add(lexer.line);
+                    case COLLATE:
+                            ListaTokens.add("COLLATE");
+                            ListaTokens.add(lexer.line);
+                    case COLUMN:
+                            ListaTokens.add("COLUMN");
+                            ListaTokens.add(lexer.line);
+                    case COMMIT:
+                            ListaTokens.add("COMMIT");
+                            ListaTokens.add(lexer.line);
+                    case COMPUTE:
+                            ListaTokens.add("COMPUTE");
+                            ListaTokens.add(lexer.line);
+                    case CONSTRAINT:
+                            ListaTokens.add("CONSTRAINT");
+                            ListaTokens.add(lexer.line);
+                    case CONTAINS:
+                            ListaTokens.add("CONTAINS");
+                            ListaTokens.add(lexer.line);
+                    case CONTAINSTABLE:
+                            ListaTokens.add("CONTAINSTABLE");
+                            ListaTokens.add(lexer.line);
+                    case CONTINUE:
+                            ListaTokens.add("CONTINUE");
+                            ListaTokens.add(lexer.line);
+                    case CONVERT:
+                            ListaTokens.add("CONVERT");
+                            ListaTokens.add(lexer.line);
+                    case CREATE:
+                            ListaTokens.add("CREATE");
+                            ListaTokens.add(lexer.line);
+                    case CROSS:
+                            ListaTokens.add("CROSS");
+                            ListaTokens.add(lexer.line);
+                    case CURRENT:
+                            ListaTokens.add("CURRENT");
+                            ListaTokens.add(lexer.line);
+                    case CURRENT_DATE:
+                            ListaTokens.add("CURRENT_DATE");
+                            ListaTokens.add(lexer.line);
+                    case CURRENT_TIME:
+                            ListaTokens.add("CURRENT_TIME");
+                            ListaTokens.add(lexer.line);
+                    case CURRENT_TIMESTAMP:
+                            ListaTokens.add("CURRENT_TIMESTAMP");
+                            ListaTokens.add(lexer.line);
+                    case CURRENT_USER:
+                            ListaTokens.add("CURRENT_USER");
+                            ListaTokens.add(lexer.line);
+                    case CURSOR:
+                            ListaTokens.add("CURSOR");
+                            ListaTokens.add(lexer.line);
+                    case DATABASE:
+                            ListaTokens.add("DATABASE");
+                            ListaTokens.add(lexer.line);
+                    case DBCC:
+                            ListaTokens.add("DBCC");
+                            ListaTokens.add(lexer.line);
+                    case DEALLOCATE:
+                            ListaTokens.add("DEALLOCATE");
+                            ListaTokens.add(lexer.line);
+                    case DECLARE:
+                            ListaTokens.add("DECLARE");
+                            ListaTokens.add(lexer.line);
+                    case DEFAULT:
+                            ListaTokens.add("DEFAULT");
+                            ListaTokens.add(lexer.line);
+                    case DELETE:
+                            ListaTokens.add("DELETE");
+                            ListaTokens.add(lexer.line);
+                    case DENY:
+                            ListaTokens.add("DENY");
+                            ListaTokens.add(lexer.line);
+                    case DESC:
+                            ListaTokens.add("DESC");
+                            ListaTokens.add(lexer.line);
+                    case DISK:
+                            ListaTokens.add("DISK");
+                            ListaTokens.add(lexer.line);
+                    case DISTINCT:
+                            ListaTokens.add("DISTINCT");
+                            ListaTokens.add(lexer.line);
+                    case DISTRIBUTED:
+                            ListaTokens.add("DISTRIBUTED");
+                            ListaTokens.add(lexer.line);
+                    case DOUBLE:
+                            ListaTokens.add("DOUBLE");
+                            ListaTokens.add(lexer.line);
+                    case DROP:
+                            ListaTokens.add("DROP");
+                            ListaTokens.add(lexer.line);
+                    case DUMP:
+                            ListaTokens.add("DUMP");
+                            ListaTokens.add(lexer.line);
+                    case ELSE:
+                            ListaTokens.add("ELSE");
+                            ListaTokens.add(lexer.line);
+                    case END:
+                            ListaTokens.add("END");
+                            ListaTokens.add(lexer.line);
+                    case ERRLVL:
+                            ListaTokens.add("ERRLVL");
+                            ListaTokens.add(lexer.line);
+                    case ESCAPE:
+                            ListaTokens.add("ESCAPE");
+                            ListaTokens.add(lexer.line);
+                    case EXCEPT:
+                            ListaTokens.add("EXCEPT");
+                            ListaTokens.add(lexer.line);
+                    case EXEC:
+                            ListaTokens.add("EXEC");
+                            ListaTokens.add(lexer.line);
+                    case EXECUTE:
+                            ListaTokens.add("EXECUTE");
+                            ListaTokens.add(lexer.line);
+                    case EXISTS:
+                            ListaTokens.add("EXISTS");
+                            ListaTokens.add(lexer.line);
+                    case EXIT:
+                            ListaTokens.add("EXIT");
+                            ListaTokens.add(lexer.line);
+                    case EXTERNAL:
+                            ListaTokens.add("EXTERNAL");
+                            ListaTokens.add(lexer.line);
+                    case FETCH:
+                            ListaTokens.add("FETCH");
+                            ListaTokens.add(lexer.line);
+                    case FILE:
+                            ListaTokens.add("FILE");
+                            ListaTokens.add(lexer.line);
+                    case FILLFACTOR:
+                            ListaTokens.add("FILLFACTOR");
+                            ListaTokens.add(lexer.line);
+                    case FOR:
+                            ListaTokens.add("FOR");
+                            ListaTokens.add(lexer.line);
+                    case FOREIGN:
+                            ListaTokens.add("FOREIGN");
+                            ListaTokens.add(lexer.line);
+                    case FREETEXT:
+                            ListaTokens.add("FREETEXT");
+                            ListaTokens.add(lexer.line);
+                    case FREETEXTTABLE:
+                            ListaTokens.add("FREETEXTTABLE");
+                            ListaTokens.add(lexer.line);
+                    case FROM:
+                            ListaTokens.add("FROM");
+                            ListaTokens.add(lexer.line);
+                    case FULL:
+                            ListaTokens.add("FULL");
+                            ListaTokens.add(lexer.line);
+                    case FUNCTION:
+                            ListaTokens.add("FUNCTION");
+                            ListaTokens.add(lexer.line);
+                    case GOTO:
+                            ListaTokens.add("GOTO");
+                            ListaTokens.add(lexer.line);
+                    case GRANT:
+                            ListaTokens.add("GRANT");
+                            ListaTokens.add(lexer.line);
+                    case GROUP:
+                            ListaTokens.add("GROUP");
+                            ListaTokens.add(lexer.line);
+                    case HAVING:
+                            ListaTokens.add("HAVING");
+                            ListaTokens.add(lexer.line);
+                    case HOLDLOCK:
+                            ListaTokens.add("HOLDLOCK");
+                            ListaTokens.add(lexer.line);
+                    case IDENTITY:
+                            ListaTokens.add("IDENTITY");
+                            ListaTokens.add(lexer.line);
+                    case IDENTITY_INSERT:
+                            ListaTokens.add("IDENTITY_INSERT");
+                            ListaTokens.add(lexer.line);
+                    case IDENTITYCOL:
+                            ListaTokens.add("IDENTITYCOL");
+                            ListaTokens.add(lexer.line);
+                    case IF:
+                            ListaTokens.add("IF");
+                            ListaTokens.add(lexer.line);
+                    case IN:
+                            ListaTokens.add("IN");
+                            ListaTokens.add(lexer.line);
+                    case INDEX:
+                            ListaTokens.add("INDEX");
+                            ListaTokens.add(lexer.line);
+                    case INNER:
+                            ListaTokens.add("INNER");
+                            ListaTokens.add(lexer.line);
+                    case INSERT:
+                            ListaTokens.add("INSERT");
+                            ListaTokens.add(lexer.line);
+                    case INTERSECT:
+                            ListaTokens.add("INTERSECT");
+                            ListaTokens.add(lexer.line);
+                    case INTO:
+                            ListaTokens.add("INTO");
+                            ListaTokens.add(lexer.line);
+                    case IS:
+                            ListaTokens.add("IS");
+                            ListaTokens.add(lexer.line);
+                    case JOIN:
+                            ListaTokens.add("JOIN");
+                            ListaTokens.add(lexer.line);
+                    case KEY:
+                            ListaTokens.add("KEY");
+                            ListaTokens.add(lexer.line);
+                    case KILL:
+                            ListaTokens.add("KILL");
+                            ListaTokens.add(lexer.line);
+                    case LEFT:
+                            ListaTokens.add("LEFT");
+                            ListaTokens.add(lexer.line);
+                    case LIKE:
+                            ListaTokens.add("LIKE");
+                            ListaTokens.add(lexer.line);
+                    case LINENO:
+                            ListaTokens.add("LINENO");
+                            ListaTokens.add(lexer.line);
+                    case LOAD:
+                            ListaTokens.add("LOAD");
+                            ListaTokens.add(lexer.line);
+                    case MERGE:
+                            ListaTokens.add("MERGE");
+                            ListaTokens.add(lexer.line);
+                    case NATIONAL:
+                            ListaTokens.add("NATIONAL");
+                            ListaTokens.add(lexer.line);
+                    case NOCHECK:
+                            ListaTokens.add("NOCHECK");
+                            ListaTokens.add(lexer.line);
+                    case NONCLUSTERED:
+                            ListaTokens.add("NONCLUSTERED");
+                            ListaTokens.add(lexer.line);
+                    case NOT:
+                            ListaTokens.add("NOT");
+                            ListaTokens.add(lexer.line);
+                    case NULL:
+                            ListaTokens.add("NULL");
+                            ListaTokens.add(lexer.line);
+                    case NULLIF:
+                            ListaTokens.add("NULLIF");
+                            ListaTokens.add(lexer.line);
+                    case OF:
+                            ListaTokens.add("OF");
+                            ListaTokens.add(lexer.line);
+                    case OFF:
+                            ListaTokens.add("OFF");
+                            ListaTokens.add(lexer.line);
+                    case OFFSETS:
+                            ListaTokens.add("OFFSETS");
+                            ListaTokens.add(lexer.line);
+                    case ON:
+                            ListaTokens.add("ON");
+                            ListaTokens.add(lexer.line);
+                    case OPEN:
+                            ListaTokens.add("OPEN");
+                            ListaTokens.add(lexer.line);
+                    case OPENDATASOURCE:
+                            ListaTokens.add("OPENDATASOURCE");
+                            ListaTokens.add(lexer.line);
+                    case OPENQUERY:
+                            ListaTokens.add("OPENQUERY");
+                            ListaTokens.add(lexer.line);
+                    case OPENROWSET:
+                            ListaTokens.add("OPENROWSET");
+                            ListaTokens.add(lexer.line);
+                    case OPENXML:
+                            ListaTokens.add("OPENXML");
+                            ListaTokens.add(lexer.line);
+                    case OPTION:
+                            ListaTokens.add("OPTION");
+                            ListaTokens.add(lexer.line);
+                    case OR:
+                            ListaTokens.add("OR");
+                            ListaTokens.add(lexer.line);
+                    case ORDER:
+                            ListaTokens.add("ORDER");
+                            ListaTokens.add(lexer.line);
+                    case OUTER:
+                            ListaTokens.add("OUTER");
+                            ListaTokens.add(lexer.line);
+                    case OVER:
+                            ListaTokens.add("OVER");
+                            ListaTokens.add(lexer.line);
+                    case PERCENT:
+                            ListaTokens.add("PERCENT");
+                            ListaTokens.add(lexer.line);
+                    case PIVOT:
+                            ListaTokens.add("PIVOT");
+                            ListaTokens.add(lexer.line);
+                    case PLAN:
+                            ListaTokens.add("PLAN");
+                            ListaTokens.add(lexer.line);
+                    case PRECISION:
+                            ListaTokens.add("PRECISION");
+                            ListaTokens.add(lexer.line);
+                    case PRIMARY:
+                            ListaTokens.add("PRIMARY");
+                            ListaTokens.add(lexer.line);
+                    case PRINT:
+                            ListaTokens.add("PRINT");
+                            ListaTokens.add(lexer.line);
+                    case PROC:
+                            ListaTokens.add("PROC");
+                            ListaTokens.add(lexer.line);
+                    case PROCEDURE:
+                            ListaTokens.add("PROCEDURE");
+                            ListaTokens.add(lexer.line);
+                    case PUBLIC:
+                            ListaTokens.add("PUBLIC");
+                            ListaTokens.add(lexer.line);
+                    case RAISERROR:
+                            ListaTokens.add("RAISERROR");
+                            ListaTokens.add(lexer.line);
+                    case READ:
+                            ListaTokens.add("READ");
+                            ListaTokens.add(lexer.line);
+                    case READTEXT:
+                            ListaTokens.add("READTEXT");
+                            ListaTokens.add(lexer.line);
+                    case RECONFIGURE:
+                            ListaTokens.add("RECONFIGURE");
+                            ListaTokens.add(lexer.line);
+                    case REFERENCES:
+                            ListaTokens.add("REFERENCES");
+                            ListaTokens.add(lexer.line);
+                    case REPLICATION:
+                            ListaTokens.add("REPLICATION");
+                            ListaTokens.add(lexer.line);
+                    case RESTORE:
+                            ListaTokens.add("RESTORE");
+                            ListaTokens.add(lexer.line);
+                    case RESTRICT:
+                            ListaTokens.add("RESTRICT");
+                            ListaTokens.add(lexer.line);
+                    case RETURN:
+                            ListaTokens.add("RETURN");
+                            ListaTokens.add(lexer.line);
+                    case REVERT:
+                            ListaTokens.add("REVERT");
+                            ListaTokens.add(lexer.line);
+                    case REVOKE:
+                            ListaTokens.add("REVOKE");
+                            ListaTokens.add(lexer.line);
+                    case RIGHT:
+                            ListaTokens.add("RIGHT");
+                            ListaTokens.add(lexer.line);
+                    case ROLLBACK:
+                            ListaTokens.add("ROLLBACK");
+                            ListaTokens.add(lexer.line);
+                    case ROWCOUNT:
+                            ListaTokens.add("ROWCOUNT");
+                            ListaTokens.add(lexer.line);
+                    case ROWGUIDCOL:
+                            ListaTokens.add("ROWGUIDCOL");
+                            ListaTokens.add(lexer.line);
+                    case RULE:
+                            ListaTokens.add("RULE");
+                            ListaTokens.add(lexer.line);
+                    case SAVE:
+                            ListaTokens.add("SAVE");
+                            ListaTokens.add(lexer.line);
+                    case SCHEMA:
+                            ListaTokens.add("SCHEMA");
+                            ListaTokens.add(lexer.line);
+                    case SECURITYAUDIT:
+                            ListaTokens.add("SECURITYAUDIT");
+                            ListaTokens.add(lexer.line);
+                    case SELECT:
+                            ListaTokens.add("SELECT");
+                            ListaTokens.add(lexer.line);
+                    case SEMANTICKEYPHRASETABLE:
+                            ListaTokens.add("SEMANTICKEYPHRASETABLE");
+                            ListaTokens.add(lexer.line);
+                    case SEMANTICSIMILARITYDETAILSTABLE:
+                            ListaTokens.add("SEMANTICSIMILARITYDETAILSTABLE");
+                            ListaTokens.add(lexer.line);
+                    case SEMANTICSIMILARITYTABLE:
+                            ListaTokens.add("SEMANTICSIMILARITYTABLE");
+                            ListaTokens.add(lexer.line);
+                    case SESSION_USER:
+                            ListaTokens.add("SESSION_USER");
+                            ListaTokens.add(lexer.line);
+                    case SET:
+                            ListaTokens.add("SET");
+                            ListaTokens.add(lexer.line);
+                    case SETUSER:
+                            ListaTokens.add("SETUSER");
+                            ListaTokens.add(lexer.line);
+                    case SHUTDOWN:
+                            ListaTokens.add("SHUTDOWN");
+                            ListaTokens.add(lexer.line);
+                    case SOME:
+                            ListaTokens.add("SOME");
+                            ListaTokens.add(lexer.line);
+                    case STATISTICS:
+                            ListaTokens.add("STATISTICS");
+                            ListaTokens.add(lexer.line);
+                    case SYSTEM_USER:
+                            ListaTokens.add("SYSTEM_USER");
+                            ListaTokens.add(lexer.line);
+                    case TABLE:
+                            ListaTokens.add("TABLE");
+                            ListaTokens.add(lexer.line);
+                    case TABLESAMPLE:
+                            ListaTokens.add("TABLESAMPLE");
+                            ListaTokens.add(lexer.line);
+                    case TEXTSIZE:
+                            ListaTokens.add("TEXTSIZE");
+                            ListaTokens.add(lexer.line);
+                    case THEN:
+                            ListaTokens.add("THEN");
+                            ListaTokens.add(lexer.line);
+                    case TO:
+                            ListaTokens.add("TO");
+                            ListaTokens.add(lexer.line);
+                    case TOP:
+                            ListaTokens.add("TOP");
+                            ListaTokens.add(lexer.line);
+                    case TRAN:
+                            ListaTokens.add("TRAN");
+                            ListaTokens.add(lexer.line);
+                    case TRANSACTION:
+                            ListaTokens.add("TRANSACTION");
+                            ListaTokens.add(lexer.line);
+                    case TRIGGER:
+                            ListaTokens.add("TRIGGER");
+                            ListaTokens.add(lexer.line);
+                    case TRUNCATE:
+                            ListaTokens.add("TRUNCATE");
+                            ListaTokens.add(lexer.line);
+                    case TRY_CONVERT:
+                            ListaTokens.add("TRY_CONVERT");
+                            ListaTokens.add(lexer.line);
+                    case TSEQUAL:
+                            ListaTokens.add("TSEQUAL");
+                            ListaTokens.add(lexer.line);
+                    case UNION:
+                            ListaTokens.add("UNION");
+                            ListaTokens.add(lexer.line);
+                    case UNIQUE:
+                            ListaTokens.add("UNIQUE");
+                            ListaTokens.add(lexer.line);
+                    case UNPIVOT:
+                            ListaTokens.add("UNPIVOT");
+                            ListaTokens.add(lexer.line);
+                    case UPDATE:
+                            ListaTokens.add("UPDATE");
+                            ListaTokens.add(lexer.line);
+                    case UPDATETEXT:
+                            ListaTokens.add("UPDATETEXT");
+                            ListaTokens.add(lexer.line);
+                    case USE:
+                            ListaTokens.add("USE");
+                            ListaTokens.add(lexer.line);
+                    case USER:
+                            ListaTokens.add("USER");
+                            ListaTokens.add(lexer.line);
+                    case VALUES:
+                            ListaTokens.add("VALUES");
+                            ListaTokens.add(lexer.line);
+                    case VARYING:
+                            ListaTokens.add("VARYING");
+                            ListaTokens.add(lexer.line);
+                    case VIEW:
+                            ListaTokens.add("VIEW");
+                            ListaTokens.add(lexer.line);
+                    case WAITFOR:
+                            ListaTokens.add("WAITFOR");
+                            ListaTokens.add(lexer.line);
+                    case WHEN:
+                            ListaTokens.add("WHEN");
+                            ListaTokens.add(lexer.line);
+                    case WHERE:
+                            ListaTokens.add("WHERE");
+                            ListaTokens.add(lexer.line);
+                    case WHILE:
+                            ListaTokens.add("WHILE");
+                            ListaTokens.add(lexer.line);
+                    case WITH:
+                            ListaTokens.add("WITH");
+                            ListaTokens.add(lexer.line);
+                    case WITHIN_GROUP:
+                            ListaTokens.add("WITHIN_GROUP");
+                            ListaTokens.add(lexer.line);
+                    case WRITETEXT:
+                            ListaTokens.add("WRITETEXT");
+                            ListaTokens.add(lexer.line);
+                    case ABSOLUTE:
+                            ListaTokens.add("ABSOLUTE");
+                            ListaTokens.add(lexer.line);
+                    case ACTION:
+                            ListaTokens.add("ACTION");
+                            ListaTokens.add(lexer.line);
+                    case ADA:
+                            ListaTokens.add("ADA");
+                            ListaTokens.add(lexer.line);
+                    case ALLOCATE:
+                            ListaTokens.add("ALLOCATE");
+                            ListaTokens.add(lexer.line);
+                    case ARE:
+                            ListaTokens.add("ARE");
+                            ListaTokens.add(lexer.line);
+                    case ASSERTION:
+                            ListaTokens.add("ASSERTION");
+                            ListaTokens.add(lexer.line);
+                    case AT:
+                            ListaTokens.add("AT");
+                            ListaTokens.add(lexer.line);
+                    case AVG:
+                            ListaTokens.add("AVG");
+                            ListaTokens.add(lexer.line);
+                    case BIT:
+                            ListaTokens.add("BIT");
+                            ListaTokens.add(lexer.line);
+                    case BIT_LENGTH:
+                            ListaTokens.add("BIT_LENGTH");
+                            ListaTokens.add(lexer.line);
+                    case BOTH:
+                            ListaTokens.add("BOTH");
+                            ListaTokens.add(lexer.line);
+                    case CASCADED:
+                            ListaTokens.add("CASCADED");
+                            ListaTokens.add(lexer.line);
+                    case CAST:
+                            ListaTokens.add("CAST");
+                            ListaTokens.add(lexer.line);
+                    case CATALOG:
+                            ListaTokens.add("CATALOG");
+                            ListaTokens.add(lexer.line);
+                    case CHAR:
+                            ListaTokens.add("CHAR");
+                            ListaTokens.add(lexer.line);
+                    case CHAR_LENGTH:
+                            ListaTokens.add("CHAR_LENGTH");
+                            ListaTokens.add(lexer.line);
+                    case CHARACTER:
+                            ListaTokens.add("CHARACTER");
+                            ListaTokens.add(lexer.line);
+                    case CHARACTER_LENGTH:
+                            ListaTokens.add("CHARACTER_LENGTH");
+                            ListaTokens.add(lexer.line);
+                    case COLLATION:
+                            ListaTokens.add("COLLATION");
+                            ListaTokens.add(lexer.line);
+                    case CONNECT:
+                            ListaTokens.add("CONNECT");
+                            ListaTokens.add(lexer.line);
+                    case CONNECTION:
+                            ListaTokens.add("CONNECTION");
+                            ListaTokens.add(lexer.line);
+                    case CONSTRAINTS:
+                            ListaTokens.add("CONSTRAINTS");
+                            ListaTokens.add(lexer.line);
+                    case CORRESPONDING:
+                            ListaTokens.add("CORRESPONDING");
+                            ListaTokens.add(lexer.line);
+                    case COUNT:
+                            ListaTokens.add("COUNT");
+                            ListaTokens.add(lexer.line);
+                    case DATE:
+                            ListaTokens.add("DATE");
+                            ListaTokens.add(lexer.line);
+                    case DAY:
+                            ListaTokens.add("DAY");
+                            ListaTokens.add(lexer.line);
+                    case DEC:
+                            ListaTokens.add("DEC");
+                            ListaTokens.add(lexer.line);
+                    case DECIMAL:
+                            ListaTokens.add("DECIMAL");
+                            ListaTokens.add(lexer.line);
+                    case DEFERRABLE:
+                            ListaTokens.add("DEFERRABLE");
+                            ListaTokens.add(lexer.line);
+                    case DEFERRED:
+                            ListaTokens.add("DEFERRED");
+                            ListaTokens.add(lexer.line);
+                    case DESCRIBE:
+                            ListaTokens.add("DESCRIBE");
+                            ListaTokens.add(lexer.line);
+                    case DESCRIPTOR:
+                            ListaTokens.add("DESCRIPTOR");
+                            ListaTokens.add(lexer.line);
+                    case DIAGNOSTICS:
+                            ListaTokens.add("DIAGNOSTICS");
+                            ListaTokens.add(lexer.line);
+                    case DISCONNECT:
+                            ListaTokens.add("DISCONNECT");
+                            ListaTokens.add(lexer.line);
+                    case DOMAIN:
+                            ListaTokens.add("DOMAIN");
+                            ListaTokens.add(lexer.line);
+                    case END_EXEC:
+                            ListaTokens.add("END_EXEC");
+                            ListaTokens.add(lexer.line);
+                    case EXCEPTION:
+                            ListaTokens.add("EXCEPTION");
+                            ListaTokens.add(lexer.line);
+                    case EXTRACT:
+                            ListaTokens.add("EXTRACT");
+                            ListaTokens.add(lexer.line);
+                    case FALSE:
+                            ListaTokens.add("FALSE");
+                            ListaTokens.add(lexer.line);
+                    case FIRST:
+                            ListaTokens.add("FIRST");
+                            ListaTokens.add(lexer.line);
+                    case FLOAT:
+                            ListaTokens.add("FLOAT");
+                            ListaTokens.add(lexer.line);
+                    case FORTRAN:
+                            ListaTokens.add("FORTRAN");
+                            ListaTokens.add(lexer.line);
+                    case FOUND:
+                            ListaTokens.add("FOUND");
+                            ListaTokens.add(lexer.line);
+                    case GET:
+                            ListaTokens.add("GET");
+                            ListaTokens.add(lexer.line);
+                    case GLOBAL:
+                            ListaTokens.add("GLOBAL");
+                            ListaTokens.add(lexer.line);
+                    case GO:
+                            ListaTokens.add("GO");
+                            ListaTokens.add(lexer.line);
+                    case HOUR:
+                            ListaTokens.add("HOUR");
+                            ListaTokens.add(lexer.line);
+                    case IMMEDIATE:
+                            ListaTokens.add("IMMEDIATE");
+                            ListaTokens.add(lexer.line);
+                    case INCLUDE:
+                            ListaTokens.add("INCLUDE");
+                            ListaTokens.add(lexer.line);
+                    case INDICATOR:
+                            ListaTokens.add("INDICATOR");
+                            ListaTokens.add(lexer.line);
+                    case INITIALLY:
+                            ListaTokens.add("INITIALLY");
+                            ListaTokens.add(lexer.line);
+                    case INPUT:
+                            ListaTokens.add("INPUT");
+                            ListaTokens.add(lexer.line);
+                    case INSENSITIVE:
+                            ListaTokens.add("INSENSITIVE");
+                            ListaTokens.add(lexer.line);
+                    case INT:
+                            ListaTokens.add("INT");
+                            ListaTokens.add(lexer.line);
+                    case INTEGER:
+                            ListaTokens.add("INTEGER");
+                            ListaTokens.add(lexer.line);
+                    case INTERVAL:
+                            ListaTokens.add("INTERVAL");
+                            ListaTokens.add(lexer.line);
+                    case ISOLATION:
+                            ListaTokens.add("ISOLATION");
+                            ListaTokens.add(lexer.line);
+                    case LANGUAGE:
+                            ListaTokens.add("LANGUAGE");
+                            ListaTokens.add(lexer.line);
+                    case LAST:
+                            ListaTokens.add("LAST");
+                            ListaTokens.add(lexer.line);
+                    case LEADING:
+                            ListaTokens.add("LEADING");
+                            ListaTokens.add(lexer.line);
+                    case LEVEL:
+                            ListaTokens.add("LEVEL");
+                            ListaTokens.add(lexer.line);
+                    case LOCAL:
+                            ListaTokens.add("LOCAL");
+                            ListaTokens.add(lexer.line);
+                    case LOWER:
+                            ListaTokens.add("LOWER");
+                            ListaTokens.add(lexer.line);
+                    case MATCH:
+                            ListaTokens.add("MATCH");
+                            ListaTokens.add(lexer.line);
+                    case MAX:
+                            ListaTokens.add("MAX");
+                            ListaTokens.add(lexer.line);
+                    case MIN:
+                            ListaTokens.add("MIN");
+                            ListaTokens.add(lexer.line);
+                    case MINUTE:
+                            ListaTokens.add("MINUTE");
+                            ListaTokens.add(lexer.line);
+                    case MODULE:
+                            ListaTokens.add("MODULE");
+                            ListaTokens.add(lexer.line);
+                    case MONTH:
+                            ListaTokens.add("MONTH");
+                            ListaTokens.add(lexer.line);
+                    case NAMES:
+                            ListaTokens.add("NAMES");
+                            ListaTokens.add(lexer.line);
+                    case NATURAL:
+                            ListaTokens.add("NATURAL");
+                            ListaTokens.add(lexer.line);
+                    case NCHAR:
+                            ListaTokens.add("NCHAR");
+                            ListaTokens.add(lexer.line);
+                    case NEXT:
+                            ListaTokens.add("NEXT");
+                            ListaTokens.add(lexer.line);
+                    case NO:
+                            ListaTokens.add("NO");
+                            ListaTokens.add(lexer.line);
+                    case NONE:
+                            ListaTokens.add("NONE");
+                            ListaTokens.add(lexer.line);
+                    case NUMERIC:
+                            ListaTokens.add("NUMERIC");
+                            ListaTokens.add(lexer.line);
+                    case OCTET_LENGTH:
+                            ListaTokens.add("OCTET_LENGTH");
+                            ListaTokens.add(lexer.line);
+                    case ONLY:
+                            ListaTokens.add("ONLY");
+                            ListaTokens.add(lexer.line);
+                    case OUTPUT:
+                            ListaTokens.add("OUTPUT");
+                            ListaTokens.add(lexer.line);
+                    case OVERLAPS:
+                            ListaTokens.add("OVERLAPS");
+                            ListaTokens.add(lexer.line);
+                    case PAD:
+                            ListaTokens.add("PAD");
+                            ListaTokens.add(lexer.line);
+                    case PARTIAL:
+                            ListaTokens.add("PARTIAL");
+                            ListaTokens.add(lexer.line);
+                    case PASCAL:
+                            ListaTokens.add("PASCAL");
+                            ListaTokens.add(lexer.line);
+                    case POSITION:
+                            ListaTokens.add("POSITION");
+                            ListaTokens.add(lexer.line);
+                    case PREPARE:
+                            ListaTokens.add("PREPARE");
+                            ListaTokens.add(lexer.line);
+                    case PRESERVE:
+                            ListaTokens.add("PRESERVE");
+                            ListaTokens.add(lexer.line);
+                    case PRIOR:
+                            ListaTokens.add("PRIOR");
+                            ListaTokens.add(lexer.line);
+                    case PRIVILEGES:
+                            ListaTokens.add("PRIVILEGES");
+                            ListaTokens.add(lexer.line);
+                    case REAL:
+                            ListaTokens.add("REAL");
+                            ListaTokens.add(lexer.line);
+                    case RELATIVE:
+                            ListaTokens.add("RELATIVE");
+                            ListaTokens.add(lexer.line);
+                    case ROWS:
+                            ListaTokens.add("ROWS");
+                            ListaTokens.add(lexer.line);
+                    case SCROLL:
+                            ListaTokens.add("SCROLL");
+                            ListaTokens.add(lexer.line);
+                    case SECOND:
+                            ListaTokens.add("SECOND");
+                            ListaTokens.add(lexer.line);
+                    case SECTION:
+                            ListaTokens.add("SECTION");
+                            ListaTokens.add(lexer.line);
+                    case SESSION:
+                            ListaTokens.add("SESSION");
+                            ListaTokens.add(lexer.line);
+                    case SIZE:
+                            ListaTokens.add("SIZE");
+                            ListaTokens.add(lexer.line);
+                    case SMALLINT:
+                            ListaTokens.add("SMALLINT");
+                            ListaTokens.add(lexer.line);
+                    case SPACE:
+                            ListaTokens.add("SPACE");
+                            ListaTokens.add(lexer.line);
+                    case SQL:
+                            ListaTokens.add("SQL");
+                            ListaTokens.add(lexer.line);
+                    case SQLCA:
+                            ListaTokens.add("SQLCA");
+                            ListaTokens.add(lexer.line);
+                    case SQLCODE:
+                            ListaTokens.add("SQLCODE");
+                            ListaTokens.add(lexer.line);
+                    case SQLERROR:
+                            ListaTokens.add("SQLERROR");
+                            ListaTokens.add(lexer.line);
+                    case SQLSTATE:
+                            ListaTokens.add("SQLSTATE");
+                            ListaTokens.add(lexer.line);
+                    case SQLWARNING:
+                            ListaTokens.add("SQLWARNING");
+                            ListaTokens.add(lexer.line);
+                    case SUBSTRING:
+                            ListaTokens.add("SUBSTRING");
+                            ListaTokens.add(lexer.line);
+                    case SUM:
+                            ListaTokens.add("SUM");
+                            ListaTokens.add(lexer.line);
+                    case TEMPORARY:
+                            ListaTokens.add("TEMPORARY");
+                            ListaTokens.add(lexer.line);
+                    case TIME:
+                            ListaTokens.add("TIME");
+                            ListaTokens.add(lexer.line);
+                    case TIMESTAMP:
+                            ListaTokens.add("TIMESTAMP");
+                            ListaTokens.add(lexer.line);
+                    case TIMEZONE_HOUR:
+                            ListaTokens.add("TIMEZONE_HOUR");
+                            ListaTokens.add(lexer.line);
+                    case TIMEZONE_MINUTE:
+                            ListaTokens.add("TIMEZONE_MINUTE");
+                            ListaTokens.add(lexer.line);
+                    case TRAILING:
+                            ListaTokens.add("TRAILING");
+                            ListaTokens.add(lexer.line);
+                    case TRANSLATE:
+                            ListaTokens.add("TRANSLATE");
+                            ListaTokens.add(lexer.line);
+                    case TRANSLATION:
+                            ListaTokens.add("TRANSLATION");
+                            ListaTokens.add(lexer.line);
+                    case TRIM:
+                            ListaTokens.add("TRIM");
+                            ListaTokens.add(lexer.line);
+                    case TRUE:
+                            ListaTokens.add("TRUE");
+                            ListaTokens.add(lexer.line);
+                    case UNKNOWN:
+                            ListaTokens.add("UNKNOWN");
+                            ListaTokens.add(lexer.line);
+                    case UPPER:
+                            ListaTokens.add("UPPER");
+                            ListaTokens.add(lexer.line);
+                    case USAGE:
+                            ListaTokens.add("USAGE");
+                            ListaTokens.add(lexer.line);
+                    case USING:
+                            ListaTokens.add("USING");
+                            ListaTokens.add(lexer.line);
+                    case VALUE:
+                            ListaTokens.add("VALUE");
+                            ListaTokens.add(lexer.line);
+                    case VARCHAR:
+                            ListaTokens.add("VARCHAR");
+                            ListaTokens.add(lexer.line);
+                    case WHENEVER:
+                            ListaTokens.add("WHENEVER");
+                            ListaTokens.add(lexer.line);
+                    case WORK:
+                            ListaTokens.add("WORK");
+                            ListaTokens.add(lexer.line);
+                    case WRITE:
+                            ListaTokens.add("WRITE");
+                            ListaTokens.add(lexer.line);
+                    case YEAR:
+                            ListaTokens.add("YEAR");
+                            ListaTokens.add(lexer.line);
+                    case ZONE:
+                            ListaTokens.add("ZONE");
+                            ListaTokens.add(lexer.line);
+                    case LOGIN:
+                            ListaTokens.add("LOGIN");
+                            ListaTokens.add(lexer.line);
+        
                     default:
                         resultado += lexer.lexeme + ": Es un "+ tokens + " En Columna: " + lexer.column1 +" a Columna: " + lexer.column2 + " y Linea: " + lexer.line + "\n";
                         resultado +=  "------------------------------------------------------------------------------------\n";
