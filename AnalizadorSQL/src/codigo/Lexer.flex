@@ -15,7 +15,7 @@ String = ['][^'\n]*[']|[´][^´\n]*[´]
 Float= [-+]?[0-9]+"."|[-+]?[0-9]+"."([0-9]+|("E"|"e")[-+]?[0-9]+|[0-9]+("E"|"e")[-+]?[0-9]+)
 TC = "/*"  ~"*/" | "/*" "*"+ "/"
 EC = "--" [^\r\n]* [\r|\n|\r\n]?
-Punt = "+"|"-"|"*"|"/"|"%"|"<"|"<="|">"|">="|"="|"=="|"!="|"&&"|"||"|"!"|";"|","|"."|"["|"]"|"("|")"|"{"|"}"|"[]"|"()"|"{}"|"@"|"#"|"##"
+//Punt = "+"|"-"|"*"|"/"|"%"|"<"|"<="|">"|">="|"="|"=="|"!="|"&&"|"||"|"!"|";"|","|"."|"["|"]"|"("|")"|"{"|"}"|"[]"|"()"|"{}"|"@"|"#"|"##"
 in = "/*" [^*\n]+
 
 
@@ -348,7 +348,7 @@ LOGIN = "LOGIN"
 %%
 
 
-{Punt} { line = Integer.toString(yyline+1); return Puntuacion;}
+//{Punt} { line = Integer.toString(yyline+1); return Puntuacion;}
 {Int} {  line = Integer.toString(yyline+1); return Entero;}
 {String} { line = Integer.toString(yyline+1); return Cadena;}
 {Float} { line = Integer.toString(yyline+1); return Float;}
@@ -666,6 +666,36 @@ LOGIN = "LOGIN"
 {YEAR} { line = Integer.toString(yyline+1); return YEAR; }
 {ZONE} { line = Integer.toString(yyline+1); return ZONE; }
 {LOGIN} { line = Integer.toString(yyline+1); return LOGIN; }
+    "+" { line = Integer.toString(yyline+1); return MAS;}
+    "-" { line = Integer.toString(yyline+1); return MENOS;}
+    "*" { line = Integer.toString(yyline+1); return ASTERISCO;}
+    "/" { line = Integer.toString(yyline+1); return DIV;}
+    "%" { line = Integer.toString(yyline+1); return PORCENTAJE;}
+    "<" { line = Integer.toString(yyline+1); return MENOR;}
+    "<=" { line = Integer.toString(yyline+1); return MENORIGUAL;}
+    ">" { line = Integer.toString(yyline+1); return MAYOR;}
+    ">=" { line = Integer.toString(yyline+1); return MAYORIGUAL;}
+    "=" { line = Integer.toString(yyline+1); return IGUAL;}
+    "==" { line = Integer.toString(yyline+1); return IGUALIGUAL;}
+    "!=" { line = Integer.toString(yyline+1); return NOIGUAL;}
+    "&&" { line = Integer.toString(yyline+1); return AND;}
+    "||" { line = Integer.toString(yyline+1); return OR;}
+    "!" { line = Integer.toString(yyline+1); return ADMIRACION;}
+    ";" { line = Integer.toString(yyline+1); return PUNTOCOMA;}
+    "," { line = Integer.toString(yyline+1); return COMMA;}
+    "." { line = Integer.toString(yyline+1); return PUNTO;}
+    "[" { line = Integer.toString(yyline+1); return CORCHETEOP;}
+    "]" { line = Integer.toString(yyline+1); return CORCHETECLO;}
+    "(" { line = Integer.toString(yyline+1); return PARENTESISOP;}
+    ")" { line = Integer.toString(yyline+1); return PARENTESISCLO;}
+    "{" { line = Integer.toString(yyline+1); return LLAVEOP;}
+    "}" { line = Integer.toString(yyline+1); return LLAVECLO;}
+    "[]" { line = Integer.toString(yyline+1); return CORCHETEDOBLE;}
+    "()" { line = Integer.toString(yyline+1); return PARENTESISDOBLE;}
+    "{}" { line = Integer.toString(yyline+1); return LLAVEDOBLE;}
+    "@" { line = Integer.toString(yyline+1); return ARROBA;}
+    "#" { line = Integer.toString(yyline+1); return NUMERAL;}
+    "##" { line = Integer.toString(yyline+1); return NUMERALDOBLE;}
 
 [a-zA-Z][a-zA-Z0-9_]* {line = Integer.toString(yyline+1); return Identificador;} 
 

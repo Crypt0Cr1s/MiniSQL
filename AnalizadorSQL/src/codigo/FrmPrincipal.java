@@ -1099,6 +1099,96 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     case LOGIN:
                             ListaTokens.add("LOGIN");
                             ListaTokens.add(lexer.line);
+                    case MAS:
+                            ListaTokens.add("MAS");
+                            ListaTokens.add(lexer.line);
+                    case MENOS:
+                            ListaTokens.add("MENOS");
+                            ListaTokens.add(lexer.line);
+                    case ASTERISCO:
+                            ListaTokens.add("ASTERISCO");
+                            ListaTokens.add(lexer.line);
+                    case DIV:
+                            ListaTokens.add("DIV");
+                            ListaTokens.add(lexer.line);
+                    case PORCENTAJE:
+                            ListaTokens.add("PORCENTAJE");
+                            ListaTokens.add(lexer.line);
+                    case MENOR:
+                            ListaTokens.add("MENOR");
+                            ListaTokens.add(lexer.line);
+                    case MENORIGUAL:
+                            ListaTokens.add("MENORIGUAL");
+                            ListaTokens.add(lexer.line);
+                    case MAYOR:
+                            ListaTokens.add("MAYOR");
+                            ListaTokens.add(lexer.line);
+                    case MAYORIGUAL:
+                            ListaTokens.add("MAYORIGUAL");
+                            ListaTokens.add(lexer.line);
+                    case IGUAL:
+                            ListaTokens.add("IGUAL");
+                            ListaTokens.add(lexer.line);
+                    case IGUALIGUAL:
+                            ListaTokens.add("IGUALIGUAL");
+                            ListaTokens.add(lexer.line);
+                    case NOIGUAL:
+                            ListaTokens.add("NOIGUAL");
+                            ListaTokens.add(lexer.line);
+                    case And:
+                            ListaTokens.add("And");
+                            ListaTokens.add(lexer.line);
+                    case Or:
+                            ListaTokens.add("Or");
+                            ListaTokens.add(lexer.line);
+                    case ADMIRACION:
+                            ListaTokens.add("ADMIRACION");
+                            ListaTokens.add(lexer.line);
+                    case PUNTOCOMA:
+                            ListaTokens.add("PUNTOCOMA");
+                            ListaTokens.add(lexer.line);
+                    case COMMA:
+                            ListaTokens.add("COMMA");
+                            ListaTokens.add(lexer.line);
+                    case PUNTO:
+                            ListaTokens.add("PUNTO");
+                            ListaTokens.add(lexer.line);
+                    case CORCHETEOP:
+                            ListaTokens.add("CORCHETEOP");
+                            ListaTokens.add(lexer.line);
+                    case CORCHETECLO:
+                            ListaTokens.add("CORCHETECLO");
+                            ListaTokens.add(lexer.line);
+                    case PARENTESISOP:
+                            ListaTokens.add("PARENTESISOP");
+                            ListaTokens.add(lexer.line);
+                    case PARENTESISCLO:
+                            ListaTokens.add("PARENTESISCLO");
+                            ListaTokens.add(lexer.line);
+                    case LLAVEOP:
+                            ListaTokens.add("LLAVEOP");
+                            ListaTokens.add(lexer.line);
+                    case LLAVECLO:
+                            ListaTokens.add("LLAVECLO");
+                            ListaTokens.add(lexer.line);
+                    case CORCHETEDOBLE:
+                            ListaTokens.add("CORCHETEDOBLE");
+                            ListaTokens.add(lexer.line);
+                    case PARENTESISDOBLE:
+                            ListaTokens.add("PARENTESISDOBLE");
+                            ListaTokens.add(lexer.line);
+                    case LLAVEDOBLE:
+                            ListaTokens.add("LLAVEDOBLE");
+                            ListaTokens.add(lexer.line);
+                    case ARROBA:
+                            ListaTokens.add("ARROBA");
+                            ListaTokens.add(lexer.line);
+                    case NUMERAL:
+                            ListaTokens.add("NUMERAL");
+                            ListaTokens.add(lexer.line);
+                    case NUMERALDOBLE:
+                            ListaTokens.add("NUMERALDOBLE");
+                            ListaTokens.add(lexer.line);
         
                     default:
                         resultado += lexer.lexeme + ": Es un "+ tokens + " En Columna: " + lexer.column1 +" a Columna: " + lexer.column2 + " y Linea: " + lexer.line + "\n";
