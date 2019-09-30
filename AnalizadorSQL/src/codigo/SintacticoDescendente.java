@@ -32,7 +32,7 @@ public class SintacticoDescendente {
   public void Z (){
       switch (l){
           case "SELECT":
-              SELECT1();
+              SELECT1(); //YA REVISADO
              break;
           case "INSERT":
               INSERT(); //YA REVISADO
@@ -47,7 +47,7 @@ public class SintacticoDescendente {
             //  C();
               break;
           case "ALTER":
-            //  A();
+              A();
               break;
           case "DROP":
             DR(); //YA REVISADO
@@ -423,9 +423,8 @@ public class SintacticoDescendente {
       }
    }
    public void D6(){
-       if (l == "OUTPUT"){ // COMO ARREGLAR ESTO???
+       if (l == "OUTPUT"){ 
            OUTPUTC();
-           match("OUTPUT");
            D9();
        }
        else {
@@ -533,7 +532,7 @@ public class SintacticoDescendente {
             match("CONTAINS");
             match("PARENTESISOP");
             FT1();
-            match("PUNTO");
+            match("COMMA");
             CSC1();
             match("PARENTESISCLO");
             break;
@@ -2728,6 +2727,338 @@ public class SintacticoDescendente {
           //VACIO
       }
    }
+    public void A(){
+        match("ALTER");
+        A1();
+        switch (l){
+          case "PUNTOCOMA":
+              match("PUNTOCOMA");
+              Z();
+              break;
+          case "GO":
+              match("GO");
+              Z();
+              break;
+
+          default:
+             error();
+             break;
+        }
+    }
+    public void A1(){
+        switch (l){
+          case "VIEW":
+              match("VIEW");
+              ALTERV();
+              break;
+          case "IDENTIFICADOR":
+              match("IDENTIFICADOR");
+              ALTERU();
+              break;
+          case "DATABASE":
+              match("DATABASE");
+              ALTERD();
+              break;
+          case "TABLE":
+              match("TABLE");
+              ALTERT();
+              break;
+              //FALTA INDEX
+          default:
+             error();
+             break;
+        }
+    }
+    public void ALTERV(){
+        match("VIEW");
+        ALTERV1();
+        ALTERV3();
+        match("AS");
+        SELECT1();
+        ALTERV5();
+    }
+    public void ALTERV1(){
+        match("IDENTIFICADOR");
+        ALTERV2();
+    }
+    public void ALTERV2(){
+        if( l == "PUNTO"){
+            match("PUNTO");
+        match("IDENTIFICADOR");
+        }
+        else{
+            //vacio
+        }
+ 
+    }
+    public void ALTERV3(){
+        if( l == "PARENTESISOP"){
+            match("PARENTESISOP");
+            match("IDENTIFICADOR");
+            ALTERV4();
+        }
+        else{
+            //vacio
+        }
+ 
+    }
+    public void ALTERV4(){
+        
+        switch (l){
+          case "COMMA":
+              match("COMMA");
+              match("IDENTIFICADOR");
+              ALTERV4();
+              break;
+          case "IDENTIFICADOR":
+              match("IDENTIFICADOR");
+              match("PARENTESISCLO");
+              break;
+          default:
+             error();
+             break;
+        }
+
+    }
+    public void ALTERV5(){
+        if(l == "WITH"){
+            match("WITH");
+            match("CHECK");
+            match("OPTION");
+        }
+        else{
+            //vacio
+        }
+    }
+    public void ALTERU(){
+        if(l == "IDENTIFIADOR"){
+            match("IDENTIFICADOR");
+        }
+        else{
+            error();
+        }
+    }
+    public void ALTERD(){
+        match("DATABASE");
+        ALTERD1();
+ 
+    }
+    public void ALTERD1(){
+        switch (l){
+          case "CURRENT":
+              match("CURRENT");
+              ALTERD2();
+              break;
+          case "IDENTIFICADOR":
+              match("IDENTIFICADOR");
+              ALTERD2();
+              break;
+          default:
+             error();
+             break;
+        }
+ 
+    }
+    public void ALTERD2(){
+        if(l == "COLLATE"){
+            match("COLLATE");
+            match("IDENTIFICADOR");
+        }
+        else{
+            error();
+        }
+    }
+    public void ALTERT(){
+        match("TABLE");
+        OBJECT();
+        ALTER1();
+    }
+    public void ALTER1(){
+        switch (l){
+          case "ALTER":
+              match("ALTER");
+              match("COLUMN");
+              match("IDENTIFICADOR");
+              ALTERT1();
+              break;
+          case "ADD":
+              match("ADD");
+              ALTERT8();
+              break;
+          case "DROP":
+              match("DROP");
+              ALTERT10();
+              break;
+          default:
+             error();
+             break;
+        }
+    }
+    public void ALTERT1(){
+        if(l == "IDENTIFICADOR"){
+            match("IDENTIFICADOR");
+            ALTERT2();
+        }
+        else{
+            ALTERT6();
+        }
+    }
+    public void ALTERT2(){
+        if(l == "PUNTO"){
+            match("PUNTO");
+            match("IDENTIFICADOR");
+            ALTERT3();
+        }
+        else{
+            ALTERT3();
+        }
+    }
+    public void ALTERT3(){
+        if(l == "PARENTESISOP"){
+            match("PARENTESISOP");
+            match("ENTERO");
+            ENT();
+            match("PARENTESISCLO");
+            ALTERT4();
+        }
+        else{
+            ALTERT4();
+        }
+    }
+    public void ENT(){
+        if(l == "COMMA"){
+            match("COMMA");
+            match("ENTERO");
+        }
+        else{
+            //VACIO
+        }
+    }
+    public void ALTERT4(){
+        if(l == "COLLATE"){
+            match("COLLATE");
+            match("IDENTIFICADOR");
+            ALTERT5();
+        }
+        else{
+            ALTERT5();
+        }
+    }
+    public void ALTERT5(){
+       switch (l){
+          case "NULL":
+              match("NULL");
+              break;
+          case "NOT":
+              match("NOT");
+              match("NULL");
+              break;
+          default:
+             //VACIO
+             break;
+        }
+    }
+    public void ALTERT6(){
+       switch (l){
+          case "ADD":
+              match("ADD");
+              ALTERT7();
+              break;
+          case "DROP":
+              match("DROP");
+              ALTERT7();
+              break;
+          default:
+             error();
+             break;
+        }
+    }
+    public void ALTERT7(){
+       switch (l){
+          case "NOT":
+              match("NOT");
+              match("FOR");
+              match("REPLICATION");
+              break;
+          case "ROWGUIDCOL":
+              match("ROWGUIDCOL");
+              break;
+          default:
+             error();
+             break;
+        }
+    }
+    public void ALTERT8(){
+       
+      if (l == "INNER"){
+          COLDEF();
+          ALTERT9();
+      }
+      if (l == "LEFT"||l == "RIGHT"||l == "FULL"){
+         CCD();
+         ALTERT9();
+      }
+      if (l == "LEFT"||l == "RIGHT"||l == "FULL"){
+         TABLECON();
+         ALTERT9();
+      }
+      else{
+          error();
+      }
+    }
+    public void ALTERT9(){
+        if (l == "COMMA"){
+          match("COMMA");
+          ALTERT8();
+      }
+        else{
+         //VACIO   
+        }
+    }
+    public void ALTERT10(){
+        if( l == "COLUMN"){
+            match("COLUMN");
+            ALTERT12();
+            match("IDENTIFICADOR");
+            ALTERT13();
+        }
+        else{
+            ALTERT11();
+            ALTERT12();
+            match("IDENTIFICADOR");
+            ALTERT13();
+        }
+    }
+    public void ALTERT11(){
+        if( l == "CONSTRAINT"){
+            match("CONSTRAINT");
+        }
+        else{
+            //VACIO
+        }
+    }
+    public void ALTERT12(){
+        if( l == "IF"){
+            match("IF");
+            match("EXISTS");
+        }
+        else{
+            //VACIO
+        }
+    }
+     public void ALTERT13(){
+        if( l == "COMMA"){
+            match("COMMA");
+            match("IDENTIFICADOR");
+            ALTERT13();
+        }
+        else{
+            //VACIO
+        }
+    }
+     public void C(){
+         
+     }
    
     
 // FUNCIONES DE ANALISIS Y ERRROR ////////////////////////////////////////////////////////////////////////////////////   
