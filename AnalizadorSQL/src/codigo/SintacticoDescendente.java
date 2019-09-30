@@ -35,13 +35,13 @@ public class SintacticoDescendente {
               SELECT1();
              break;
           case "INSERT":
-              INSERT();
+              INSERT(); //YA REVISADO
               break;
           case "UPDATE":
-              U();
+              U(); //YA REVISADO
               break;
           case "DELETE":
-              D();
+              D();//YA REVISADO
               break;
           case "CREATE":
             //  C();
@@ -50,10 +50,10 @@ public class SintacticoDescendente {
             //  A();
               break;
           case "DROP":
-            DR();
+            DR(); //YA REVISADO
             break;
           case "TRUNCATE":
-            T();
+            T(); //YA REVISADO
             break;
           
           default: 
@@ -254,7 +254,7 @@ public class SintacticoDescendente {
           
       }
       else{
-          //
+          error();
       }
           
   }
@@ -312,7 +312,7 @@ public class SintacticoDescendente {
             match("TRUNCATE");
             match("TABLE");
             OBJECT();
-            T4();
+            T8();
             break;
           
           default:
@@ -320,51 +320,7 @@ public class SintacticoDescendente {
       }
 
   }
-  public void T4(){
-      switch (l){
-          case "WITH":
-            match("WITH");
-            match("PARENTESISOP");
-            match("PARTITION");
-            match("PARENTESISOP");
-            T5();
-            break;
-          default:
-              T8();
-              break;
-      }
-  }
-  public void T5(){
-      if (l=="ENTERO"){
-          match("ENTERO");
-          T6();
-      }
-      else{
-          error();
-      }
-  }
-  public void T6(){
-      if(l=="TO"){
-          match("TO");
-          match("ENTERO");
-          T7();
-      }
-      else{
-          T7();
-      }
-  }
-  public void T7(){
-      if(l=="COMMA"){
-          match("COMMA");
-          T5();
-      }
-      else{
-           match("PARENTESISCLO");
-           match("PARENTESISCLO");
-           T8();
-      }
-      
-  }
+  
   
   public void T8(){
       switch (l){
@@ -373,8 +329,10 @@ public class SintacticoDescendente {
             Z();
             break;
           case "GO":
-              match("GO");
-              break;
+            match("GO");
+            Z();
+            break;
+
           default:
               error();
               break;
@@ -396,12 +354,18 @@ public class SintacticoDescendente {
           match("IDENTIFICADOR");
           OBJ3();
       }
+      else{
+          OBJ3();
+      }
   }
    public void OBJ3(){
       if(l=="PUNTO"){
           match("PUNTO");
           match("IDENTIFICADOR");
           
+      }
+      else{
+          //VACIO
       }
   }
    public void D(){
@@ -480,13 +444,20 @@ public class SintacticoDescendente {
        }
    }
    public void D10(){
-       if (l == "PUNTOCOMA"){
-           match("PUNTOCOMA");
-           Z();
-       }
-       else {
-           error();
-       }
+       switch (l){
+          case "PUNTOCOMA":
+            match("PUNTOCOMA");
+            Z();
+            break;
+          case "GO":
+            match("GO");
+            Z();
+            break;
+
+          default:
+              error();
+              break;
+      }
    }
    
    
@@ -750,10 +721,10 @@ public class SintacticoDescendente {
            match("ARROBA");
            match("IDENTIFICADOR");
        }
-       if (l == "NULL"|l == "INT"|l == "FLOAT"|l == "STRING"){
+       if (l == "NULL"||l == "INT"||l == "FLOAT"||l == "STRING"){
           CONST();
        }
-       if (l == "AVG"|l == "COUNT"|l == "MAX"|l == "MIN"|l == "SUM"){
+       if (l == "AVG"||l == "COUNT"||l == "MAX"||l == "MIN"||l == "SUM"){
           FUNC();
        }
        else{
@@ -924,7 +895,7 @@ public class SintacticoDescendente {
       }
    }
    public void FUNC5(){
-        if (l == "MAS"|l == "MENOS"|l == "DIV"|l == "ASTERISCO"|l == "MENOR"|l == "MENORIGUAL"|l == "MAYOR"|l == "MAYORIGUAL"|l == "NOIGUAL"){
+        if (l == "MAS"||l == "MENOS"||l == "DIV"||l == "ASTERISCO"||l == "MENOR"||l == "MENORIGUAL"||l == "MAYOR"||l == "MAYORIGUAL"||l == "NOIGUAL"){
           OPERADORES();
        }
         else{
@@ -980,6 +951,18 @@ public class SintacticoDescendente {
               DEFOBJETO();
               match("SET");
               UPD2();
+              if(l == "PUNTOCOMA"){
+                match("PUNTOCOMA");
+                Z();  
+              }
+              if(l == "GO"){
+                match("GO");
+                Z();
+              }
+              else{
+                  error();
+              }
+              
               break;
       }
    }
@@ -1600,7 +1583,7 @@ public class SintacticoDescendente {
         DML3();
     }
     public void DML2(){
-        if (l == "PARENTESISOP"|l == "ENTERO"|l == "FLOAT"|l == "ARROBA"|l == "AVG"|l == "COUNT"|l == "MAX"|l == "MIN"|l == "SUM"){
+        if (l == "PARENTESISOP"||l == "ENTERO"||l == "FLOAT"||l == "ARROBA"||l == "AVG"||l == "COUNT"||l == "MAX"||l == "MIN"||l == "SUM"){
             SEXP();
         }
         else{
@@ -1931,7 +1914,7 @@ public class SintacticoDescendente {
         E();
     }
     public void SELIST7(){
-        if (l == "ASTERISCO"|l == "IDENTIFICADOR"){
+        if (l == "ASTERISCO"||l == "IDENTIFICADOR"){
             SELIST();
         }
         else{
@@ -2262,11 +2245,11 @@ public class SintacticoDescendente {
             EXPRESSION();
             match("PARENTESISCLO");
         }
-        if(l == "MAS"|l == "MENOS"){
+        if(l == "MAS"||l == "MENOS"){
             EXPRESSION2();
             
         }
-        if(l == "PARENTESISOP"|l == "ENTERO"|l == "FLOAT"|l == "ARROBA"|l == "AVG"|l == "COUNT"|l == "MAX"|l == "MIN"|l == "SUM"){
+        if(l == "PARENTESISOP"||l == "ENTERO"||l == "FLOAT"||l == "ARROBA"||l == "AVG"||l == "COUNT"||l == "MAX"||l == "MIN"||l == "SUM"){
             SEXP();
             
         }
@@ -2303,16 +2286,16 @@ public class SintacticoDescendente {
         EXPRESSION();
     }
     public void BIN_OPR(){
-        if (l == "MAS"|l == "MENOS"|l == "ASTERISCO"|l == "DIV"|l == "PORCENTAJE"){
+        if (l == "MAS"||l == "MENOS"||l == "ASTERISCO"||l == "DIV"||l == "PORCENTAJE"){
             AR_OPR();
         }
         if (l == "IGUAL"){
             ASIG_OPR();
         }
-        if (l == "MENOR"|l == "MENORIGUAL"|l == "MAYOR"|l == "MAYORIGUAL"|l == "NOIGUAL"){
+        if (l == "MENOR"||l == "MENORIGUAL"||l == "MAYOR"||l == "MAYORIGUAL"||l == "NOIGUAL"){
             COMPARE_OPR();
         }
-        if (l == "ALL"|l == "AND"|l == "ANY"|l == "BETWEEN"|l == "EXISTS"|l == "IN"|l == "LIKE"|l == "NOT"|l == "OR"|l == "SOME"){
+        if (l == "ALL"||l == "AND"||l == "ANY"||l == "BETWEEN"||l == "EXISTS"||l == "IN"||l == "LIKE"||l == "NOT"||l == "OR"||l == "SOME"){
             LOGIC_OPR();
         }
     }
@@ -2411,8 +2394,18 @@ public class SintacticoDescendente {
         if (l == "SELECT"){
             match("SELECT");
             SELECT2();
-            match("PUNTOCOMA");
-            Z();
+            if (l == "PUNTOCOMA"){
+                match("PUNTOCOMA");
+                Z();
+            }
+            if(l == "GO"){
+                match("GO");
+                Z();
+            }
+            else{
+                error();
+            }
+            
         }
         else{
             error();
@@ -2609,7 +2602,7 @@ public class SintacticoDescendente {
               TABLESOURCE2();   
 
         }
-       if (l == "JOIN"|l == "INNER"|l == "LEFT"|l == "RIGHT"|l == "FULL"|l == "OUTER"){
+       if (l == "JOIN"||l == "INNER"||l == "LEFT"||l == "RIGHT"||l == "FULL"||l == "OUTER"){
             JOIN_TYPE();   
             TABLESOURCE();
             match("ON");
@@ -2631,7 +2624,7 @@ public class SintacticoDescendente {
               TABLESOURCE2();   
 
         }
-       if (l == "JOIN"|l == "INNER"|l == "LEFT"|l == "RIGHT"|l == "FULL"|l == "OUTER"){
+       if (l == "JOIN"||l == "INNER"||l == "LEFT"||l == "RIGHT"||l == "FULL"||l == "OUTER"){
             JOIN_TYPE();   
             TABLESOURCE();
             match("ON");
@@ -2699,7 +2692,7 @@ public class SintacticoDescendente {
       if (l == "INNER"){
           match("INNER");
       }
-      if (l == "LEFT"|l == "RIGHT"|l == "FULL"){
+      if (l == "LEFT"||l == "RIGHT"||l == "FULL"){
          JOIN_TYPE2();
       }
       else{
@@ -2739,13 +2732,13 @@ public class SintacticoDescendente {
     
 // FUNCIONES DE ANALISIS Y ERRROR ////////////////////////////////////////////////////////////////////////////////////   
   public void match(String t){
-      if (l==t){
+      if ((l == t)&& (posicion < ll.size()-2)){
           
           posicion = posicion +2;
           l=ll.get(posicion);
           return;
       }
-      if (posicion == ll.size()-2){
+      if ((l == t) && posicion == ll.size()-2){
           terminado();
       }
       else{
@@ -2756,12 +2749,12 @@ public class SintacticoDescendente {
   }
   public void error(){
       resultado2 += l + " Error Sintantico " + " En Linea: " + ll.get(posicion+1) + "\n" ;
-      while (l != "PUNTOCOMA" && (posicion < ll.size()-2)){
+      while ((l != "PUNTOCOMA" && l != "GO") && (posicion < ll.size()-2)){
           posicion = posicion + 2;
           l= ll.get(posicion);
       }
-      if(l != "PUNTOCOMA" && (posicion == ll.size()-2)){
-           resultado2 +=  "Error Sintantico falto PUNTOCOMMA " + " En Linea: " + ll.get(posicion+1) + "\n" ;
+      if(((l != "PUNTOCOMA") && (l != "GO")) && (posicion == ll.size()-2)){
+           resultado2 +=  "Error Sintantico falto PUNTOCOMA " + " En Linea: " + ll.get(posicion+1) + "\n" ;
       }
       if(posicion != ll.size()-2){
          posicion = posicion + 2;
