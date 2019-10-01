@@ -46,9 +46,9 @@ public class SintacticoDescendente {
           //case "CREATE":
             //  C();
              // break;
-          //case "ALTER":
-             // A();
-            //  break;
+          case "ALTER":
+              A();
+              break;
           case "DROP":
             DR(); //YA REVISADO
             break;
@@ -3362,15 +3362,15 @@ public class SintacticoDescendente {
     public void ALTERT8(){
        
       if (l == "INNER"){
-       //   COLDEF();
+          COLDEF();
           ALTERT9();
       }
       if (l == "LEFT"||l == "RIGHT"||l == "FULL"){
-      //   CCD();
+         CCD();
          ALTERT9();
       }
       if (l == "LEFT"||l == "RIGHT"||l == "FULL"){
-       //  TABLECON();
+         TABLECON();
          ALTERT9();
       }
       else{
@@ -3427,9 +3427,608 @@ public class SintacticoDescendente {
             //VACIO
         }
     }
-     public void C(){
-         
+     public void COLDEF(){
+         DATATYPE();
+         COLDEF2();
      }
+     public void COLDEF2(){
+         if (l == "COLLATE"){
+             match("COLLATE");
+             match("IDENTIFICADOR");
+             COLDEF3();
+         }
+         else{
+             COLDEF3();
+         }
+     }
+      public void COLDEF3(){
+         if (l == "CONSTRAINT"){
+             match("CONSTRAINT");
+             match("IDENTIFICADOR");
+             COLDEF4();
+         }
+         else{
+             COLDEF4();
+         }
+     }
+      public void COLDEF4(){
+         if (l == "DEFAULT"){
+             match("DEFAULT");
+             CONST();
+             COLDEF5();
+         }
+         else{
+             COLDEF5();
+         }
+     }
+      public void COLDEF5(){
+         if (l == "IDENTITY"){
+             match("IDENTITY");
+             COLDEF6();
+         }
+         else{
+             COLDEF7();
+         }
+     }
+      public void COLDEF6(){
+         if (l == "PARENTESISOP"){
+             match("PARENTESISOP");
+             SEED();
+             match("COMMA");
+             SEED();
+             match("PARENTESISCLO");
+             COLDEF7();
+         }
+         else{
+             COLDEF7();
+         }
+     }
+       public void COLDEF7(){
+         if (l == "NOT"){
+             match("NOT");
+             
+             COLDEF8();
+         }
+         else{
+             COLDEF9();
+         }
+     }
+       
+       public void COLDEF8(){
+          switch (l){
+          case "FOR":
+              match("FOR");
+              match("REPLICATION");
+              COLDEF9();
+              break;
+          case "NULL":
+              match("NULL");
+              COLDEF10();
+              break;
+          default:
+             error();
+             break;
+        }
+     }
+       public void COLDEF9(){
+          switch (l){
+          case "NOT":
+              match("NOT");
+              match("NULL");
+              COLDEF10();
+              break;
+          case "NULL":
+              match("NULL");
+              COLDEF10();
+              break;
+          default:
+             COLDEF10();
+             break;
+        }
+     }
+       public void COLDEF10(){
+         if (l == "ROWGUIDCOL"){
+             match("ROWGUIDCOL");
+             
+             COLDEF11();
+         }
+         else{
+             COLDEF11();
+         }
+     }
+      
+       public void COLDEF11(){
+         if (l == "CONSTRAINT"){
+             COLUMNCONSTRAINT();
+             COLDEF13();
+             COLDEF12();
+         }
+         else{
+             COLDEF12();
+         }
+     }
+       public void COLDEF12(){
+         if (l == "INDEX"){
+             COL_IND();
+         }
+         else{
+             //VACIO
+         }
+     }
+       public void COLDEF13(){
+         if (l == "COMMA"){
+             match("COMMA");
+             COLUMNCONSTRAINT();
+             COLDEF13();
+             COLDEF12();
+         }
+         else{
+             //VACIO
+         }
+     }
+       public void SEED(){
+           switch (l){
+          case "ENTERO":
+              match("ENTERO");
+
+              break;
+          case "NUMERALDOBLE":
+              match("NUMERALDOBLE");
+              break;
+          default:
+             error();
+             break;
+        }
+    }
+       public void COLUMNCONSTRAINT(){
+            if (l == "CONSTRAINT"){
+             match("CONSTRAINT");
+             match("IDENTIFICADOR");
+             COLUMNC2();
+         }
+         else{
+             COLUMNC2();
+         }
+       }
+      public void COLUMNC2(){
+          switch (l){
+          case "PRIMARY":
+              match("PRIMARY");
+              match("KEY");
+              COLUMNC3();
+              break;
+          case "UNIQUE":
+              match("UNIQUE");
+              COLUMNC3();
+              break;
+          case "FOREIGN":
+              match("FOREIGN");
+              COLUMNC5();
+              break;
+          case "REFERENCES":
+              match("REFERENCES");
+              COLUMNC5();
+              break;
+           case "CHECK":
+              match("CHECK");
+              COLUMNC16();
+              break;
+          default:
+             error();
+             break;
+        }
+      }
+      public void COLUMNC3(){
+          switch (l){
+          case "CLUSTERED":
+              match("CLUSTERED");
+              COLUMNC4();
+              break;
+          case "NONCLUSTERED":
+              match("NONCLUSTERED");
+              COLUMNC4();
+              break;
+          default:
+             COLUMNC4();
+             break;
+        }
+      }
+      public void COLUMNC4(){
+          switch (l){
+          case "ON":
+              match("ON");
+              match("IDENTIFICADOR");
+              match("PARENTESISOP");
+              match("IDENTIFICADOR");
+              match("PARENTESISCLO");
+              break;
+          case "IDENTIFICADOR":
+              match("IDENTIFICADOR");
+              break;
+          default:
+             //VACIO
+             break;
+        }
+      }
+      public void COLUMNC5(){
+          if (l == "FOREIGN"){
+             match("FOREIGN");
+             match("KEY");
+             COLUMNC6();
+         }
+         else{
+             COLUMNC6();
+         }
+      }
+      public void COLUMNC6(){
+          match("REFERENCES");
+          match("IDENTIFICADOR");
+          COLUMNC7();
+      }
+      public void COLUMNC7(){
+          if (l == "PUNTO"){
+             match("PUNTO");
+             match("IDENTIFICADOR");
+             COLUMNC8();
+         }
+         else{
+             COLUMNC8();
+         }
+      }
+      public void COLUMNC8(){
+          if (l == "PARENTESISOP"){
+             match("PARENTESISOP");
+             match("IDENTIFICADOR");
+             COLUMNC10();
+             match("PARENTESISCLO");
+             COLUMNC9();
+             
+         }
+         else{
+             COLUMNC9();
+         }
+      }
+      public void COLUMNC10(){
+          if (l == "COMMA"){
+             match("COMMA");
+             match("IDENTIFICADOR");
+             COLUMNC10();
+             
+         }
+         else{
+             //VACIO
+         }
+      }
+      public void COLUMNC9(){
+          if (l == "ON"){
+             match("ON");
+             COLUMNC11();
+             
+         }
+         else{
+             COLUMNC15();
+         }
+      }
+      public void COLUMNC11(){
+          switch (l){
+          case "DELETE":
+              match("DELETE");
+              COLUMNC12();
+              COLUMNC14();
+              break;
+          case "UPDATE":
+              match("UPDATE");
+              COLUMNC12();
+              COLUMNC14();
+              break;
+          default:
+            error();
+             break;
+        }
+      }
+      public void COLUMNC12(){
+          switch (l){
+          case "NO":
+              match("NO");
+              match("ACTION");
+              break;
+          case "CASCADED":
+              match("CASCADED");
+              break;
+           case "SET":
+              match("SET");
+              COLUMNC13();
+              break;
+          default:
+            error();
+             break;
+        }
+      }
+      public void COLUMNC13(){
+          switch (l){
+          case "NULL":
+              match("NULL");
+
+              break;
+          case "DEFAULT":
+              match("DEFAULT");
+              break;
+          default:
+            error();
+             break;
+        }
+      }
+      public void COLUMNC14(){
+          if (l == "ON"){
+             match("ON");
+             match("UPDATE");
+             COLUMNC12();
+             COLUMNC15();
+             
+         }
+         else{
+             COLUMNC15();
+         }
+      }
+      public void COLUMNC15(){
+          if (l == "NOT"){
+             match("NOT");
+             match("FOR");
+             match("REPLICATION");
+             
+         }
+         else{
+             //VACIO
+         }
+      }
+      public void COLUMNC16(){
+          if (l == "CHECK"){
+             match("CHECK");
+             COLUMNC15();
+             match("PARENTESISOP");
+             EXPRESSION();
+             match("PARENTESISCLO");
+             
+         }
+         else{
+             //VACIO
+         }
+      }
+      public void COL_IND(){
+          if (l == "INDEX"){
+             match("INDEX");
+             match("IDENTIFICADOR");
+             COL_IND1();
+             COL_IND2();
+             
+         }
+         else{
+             error();
+         }
+      }
+      public void COL_IND1(){
+          switch (l){
+          case "CLUSTERED":
+              match("CLUSTERED");
+              break;
+          case "NONCLUSTERED":
+              match("NONCLUSTERED");
+              break;
+          default:
+            //VACIOS
+             break;
+        }
+      }
+      public void COL_IND2(){
+          COLUMNC4();
+      }
+      public void CCD(){
+          match("AS");
+          match("IDENTIFICADOR");
+          COLUMNC2();
+      }
+      public void TABLECON(){
+          if (l == "CONSTRAINT"){
+             match("CONSTRAINT");
+             match("IDENTIFICADOR");
+             TABLECON1();
+             
+         }
+         else{
+             TABLECON1();
+         }
+      }
+      public void TABLECON1(){
+          switch (l){
+          case "PRIMARY":
+              match("PRIMARY");
+              match("KEY");
+              TABLECON2();
+              TABLECON3();
+              break;
+          case "UNIQUE":
+              match("UNIQUE");
+              TABLECON2();
+              TABLECON3();
+              break;
+          case "FOREIGN":
+              match("FOREIGN");
+              match("KEY");
+              match("PARENTESISOP");
+              match("IDENTIFICADOR");
+              TABLECON7();
+              match("PARENTESISCLO");
+              COLUMNC6();
+              break;
+           case "CHECK":
+              match("CHECK");
+              COLUMNC16();
+              break;
+          default:
+             error();
+             break;
+        }
+      }
+      public void TABLECON2(){
+          switch (l){
+          case "CLUSTERED":
+              match("CLUSTERED");
+              break;
+          case "NONCLUSTERED":
+              match("NONCLUSTERED");
+              break;
+          default:
+            //VACIOS
+             break;
+        }
+      }
+      public void TABLECON3(){
+          if (l == "PARENTESISOP"){
+             match("PARENTESISOP");
+             TABLECON1();
+             match("PARENTESISCLO");
+             COLUMNC4();
+             
+         }
+         else{
+             error();
+         }
+      }
+      public void TABLECON8(){
+          if (l == "IDENTIFICADOR"){
+             match("IDENTIFICADOR");
+             TABLECON4();
+             
+         }
+         else{
+             error();
+         }
+      }
+      public void TABLECON4(){
+          switch (l){
+          case "ASC":
+              match("ASC");
+              TABLECON6();
+              break;
+          case "DESC":
+              match("DESC");
+              TABLECON6();
+              break;
+          default:
+            TABLECON6();
+             break;
+        }
+      }
+      public void TABLECON6(){
+          if (l == "COMMA"){
+             match("COMMA");
+             TABLECON8();
+             
+         }
+         else{
+             //VACIO
+         }
+      }
+      public void TABLECON7(){
+          if (l == "COMMA"){
+             match("COMMA");
+             match("IDENTIFICADOR");
+             TABLECON7();
+             
+         }
+         else{
+             //VACIO
+         }
+      }
+      public void DATATYPE(){
+          if (l == "IDENTIFICADOR"){
+             match("IDENTIFICADOR");
+             DATATYPE2();
+             
+         }
+         else{
+             DATATYPE3();
+         }
+      }
+      public void DATATYPE2(){
+          if (l == "PUNTO"){
+             match("PUNTO");
+             match("IDENTIFICADOR");
+             
+         }
+         else{
+            error();
+         }
+      }
+      public void DATATYPE3(){
+           switch (l){
+          case "BIT":
+              match("BIT");
+              DATATYPE4();
+              break;
+          case "INT":
+              match("INT");
+              DATATYPE4();
+          case "INTEGER":
+              match("INTEGER");
+              DATATYPE4();
+              break;
+          case "FLOAT":
+              match("FLOAT");
+              DATATYPE4();
+          case "VARCHAR":
+              match("VARCHAR");
+              DATATYPE4();
+           case "DATE":
+              match("DATE");
+              DATATYPE4();
+           case "REAL":
+              match("REAL");
+              DATATYPE4();
+           case "DECIMAL":
+              match("DECIMAL");
+              DATATYPE4();
+            case "NUMERIC":
+              match("NUMERIC");
+              DATATYPE4();
+            case "SMALLINT":
+              match("SMALLINT");
+              DATATYPE4();
+             case "TIME":
+              match("TIME");
+              DATATYPE4();
+            case "CHAR":
+              match("CHAR");
+              DATATYPE4();
+            case "NCHAR":
+              match("NCHAR");
+              DATATYPE4();
+          default:
+            TABLECON6();
+             break;
+        }
+      }
+       public void DATATYPE4(){
+          if (l == "PARENTESISOP"){
+             match("PARENTESISOP");
+             match("ENTERO");
+             DATATYPE5();
+         }
+         else{
+            //VACIO
+         }
+      }
+       public void DATATYPE5(){
+          if (l == "COMMA"){
+             match("COMMA");
+             match("ENTERO");
+             match("PARENTESISCLO");
+             
+         }
+         else{
+           match("PARENTESISCLO");
+         }
+      }
    
     
 // FUNCIONES DE ANALISIS Y ERRROR ////////////////////////////////////////////////////////////////////////////////////   
