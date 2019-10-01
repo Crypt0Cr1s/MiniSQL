@@ -132,6 +132,7 @@ public class SintacticoDescendente {
               break;
           case "GO":
               match("GO");
+              Z();
               break;
           default:
              error();
@@ -169,6 +170,7 @@ public class SintacticoDescendente {
               break;
           case "GO":
               match("GO");
+              Z();
               break;
           default:
              error();
@@ -184,6 +186,7 @@ public class SintacticoDescendente {
           }
           if(l == "GO"){
               match("GO");
+              Z();
           }
           else {
               error();
@@ -253,6 +256,7 @@ public class SintacticoDescendente {
       }
       if (l == "GO"){
           match("GO");
+          Z();
           
       }
       else{
@@ -302,6 +306,7 @@ public class SintacticoDescendente {
             break;
           case "GO":
               match("GO");
+              Z();
               break;
           default:
               error();
