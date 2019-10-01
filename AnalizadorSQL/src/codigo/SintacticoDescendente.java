@@ -47,7 +47,7 @@ public class SintacticoDescendente {
             //  C();
               break;
           case "ALTER":
-              A();
+             // A();
               break;
           case "DROP":
             DR(); //YA REVISADO
@@ -522,11 +522,11 @@ public class SintacticoDescendente {
    }
    public void PRED(){
        switch (l){
-          case "STRING":
-            match("STRING");           
+          case "CADENA":
+            match("CADENA");           
             NOT1();
             match("LIKE");
-            match("STRING");
+            match("CADENA");
             break;
           case "CONTAINS":
             match("CONTAINS");
@@ -541,7 +541,7 @@ public class SintacticoDescendente {
             match("PARENTESISOP");
             FT1();
             match("COMMA");
-            match("STRING");
+            match("CADENA");
             break;  
           default:
             E();
@@ -550,21 +550,20 @@ public class SintacticoDescendente {
       }
    }
    public void PRED1(){
-       switch (l){
-          case "IS":
-            match("IS");           
+       if (l == "IS"){
+           match("IS");           
             NOT1();
             match("NULL");
-            break;
-          case "COMPARADOR":
-            match("COMPARADOR");
-            E();
-            break;
-          default:
-            NOT1();
+            return;
+       }
+       if (l == "MENOR"|l=="MENORIGUAL"|l=="MAYOR"|l=="MAYORIGUAL"|l=="NOIGUAL"|l=="IGUALIGUAL"){
+          COMPARADORES();
+          E();
+       }
+       else{
+           NOT1();
             PRED3();
-            break;
-      }
+       }
    }
    public void NOT1(){
        if (l == "NOT"){
@@ -573,6 +572,31 @@ public class SintacticoDescendente {
        else{
            
        }
+   }
+   public void COMPARADORES(){
+       switch (l){
+          case "MENOR":
+            match("MENOR");           
+            break;
+          case "MENORIGUAL":
+            match("MENORIGUAL");
+            break;
+          case "MAYORIGUAL":
+            match("MAYORIGUAL");
+            break;  
+          case "MAYOR":
+            match("MAYOR");
+            break;  
+          case "NOIGUAL":
+            match("NOIGUAL");
+            break;  
+          case "IGUALIGUAL":
+            match("IGUALIGUAL");
+            break;  
+          default:
+           error();
+            break;
+      }
    }
    
    public void FT1(){
@@ -613,8 +637,8 @@ public class SintacticoDescendente {
    }
    public void CSC1(){
        switch (l){
-          case "STRING":
-            match("STRING");           
+          case "CADENA":
+            match("CADENA");           
             break;
           case "PARENTESISOP":
             match("PARENTESISOP");
@@ -720,7 +744,7 @@ public class SintacticoDescendente {
            match("ARROBA");
            match("IDENTIFICADOR");
        }
-       if (l == "NULL"||l == "INT"||l == "FLOAT"||l == "STRING"){
+       if (l == "NULL"||l == "INT"||l == "FLOAT"||l == "CADENA"){
           CONST();
        }
        if (l == "AVG"||l == "COUNT"||l == "MAX"||l == "MIN"||l == "SUM"){
@@ -815,8 +839,8 @@ public class SintacticoDescendente {
           case "FLOAT":
             match("FLOAT");
             break;
-          case "STRING":
-            match("STRING");
+          case "CADENA":
+            match("CADENA");
             break;
           default:
             //ERROR
@@ -1143,8 +1167,8 @@ public class SintacticoDescendente {
       }
     }
     public void ARGUMENT(){
-        if (l == "STRING"){
-            match("STRING");
+        if (l == "CADENA"){
+            match("CADENA");
             ARGUMENT2();
         }
         else{
@@ -1302,7 +1326,7 @@ public class SintacticoDescendente {
     public void OPROW2(){
         if (l == "PARENTESISOP"){
             match("PARENTESISOP");
-            match("STRING");
+            match("CADENA");
             match("COMMA");
             OPROW3();
         }
@@ -1311,8 +1335,8 @@ public class SintacticoDescendente {
         }
     }
     public void OPROW3(){
-        if (l == "STRING"){
-            match("STRING");
+        if (l == "CADENA"){
+            match("CADENA");
             OPROW4();
         }
         else{
@@ -1322,9 +1346,9 @@ public class SintacticoDescendente {
     public void OPROW4(){
         if (l == "PUNTOCOMA"){
             match("PUNTOCOMA");
-            match("STRING");
+            match("CADENA");
             match("PUNTOCOMA");
-            match("STRING");
+            match("CADENA");
             OPROW5();
         }
         else{
@@ -1343,8 +1367,8 @@ public class SintacticoDescendente {
     public void OPROW6(){
         
         
-        if (l == "STRING"){
-            match("STRING");
+        if (l == "CADENA"){
+            match("CADENA");
             match("PARENTESISCLO");
         }
         else{
@@ -1357,7 +1381,7 @@ public class SintacticoDescendente {
             match("PARANTESISOP");
             match("IDENTIFICADOR");
             match("COMMA");
-            match("STRING");
+            match("CADENA");
             match("PARENTESISCLO");
         }
         else{
@@ -1721,7 +1745,7 @@ public class SintacticoDescendente {
             match("TOP");
             match("PARENTESISOP");
             SEXP();
-            match("PARENSESISCLO");
+            match("PARENTESISCLO");
             INSERT2();
         }
         else{
@@ -1729,8 +1753,8 @@ public class SintacticoDescendente {
         }
     }
     public void INSERT2(){
-        if(l == "PORCENTAJE"){
-            match("PORCENTAJE");
+        if(l == "PERCENT"){
+            match("PERCENT");
             INSERT3();
         }
         else{
@@ -1800,7 +1824,7 @@ public class SintacticoDescendente {
               match("NULL"); 
               break;
           default:
-             E();
+             EXPRESSION();
              break;
         }
        
@@ -1809,7 +1833,7 @@ public class SintacticoDescendente {
          switch (l){
           case "COMMA":
               match("COMMA");
-              INSERT10();
+              INSERT8();
               break;
           case "PARENTESISCLO":
               match("PARENTESISCLO"); 
@@ -1824,7 +1848,6 @@ public class SintacticoDescendente {
      public void INSERT12(){
         if(l == "COMMA"){
             match("COMMA");
-            match("VALUES");
             match("PARENTESISOP");
             INSERT8();
         }
@@ -1862,7 +1885,7 @@ public class SintacticoDescendente {
               SELIST2();
               break;
           default:
-             E();
+             EXPRESSION();
              break;
         }
     }
@@ -1913,7 +1936,9 @@ public class SintacticoDescendente {
         E();
     }
     public void SELIST7(){
-        if (l == "ASTERISCO"||l == "IDENTIFICADOR"){
+        
+        if (l == "COMMA"){
+            match("COMMA");
             SELIST();
         }
         else{
@@ -2018,8 +2043,8 @@ public class SintacticoDescendente {
     }    
     public void DT_FN1(){
         switch (l){
-          case "STRING":
-              match("STRING");
+          case "CADENA":
+              match("CADENA");
               break;
           case "ARROBA":
               match("ARROBA");
@@ -2107,8 +2132,8 @@ public class SintacticoDescendente {
               SEXP();
               match("PARENTESISCLO");
               break;
-            case "SUBSTRING":
-              match("SUBSTRING");
+            case "SUBCADENA":
+              match("SUBCADENA");
               match("PARENTESISOP");
               STR_FN1();
               match("COMMA");
@@ -2131,8 +2156,8 @@ public class SintacticoDescendente {
               match("ARROBA");
               match("IDENTIFICADOR");
               break;
-          case "STRING":
-              match("STRING");
+          case "CADENA":
+              match("CADENA");
               break;
           default:
              error();
@@ -2140,7 +2165,7 @@ public class SintacticoDescendente {
         }
     }
     public void STR_FN2(){
-        if(l == "ARROBA"|l == "STRING"|l == "IDENTIFICADOR"){
+        if(l == "ARROBA"|l == "CADENA"|l == "IDENTIFICADOR"){
             STR_FN1();
             match("FROM");
         }
@@ -2230,26 +2255,31 @@ public class SintacticoDescendente {
     }*/
     
     public void EXPRESSION(){
-        if(l == "STRING"){
-            match("STRING"); 
+        if(l == "CADENA"){
+            match("CADENA");
+            return;
             
         }
         if(l == "IDENTIFICADOR"){
             match("IDENTIFICADOR");    
             EXPRESSION1();
+            return;
            
         }
         if(l == "PARENTESISOP"){
             match("PARENTESISOP");  
             EXPRESSION();
             match("PARENTESISCLO");
+            return;
         }
         if(l == "MAS"||l == "MENOS"){
             EXPRESSION2();
+            return;
             
         }
         if(l == "PARENTESISOP"||l == "ENTERO"||l == "FLOAT"||l == "ARROBA"||l == "AVG"||l == "COUNT"||l == "MAX"||l == "MIN"||l == "SUM"){
             SEXP();
+            return;
             
         }
         else{
@@ -2569,24 +2599,136 @@ public class SintacticoDescendente {
         }
     }
    public void TABLESOURCE(){
+      if (l == "ARROBA"){
+          match("ARROBA");
+          match("IDENTIFICADOR");
+          TABLESOURCE1();
+          return;
+      }
+      if (l == "OPENQUERY"| l == "OPENDATASOURCE"){
+          ROWSET();
+          TABLESOURCE1();
+          return;
+      }
+      if (l == "IDENTIFICADOR"){
+        TB_VNAME();
+        TABLESOURCE1();
+        TABLESOURCE2();
+        return;
+      }
+      else{
+        JOINTB();
+      }
+       
+       
+   }
+   public void JOINTB(){
+       if (l == "PARENTESISOP"){
+           match("PARENTESISOP");
+           match("JOIN");
+           match("PARENTESISCLO");
+       }
+       else{
+           TABLESOURCE();
+           JOINTB1();
+       }
+   }
+   
+   public void JOINTB1(){
+       if (l == "CROSS"){
+           match("CROSS");
+           match("COMMA");
+           match("JOIN");
+           JOINTB4();
+           return;
+       }
+       if (l=="INNER"||l == "LEFT"||l == "RIGHT"||l == "FULL"){
+           JOIN_TYPE();
+           JOINTB3();
+           return;
+       }
+       else{
+           //VACIO
+       }
+   }
+   public void JOINTB2(){
+       if (l == "CROSS"){
+           match("CROSS");
+           match("COMMA");
+           match("JOIN");
+           JOINTB4();
+           return;
+       }
+       if (l=="INNER"||l == "LEFT"||l == "RIGHT"||l == "FULL"){
+           JOIN_TYPE();
+           JOINTB3();
+           return;
+       }
+       else{
+           error();
+       }
+   }
+   public void JOINTB3(){
+       TABLESOURCE();
+       match("ON");
+       SEARCHCWMATCH();
+       JOINTB4();
+   }
+   
+   public void JOINTB4(){
+       if(l=="INNER"||l == "LEFT"||l == "RIGHT"||l == "FULL"||l == "CROSS"){
+           JOINTB2();
+           return;
+       }
+       else{
+           //VACIO
+       }
+   }
+   
+   public void  TB_VNAME(){
+       match("IDENTIFICADOR");
+       TB_VNAME1();
+   }
+   public void TB_VNAME1(){
+       if (l == "PUNTO"){
+           match("PUNTO");
+           match("IDENTIFICADOR");
+       }
+       else{
+           //VACIO
+       }
+   }
+   public void ROWSET(){
        switch (l){
+          case "OPENDATASOURCE":
+              match("OPENDATSOURCE");
+              match("PARENTESISOP");
+              match("CADENA");
+              match("COMMA");
+              match("CADENA");
+              match("PARENTESISCLO");
+              break;
+          case "OPENQUERY":
+               match("OPENQUERY");
+              match("PARENTESISOP");
+              match("IDENTIFICADOR");
+              match("COMMA");
+              match("CADENA");
+              match("PARENTESISCLO");
+              break;
+          default:
+             error();
+             break;
+        }
+   }
+   public void TABLESOURCE1(){
+      switch (l){
+          case "AS":
+              match("AS");
+              match("IDENTIFICADOR");
+              break;
           case "IDENTIFICADOR":
               match("IDENTIFICADOR");
-              TABLESOURCE();
-              break;
-          case "ROWSETF":
-              match("ROWSETF");
-              TABLESOURCE();
-              break;
-           case "ARROBA":
-              match("ARROBA");
-              match("IDENTIFICAR");
-              TABLESOURCE();
-              break;
-           case "PARENTESISOP":
-              match("PARENTESISOP");
-              TABLESOURCE();
-              TABLESOURCE3();
               break;
           default:
              //VACIO
@@ -2595,18 +2737,7 @@ public class SintacticoDescendente {
    }
    public void TABLESOURCE2(){
        if (l == "CROSS"){
-            match("CROSS");
-              match("JOIN");
-              TABLESOURCE();
-              TABLESOURCE2();   
-
-        }
-       if (l == "JOIN"||l == "INNER"||l == "LEFT"||l == "RIGHT"||l == "FULL"||l == "OUTER"){
-            JOIN_TYPE();   
-            TABLESOURCE();
-            match("ON");
-            SEARCHCWMATCH();
-            TABLESOURCE2();   
+           SAM_CL();
 
         }
        else{
@@ -2614,28 +2745,28 @@ public class SintacticoDescendente {
        }
  
    }
-   public void TABLESOURCE3(){
-       if (l == "CROSS"){
-            match("CROSS");
-              match("JOIN");
-              TABLESOURCE();
-              match("PARENTESISCLO");
-              TABLESOURCE2();   
-
+   public void SAM_CL(){
+       match("TABLESAMBLE");
+       match("PARENTESISOP");
+       SAM_CL1();
+       match("PARENTESISCLO");
+   }
+   public void SAM_CL1(){
+       SEXP();
+       SAM_CL2();
+   }
+   public void SAM_CL2(){
+       switch (l){
+          case "PERCENT":
+              match("PERCENT");
+              break;
+          case "ROWS":
+              match("ROWS");
+              break;
+          default:
+             //VACIO
+             break;
         }
-       if (l == "JOIN"||l == "INNER"||l == "LEFT"||l == "RIGHT"||l == "FULL"||l == "OUTER"){
-            JOIN_TYPE();   
-            TABLESOURCE();
-            match("ON");
-            SEARCHCWMATCH();
-            match("PARENTESISCLO");
-            TABLESOURCE();   
-
-        }
-       else{
-           //VACIO
-       }
- 
    }
    public void ORDER(){
        EXPRESSION();
@@ -2679,7 +2810,7 @@ public class SintacticoDescendente {
               break;
 
           default:
-             error();
+             //VACIO
              break;
         }
     }
@@ -2991,15 +3122,15 @@ public class SintacticoDescendente {
     public void ALTERT8(){
        
       if (l == "INNER"){
-          COLDEF();
+       //   COLDEF();
           ALTERT9();
       }
       if (l == "LEFT"||l == "RIGHT"||l == "FULL"){
-         CCD();
+      //   CCD();
          ALTERT9();
       }
       if (l == "LEFT"||l == "RIGHT"||l == "FULL"){
-         TABLECON();
+       //  TABLECON();
          ALTERT9();
       }
       else{
@@ -3085,7 +3216,7 @@ public class SintacticoDescendente {
           l= ll.get(posicion);
       }
       if(((l != "PUNTOCOMA") && (l != "GO")) && (posicion == ll.size()-2)){
-           resultado2 +=  "Error Sintantico falto PUNTOCOMA " + " En Linea: " + ll.get(posicion+1) + "\n" ;
+           resultado2 +=  "Error Sintantico falto PUNTOCOMA o GO " + " En Linea: " + ll.get(posicion+1) + "\n" ;
       }
       if(posicion != ll.size()-2){
          posicion = posicion + 2;
@@ -3100,6 +3231,9 @@ public class SintacticoDescendente {
       
   }
   public void terminado() {
+      if( l != "PUNTOCOMA" ||l != "GO" ){
+           resultado2 += "Error Sintantico falto PUNTOCOMA o GO " + " En Linea: " + ll.get(posicion+1) + "\n" ;
+      }
       resultado2 += "Fin";
       
         FileWriter w = null;
