@@ -4029,6 +4029,88 @@ public class SintacticoDescendente {
            match("PARENTESISCLO");
          }
       }
+       public void TBIN(){
+           match("INDEX");
+           match("INDENTIFICADOR");
+           TABLECON2();
+           match("PARENTESISOP");
+           TABLECON8();
+           match("PARENTESISCLO");
+           COLUMNC4();
+       }
+       public void C(){
+           match("SELECT");
+           CREATEP();
+           FINSENTENCIA();
+       }
+       public void CREATEP(){
+           switch (l){
+          case "TABLE":
+              match("TABLE");
+              CREATET1();
+              break;
+          default:
+            error();
+             break;
+        }
+       }
+       public void CREATET1(){
+          OBJECT();
+          CREATET2();
+      }
+       public void CREATET2(){
+           switch (l){
+          case "IDENTIFICADOR":
+              match("IDENTIFICADOR");
+              CREATET4();
+              COLUMNC4();
+              break;
+           case "CONSTRAINT":
+               TABLECON();
+              CREATET3();
+              COLUMNC4();
+              break;
+          default:
+            TBIN();
+            COLUMNC4();
+             break;
+        }
+       }
+       public void CREATET3(){
+          if (l == "COMMA"){
+             match("COMMA");
+             TABLECON();
+             CREATET3();
+             
+         }
+         else{
+           //VACIO
+         }
+      }
+       public void CREATET4(){
+          if (l == "AS"){
+             CCD();
+             
+         }
+         else{
+           COLDEF();
+         }
+      }
+       public void FINSENTENCIA(){
+            switch (l){
+          case "PUNTOCOMA":
+              match("PUNTOCOMA");
+              Z();
+              break;
+           case "GO":
+               match("GO");
+               Z();
+              break;
+          default:
+            error();
+             break;
+        }
+       }
    
     
 // FUNCIONES DE ANALISIS Y ERRROR ////////////////////////////////////////////////////////////////////////////////////   
