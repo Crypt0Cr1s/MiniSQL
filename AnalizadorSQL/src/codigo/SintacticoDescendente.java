@@ -43,9 +43,9 @@ public class SintacticoDescendente {
           case "DELETE":
               D();//YA REVISADO
               break;
-          //case "CREATE":
-            //  C();
-             // break;
+          case "CREATE":
+              C();
+              break;
           case "ALTER":
               A();
               break;
@@ -3969,6 +3969,7 @@ public class SintacticoDescendente {
           case "INT":
               match("INT");
               DATATYPE4();
+               break;
           case "INTEGER":
               match("INTEGER");
               DATATYPE4();
@@ -4039,7 +4040,7 @@ public class SintacticoDescendente {
            COLUMNC4();
        }
        public void C(){
-           match("SELECT");
+           match("CREATE");
            CREATEP();
            FINSENTENCIA();
        }
@@ -4049,14 +4050,117 @@ public class SintacticoDescendente {
               match("TABLE");
               CREATET1();
               break;
+           case "USER":
+              match("USER");
+              CREATEU1();
+              break;
+            case "VIEW":
+              match("VIEW");
+              CREATEV1();
+              break;
+            case "DATABASE":
+              match("DATABASE");
+              CREATED1();
+              break;
+            case "UNIQUE":
+              PREINDEXU();
+              PREINDEXC();
+              match("INDEX");
+              CREATEI1();
+              break;
           default:
             error();
              break;
         }
        }
+       public void CREATEI1(){
+           match("IDENTIFICADOR");
+           match("ON");
+           OBJECT();
+           match("PARENTESISOP");
+           TABLECON8();
+           match("PARENTESISCLO");
+           CREATEI2();
+       }
+       public void CREATEI2(){
+           if (l == "INCLUDE"){
+             match("INCLUDE");
+             match("PARENTESISOP");
+             match("IDENTIFICADOR");
+             TABLECON7();
+             match("PARENTESISCLO");
+
+             
+         }
+         else{
+           //VACIO
+         }
+       }
+       public void PREINDEXU(){
+           if (l == "UNIQUE"){
+             match("UNIQUE");
+
+             
+         }
+         else{
+           //VACIO
+         }
+       }
+       public void PREINDEXC(){
+           switch (l){
+          case "CLUSTERED":
+              match("CLUSTERED");
+
+              break;
+          case "NONCLUSTERED":
+              match("NONCLUSTERED");
+
+              break;
+          default:
+            //VACIO
+             break;
+           }
+       }
+       public void CREATEU1(){
+           if (l == "IDENTIFICADOR"){
+             match("IDENTIFICADOR");
+
+             
+         }
+         else{
+           error();
+         }
+       }
+       public void CREATEV1(){
+           if (l == "PUNTO"){
+               match("PUNTO");
+             match("IDENTIFICADOR");
+             CREATEV3();
+             
+         }
+         else{
+           CREATEV3();
+         }
+       }
+       public void CREATEV3(){
+           if (l == "PARENTESISOP"){
+               match("PARENTESISOP");
+             match("IDENTIFICADOR");
+             TABLECON7();
+             match("PAENTESISCLO");
+             
+             
+         }
+         else{
+           //vacio
+         }
+       }
        public void CREATET1(){
           OBJECT();
+          match("PARENTESISOP");
           CREATET2();
+          match("PARENTESISCLO");
+          CREATET5();
       }
        public void CREATET2(){
            switch (l){
@@ -4066,7 +4170,7 @@ public class SintacticoDescendente {
               COLUMNC4();
               break;
            case "CONSTRAINT":
-               TABLECON();
+              TABLECON();
               CREATET3();
               COLUMNC4();
               break;
@@ -4096,6 +4200,24 @@ public class SintacticoDescendente {
            COLDEF();
          }
       }
+       public void CREATET5(){
+            if (l == "COMMA"){
+                match("COMMA");
+                CREATET2();
+             
+         }
+         else{
+           //VACIO
+         }
+       }
+       public void CREATED1(){
+           match("IDENTIFICADOR");
+           CREATED2();
+       }
+       public void CREATED2(){
+           match("COLLATE");
+           match("IDENTIFICADOR");
+       }
        public void FINSENTENCIA(){
             switch (l){
           case "PUNTOCOMA":
