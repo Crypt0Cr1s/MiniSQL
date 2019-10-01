@@ -28,6 +28,7 @@ public class SintacticoDescendente {
       ll=token;
       l=ll.get(posicion);
       Z();
+      terminado();
     }
   public void Z (){
       switch (l){
