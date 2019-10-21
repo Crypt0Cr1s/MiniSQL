@@ -16,6 +16,7 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java_cup.runtime.Symbol;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -85,10 +86,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                        .addComponent(btnExaminar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnAnalizar)))
+                        .addComponent(btnExaminar, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAnalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -99,8 +100,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(txtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAnalizar)
                     .addComponent(btnExaminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -117,37 +118,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
             Reader lector = new BufferedReader(new FileReader(Ruta));
             Lexer lexer = new Lexer(lector);
             String resultado = "";
-            while (true) {
-                Tokens tokens = lexer.yylex();
-                if (tokens == null) {
-                    resultado += "Fin";
-                    txtResultado.setText(resultado);
-                    FileWriter w = new FileWriter("Salida.out");
-
-                    BufferedWriter bw = new BufferedWriter(w);
-
-                    PrintWriter wr = new PrintWriter(bw);  
-
-                    wr.write(resultado);
-                    wr.close();
-                    bw.close();
-                    return;
-                    
-                }
-                switch (tokens) {
-                    case ERROR:
-                        resultado += lexer.lexeme + " Simbolo no definido" + " En Columna: " + lexer.column1 + " y Linea: " + lexer.line + "\n";
-                        resultado +=  "------------------------------------------------------------------------------------\n";
-                        break;
-                    
-                    default:
-                        resultado += lexer.lexeme + ": Es un "+ tokens + " En Columna: " + lexer.column1 +" a Columna: " + lexer.column2 + " y Linea: " + lexer.line + "\n";
-                        resultado +=  "------------------------------------------------------------------------------------\n";
-                }
-            }
+            Sintax s = new Sintax (lexer);
+            s.parse();
+            
+            
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         

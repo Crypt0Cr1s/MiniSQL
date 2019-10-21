@@ -1,11 +1,29 @@
 package codigo;
-import static codigo.Tokens.*;
+import java_cup.runtime.Symbol;
 %%
 
 %class Lexer
-%type Tokens
+%type java_cup.runtime.Symbol
 %line
 %column
+%cup
+
+%{
+    private Symbol symbol(int type) {
+        return new Symbol(type, yyline, yycolumn);
+    }
+     private Symbol symbol(int type, Object value) {
+        return new Symbol(type, yyline, yycolumn, value);
+    }
+
+%}
+
+
+
+
+
+
+
 
 
 
@@ -348,359 +366,359 @@ LOGIN = "LOGIN"
 %%
 
 
-//{Punt} { line = Integer.toString(yyline+1); return Puntuacion;}
-{Int} {  line = Integer.toString(yyline+1); return Entero;}
-{String} { line = Integer.toString(yyline+1); return Cadena;}
-{Float} { line = Integer.toString(yyline+1); return Float;}
+//{Punt} {return new Symbol(sym.Int, yychar, yyline, yytext());}
+{Int} {return new Symbol(sym.Entero, yychar, yyline, yytext());}
+{String} {return new Symbol(sym.Cadena, yychar, yyline, yytext());}
+{Float} {return new Symbol(sym.Float, yychar, yyline, yytext());}
 
-{ADD} { line = Integer.toString(yyline+1); return ADD; }
-{ALL} { line = Integer.toString(yyline+1); return ALL; }
-{ALTER} { line = Integer.toString(yyline+1); return ALTER; }
-{AND} { line = Integer.toString(yyline+1); return AND; }
-{ANY} { line = Integer.toString(yyline+1); return ANY; }
-{AS} { line = Integer.toString(yyline+1); return AS; }
-{ASC} { line = Integer.toString(yyline+1); return ASC; }
-{AUTHORIZATION} { line = Integer.toString(yyline+1); return AUTHORIZATION; }
-{BACKUP} { line = Integer.toString(yyline+1); return BACKUP; }
-{BEGIN} { line = Integer.toString(yyline+1); return BEGIN; }
-{BETWEEN} { line = Integer.toString(yyline+1); return BETWEEN; }
-{BREAK} { line = Integer.toString(yyline+1); return BREAK; }
-{BROWSE} { line = Integer.toString(yyline+1); return BROWSE; }
-{BULK} { line = Integer.toString(yyline+1); return BULK; }
-{BY} { line = Integer.toString(yyline+1); return BY; }
-{CASCADE} { line = Integer.toString(yyline+1); return CASCADE; }
-{CASE} { line = Integer.toString(yyline+1); return CASE; }
-{CHECK} { line = Integer.toString(yyline+1); return CHECK; }
-{CHECKPOINT} { line = Integer.toString(yyline+1); return CHECKPOINT; }
-{CLOSE} { line = Integer.toString(yyline+1); return CLOSE; }
-{CLUSTERED} { line = Integer.toString(yyline+1); return CLUSTERED; }
-{COALESCE} { line = Integer.toString(yyline+1); return COALESCE; }
-{COLLATE} { line = Integer.toString(yyline+1); return COLLATE; }
-{COLUMN} { line = Integer.toString(yyline+1); return COLUMN; }
-{COMMIT} { line = Integer.toString(yyline+1); return COMMIT; }
-{COMPUTE} { line = Integer.toString(yyline+1); return COMPUTE; }
-{CONSTRAINT} { line = Integer.toString(yyline+1); return CONSTRAINT; }
-{CONTAINS} { line = Integer.toString(yyline+1); return CONTAINS; }
-{CONTAINSTABLE} { line = Integer.toString(yyline+1); return CONTAINSTABLE; }
-{CONTINUE} { line = Integer.toString(yyline+1); return CONTINUE; }
-{CONVERT} { line = Integer.toString(yyline+1); return CONVERT; }
-{CREATE} { line = Integer.toString(yyline+1); return CREATE; }
-{CROSS} { line = Integer.toString(yyline+1); return CROSS; }
-{CURRENT} { line = Integer.toString(yyline+1); return CURRENT; }
-{CURRENT_DATE} { line = Integer.toString(yyline+1); return CURRENT_DATE; }
-{CURRENT_TIME} { line = Integer.toString(yyline+1); return CURRENT_TIME; }
-{CURRENT_TIMESTAMP} { line = Integer.toString(yyline+1); return CURRENT_TIMESTAMP; }
-{CURRENT_USER} { line = Integer.toString(yyline+1); return CURRENT_USER; }
-{CURSOR} { line = Integer.toString(yyline+1); return CURSOR; }
-{DATABASE} { line = Integer.toString(yyline+1); return DATABASE; }
-{DBCC} { line = Integer.toString(yyline+1); return DBCC; }
-{DEALLOCATE} { line = Integer.toString(yyline+1); return DEALLOCATE; }
-{DECLARE} { line = Integer.toString(yyline+1); return DECLARE; }
-{DEFAULT} { line = Integer.toString(yyline+1); return DEFAULT; }
-{DELETE} { line = Integer.toString(yyline+1); return DELETE; }
-{DENY} { line = Integer.toString(yyline+1); return DENY; }
-{DESC} { line = Integer.toString(yyline+1); return DESC; }
-{DISK} { line = Integer.toString(yyline+1); return DISK; }
-{DISTINCT} { line = Integer.toString(yyline+1); return DISTINCT; }
-{DISTRIBUTED} { line = Integer.toString(yyline+1); return DISTRIBUTED; }
-{DOUBLE} { line = Integer.toString(yyline+1); return DOUBLE; }
-{DROP} { line = Integer.toString(yyline+1); return DROP; }
-{DUMP} { line = Integer.toString(yyline+1); return DUMP; }
-{ELSE} { line = Integer.toString(yyline+1); return ELSE; }
-{END} { line = Integer.toString(yyline+1); return END; }
-{ERRLVL} { line = Integer.toString(yyline+1); return ERRLVL; }
-{ESCAPE} { line = Integer.toString(yyline+1); return ESCAPE; }
-{EXCEPT} { line = Integer.toString(yyline+1); return EXCEPT; }
-{EXEC} { line = Integer.toString(yyline+1); return EXEC; }
-{EXECUTE} { line = Integer.toString(yyline+1); return EXECUTE; }
-{EXISTS} { line = Integer.toString(yyline+1); return EXISTS; }
-{EXIT} { line = Integer.toString(yyline+1); return EXIT; }
-{EXTERNAL} { line = Integer.toString(yyline+1); return EXTERNAL; }
-{FETCH} { line = Integer.toString(yyline+1); return FETCH; }
-{FILE} { line = Integer.toString(yyline+1); return FILE; }
-{FILLFACTOR} { line = Integer.toString(yyline+1); return FILLFACTOR; }
-{FOR} { line = Integer.toString(yyline+1); return FOR; }
-{FOREIGN} { line = Integer.toString(yyline+1); return FOREIGN; }
-{FREETEXT} { line = Integer.toString(yyline+1); return FREETEXT; }
-{FREETEXTTABLE} { line = Integer.toString(yyline+1); return FREETEXTTABLE; }
-{FROM} { line = Integer.toString(yyline+1); return FROM; }
-{FULL} { line = Integer.toString(yyline+1); return FULL; }
-{FUNCTION} { line = Integer.toString(yyline+1); return FUNCTION; }
-{GOTO} { line = Integer.toString(yyline+1); return GOTO; }
-{GRANT} { line = Integer.toString(yyline+1); return GRANT; }
-{GROUP} { line = Integer.toString(yyline+1); return GROUP; }
-{HAVING} { line = Integer.toString(yyline+1); return HAVING; }
-{HOLDLOCK} { line = Integer.toString(yyline+1); return HOLDLOCK; }
-{IDENTITY} { line = Integer.toString(yyline+1); return IDENTITY; }
-{IDENTITY_INSERT} { line = Integer.toString(yyline+1); return IDENTITY_INSERT; }
-{IDENTITYCOL} { line = Integer.toString(yyline+1); return IDENTITYCOL; }
-{IF} { line = Integer.toString(yyline+1); return IF; }
-{IN} { line = Integer.toString(yyline+1); return IN; }
-{INDEX} { line = Integer.toString(yyline+1); return INDEX; }
-{INNER} { line = Integer.toString(yyline+1); return INNER; }
-{INSERT} { line = Integer.toString(yyline+1); return INSERT; }
-{INTERSECT} { line = Integer.toString(yyline+1); return INTERSECT; }
-{INTO} { line = Integer.toString(yyline+1); return INTO; }
-{IS} { line = Integer.toString(yyline+1); return IS; }
-{JOIN} { line = Integer.toString(yyline+1); return JOIN; }
-{KEY} { line = Integer.toString(yyline+1); return KEY; }
-{KILL} { line = Integer.toString(yyline+1); return KILL; }
-{LEFT} { line = Integer.toString(yyline+1); return LEFT; }
-{LIKE} { line = Integer.toString(yyline+1); return LIKE; }
-{LINENO} { line = Integer.toString(yyline+1); return LINENO; }
-{LOAD} { line = Integer.toString(yyline+1); return LOAD; }
-{MERGE} { line = Integer.toString(yyline+1); return MERGE; }
-{NATIONAL} { line = Integer.toString(yyline+1); return NATIONAL; }
-{NOCHECK} { line = Integer.toString(yyline+1); return NOCHECK; }
-{NONCLUSTERED} { line = Integer.toString(yyline+1); return NONCLUSTERED; }
-{NOT} { line = Integer.toString(yyline+1); return NOT; }
-{NULL} { line = Integer.toString(yyline+1); return NULL; }
-{NULLIF} { line = Integer.toString(yyline+1); return NULLIF; }
-{OF} { line = Integer.toString(yyline+1); return OF; }
-{OFF} { line = Integer.toString(yyline+1); return OFF; }
-{OFFSETS} { line = Integer.toString(yyline+1); return OFFSETS; }
-{ON} { line = Integer.toString(yyline+1); return ON; }
-{OPEN} { line = Integer.toString(yyline+1); return OPEN; }
-{OPENDATASOURCE} { line = Integer.toString(yyline+1); return OPENDATASOURCE; }
-{OPENQUERY} { line = Integer.toString(yyline+1); return OPENQUERY; }
-{OPENROWSET} { line = Integer.toString(yyline+1); return OPENROWSET; }
-{OPENXML} { line = Integer.toString(yyline+1); return OPENXML; }
-{OPTION} { line = Integer.toString(yyline+1); return OPTION; }
-{OR} { line = Integer.toString(yyline+1); return OR; }
-{ORDER} { line = Integer.toString(yyline+1); return ORDER; }
-{OUTER} { line = Integer.toString(yyline+1); return OUTER; }
-{OVER} { line = Integer.toString(yyline+1); return OVER; }
-{PERCENT} { line = Integer.toString(yyline+1); return PERCENT; }
-{PIVOT} { line = Integer.toString(yyline+1); return PIVOT; }
-{PLAN} { line = Integer.toString(yyline+1); return PLAN; }
-{PRECISION} { line = Integer.toString(yyline+1); return PRECISION; }
-{PRIMARY} { line = Integer.toString(yyline+1); return PRIMARY; }
-{PRINT} { line = Integer.toString(yyline+1); return PRINT; }
-{PROC} { line = Integer.toString(yyline+1); return PROC; }
-{PROCEDURE} { line = Integer.toString(yyline+1); return PROCEDURE; }
-{PUBLIC} { line = Integer.toString(yyline+1); return PUBLIC; }
-{RAISERROR} { line = Integer.toString(yyline+1); return RAISERROR; }
-{READ} { line = Integer.toString(yyline+1); return READ; }
-{READTEXT} { line = Integer.toString(yyline+1); return READTEXT; }
-{RECONFIGURE} { line = Integer.toString(yyline+1); return RECONFIGURE; }
-{REFERENCES} { line = Integer.toString(yyline+1); return REFERENCES; }
-{REPLICATION} { line = Integer.toString(yyline+1); return REPLICATION; }
-{RESTORE} { line = Integer.toString(yyline+1); return RESTORE; }
-{RESTRICT} { line = Integer.toString(yyline+1); return RESTRICT; }
-{RETURN} { line = Integer.toString(yyline+1); return RETURN; }
-{REVERT} { line = Integer.toString(yyline+1); return REVERT; }
-{REVOKE} { line = Integer.toString(yyline+1); return REVOKE; }
-{RIGHT} { line = Integer.toString(yyline+1); return RIGHT; }
-{ROLLBACK} { line = Integer.toString(yyline+1); return ROLLBACK; }
-{ROWCOUNT} { line = Integer.toString(yyline+1); return ROWCOUNT; }
-{ROWGUIDCOL} { line = Integer.toString(yyline+1); return ROWGUIDCOL; }
-{RULE} { line = Integer.toString(yyline+1); return RULE; }
-{SAVE} { line = Integer.toString(yyline+1); return SAVE; }
-{SCHEMA} { line = Integer.toString(yyline+1); return SCHEMA; }
-{SECURITYAUDIT} { line = Integer.toString(yyline+1); return SECURITYAUDIT; }
-{SELECT} { line = Integer.toString(yyline+1); return SELECT; }
-{SEMANTICKEYPHRASETABLE} { line = Integer.toString(yyline+1); return SEMANTICKEYPHRASETABLE; }
-{SEMANTICSIMILARITYDETAILSTABLE} { line = Integer.toString(yyline+1); return SEMANTICSIMILARITYDETAILSTABLE; }
-{SEMANTICSIMILARITYTABLE} { line = Integer.toString(yyline+1); return SEMANTICSIMILARITYTABLE; }
-{SESSION_USER} { line = Integer.toString(yyline+1); return SESSION_USER; }
-{SET} { line = Integer.toString(yyline+1); return SET; }
-{SETUSER} { line = Integer.toString(yyline+1); return SETUSER; }
-{SHUTDOWN} { line = Integer.toString(yyline+1); return SHUTDOWN; }
-{SOME} { line = Integer.toString(yyline+1); return SOME; }
-{STATISTICS} { line = Integer.toString(yyline+1); return STATISTICS; }
-{SYSTEM_USER} { line = Integer.toString(yyline+1); return SYSTEM_USER; }
-{TABLE} { line = Integer.toString(yyline+1); return TABLE; }
-{TABLESAMPLE} { line = Integer.toString(yyline+1); return TABLESAMPLE; }
-{TEXTSIZE} { line = Integer.toString(yyline+1); return TEXTSIZE; }
-{THEN} { line = Integer.toString(yyline+1); return THEN; }
-{TO} { line = Integer.toString(yyline+1); return TO; }
-{TOP} { line = Integer.toString(yyline+1); return TOP; }
-{TRAN} { line = Integer.toString(yyline+1); return TRAN; }
-{TRANSACTION} { line = Integer.toString(yyline+1); return TRANSACTION; }
-{TRIGGER} { line = Integer.toString(yyline+1); return TRIGGER; }
-{TRUNCATE} { line = Integer.toString(yyline+1); return TRUNCATE; }
-{TRY_CONVERT} { line = Integer.toString(yyline+1); return TRY_CONVERT; }
-{TSEQUAL} { line = Integer.toString(yyline+1); return TSEQUAL; }
-{UNION} { line = Integer.toString(yyline+1); return UNION; }
-{UNIQUE} { line = Integer.toString(yyline+1); return UNIQUE; }
-{UNPIVOT} { line = Integer.toString(yyline+1); return UNPIVOT; }
-{UPDATE} { line = Integer.toString(yyline+1); return UPDATE; }
-{UPDATETEXT} { line = Integer.toString(yyline+1); return UPDATETEXT; }
-{USE} { line = Integer.toString(yyline+1); return USE; }
-{USER} { line = Integer.toString(yyline+1); return USER; }
-{VALUES} { line = Integer.toString(yyline+1); return VALUES; }
-{VARYING} { line = Integer.toString(yyline+1); return VARYING; }
-{VIEW} { line = Integer.toString(yyline+1); return VIEW; }
-{WAITFOR} { line = Integer.toString(yyline+1); return WAITFOR; }
-{WHEN} { line = Integer.toString(yyline+1); return WHEN; }
-{WHERE} { line = Integer.toString(yyline+1); return WHERE; }
-{WHILE} { line = Integer.toString(yyline+1); return WHILE; }
-{WITH} { line = Integer.toString(yyline+1); return WITH; }
-{WITHIN_GROUP} { line = Integer.toString(yyline+1); return WITHIN_GROUP; }
-{WRITETEXT} { line = Integer.toString(yyline+1); return WRITETEXT; }
-{ABSOLUTE} { line = Integer.toString(yyline+1); return ABSOLUTE; }
-{ACTION} { line = Integer.toString(yyline+1); return ACTION; }
-{ADA} { line = Integer.toString(yyline+1); return ADA; }
-{ALLOCATE} { line = Integer.toString(yyline+1); return ALLOCATE; }
-{ARE} { line = Integer.toString(yyline+1); return ARE; }
-{ASSERTION} { line = Integer.toString(yyline+1); return ASSERTION; }
-{AT} { line = Integer.toString(yyline+1); return AT; }
-{AVG} { line = Integer.toString(yyline+1); return AVG; }
-{BIT} { line = Integer.toString(yyline+1); return BIT; }
-{BIT_LENGTH} { line = Integer.toString(yyline+1); return BIT_LENGTH; }
-{BOTH} { line = Integer.toString(yyline+1); return BOTH; }
-{CASCADED} { line = Integer.toString(yyline+1); return CASCADED; }
-{CAST} { line = Integer.toString(yyline+1); return CAST; }
-{CATALOG} { line = Integer.toString(yyline+1); return CATALOG; }
-{CHAR} { line = Integer.toString(yyline+1); return CHAR; }
-{CHAR_LENGTH} { line = Integer.toString(yyline+1); return CHAR_LENGTH; }
-{CHARACTER} { line = Integer.toString(yyline+1); return CHARACTER; }
-{CHARACTER_LENGTH} { line = Integer.toString(yyline+1); return CHARACTER_LENGTH; }
-{COLLATION} { line = Integer.toString(yyline+1); return COLLATION; }
-{CONNECT} { line = Integer.toString(yyline+1); return CONNECT; }
-{CONNECTION} { line = Integer.toString(yyline+1); return CONNECTION; }
-{CONSTRAINTS} { line = Integer.toString(yyline+1); return CONSTRAINTS; }
-{CORRESPONDING} { line = Integer.toString(yyline+1); return CORRESPONDING; }
-{COUNT} { line = Integer.toString(yyline+1); return COUNT; }
-{DATE} { line = Integer.toString(yyline+1); return DATE; }
-{DAY} { line = Integer.toString(yyline+1); return DAY; }
-{DEC} { line = Integer.toString(yyline+1); return DEC; }
-{DECIMAL} { line = Integer.toString(yyline+1); return DECIMAL; }
-{DEFERRABLE} { line = Integer.toString(yyline+1); return DEFERRABLE; }
-{DEFERRED} { line = Integer.toString(yyline+1); return DEFERRED; }
-{DESCRIBE} { line = Integer.toString(yyline+1); return DESCRIBE; }
-{DESCRIPTOR} { line = Integer.toString(yyline+1); return DESCRIPTOR; }
-{DIAGNOSTICS} { line = Integer.toString(yyline+1); return DIAGNOSTICS; }
-{DISCONNECT} { line = Integer.toString(yyline+1); return DISCONNECT; }
-{DOMAIN} { line = Integer.toString(yyline+1); return DOMAIN; }
-{END_EXEC} { line = Integer.toString(yyline+1); return END_EXEC; }
-{EXCEPTION} { line = Integer.toString(yyline+1); return EXCEPTION; }
-{EXTRACT} { line = Integer.toString(yyline+1); return EXTRACT; }
-{FALSE} { line = Integer.toString(yyline+1); return FALSE; }
-{FIRST} { line = Integer.toString(yyline+1); return FIRST; }
-{FLOAT} { line = Integer.toString(yyline+1); return FLOAT; }
-{FORTRAN} { line = Integer.toString(yyline+1); return FORTRAN; }
-{FOUND} { line = Integer.toString(yyline+1); return FOUND; }
-{GET} { line = Integer.toString(yyline+1); return GET; }
-{GLOBAL} { line = Integer.toString(yyline+1); return GLOBAL; }
-{GO} { line = Integer.toString(yyline+1); return GO; }
-{HOUR} { line = Integer.toString(yyline+1); return HOUR; }
-{IMMEDIATE} { line = Integer.toString(yyline+1); return IMMEDIATE; }
-{INCLUDE} { line = Integer.toString(yyline+1); return INCLUDE; }
-{INDICATOR} { line = Integer.toString(yyline+1); return INDICATOR; }
-{INITIALLY} { line = Integer.toString(yyline+1); return INITIALLY; }
-{INPUT} { line = Integer.toString(yyline+1); return INPUT; }
-{INSENSITIVE} { line = Integer.toString(yyline+1); return INSENSITIVE; }
-{INT} { line = Integer.toString(yyline+1); return INT; }
-{INTEGER} { line = Integer.toString(yyline+1); return INTEGER; }
-{INTERVAL} { line = Integer.toString(yyline+1); return INTERVAL; }
-{ISOLATION} { line = Integer.toString(yyline+1); return ISOLATION; }
-{LANGUAGE} { line = Integer.toString(yyline+1); return LANGUAGE; }
-{LAST} { line = Integer.toString(yyline+1); return LAST; }
-{LEADING} { line = Integer.toString(yyline+1); return LEADING; }
-{LEVEL} { line = Integer.toString(yyline+1); return LEVEL; }
-{LOCAL} { line = Integer.toString(yyline+1); return LOCAL; }
-{LOWER} { line = Integer.toString(yyline+1); return LOWER; }
-{MATCH} { line = Integer.toString(yyline+1); return MATCH; }
-{MAX} { line = Integer.toString(yyline+1); return MAX; }
-{MIN} { line = Integer.toString(yyline+1); return MIN; }
-{MINUTE} { line = Integer.toString(yyline+1); return MINUTE; }
-{MODULE} { line = Integer.toString(yyline+1); return MODULE; }
-{MONTH} { line = Integer.toString(yyline+1); return MONTH; }
-{NAMES} { line = Integer.toString(yyline+1); return NAMES; }
-{NATURAL} { line = Integer.toString(yyline+1); return NATURAL; }
-{NCHAR} { line = Integer.toString(yyline+1); return NCHAR; }
-{NEXT} { line = Integer.toString(yyline+1); return NEXT; }
-{NO} { line = Integer.toString(yyline+1); return NO; }
-{NONE} { line = Integer.toString(yyline+1); return NONE; }
-{NUMERIC} { line = Integer.toString(yyline+1); return NUMERIC; }
-{OCTET_LENGTH} { line = Integer.toString(yyline+1); return OCTET_LENGTH; }
-{ONLY} { line = Integer.toString(yyline+1); return ONLY; }
-{OUTPUT} { line = Integer.toString(yyline+1); return OUTPUT; }
-{OVERLAPS} { line = Integer.toString(yyline+1); return OVERLAPS; }
-{PAD} { line = Integer.toString(yyline+1); return PAD; }
-{PARTIAL} { line = Integer.toString(yyline+1); return PARTIAL; }
-{PASCAL} { line = Integer.toString(yyline+1); return PASCAL; }
-{POSITION} { line = Integer.toString(yyline+1); return POSITION; }
-{PREPARE} { line = Integer.toString(yyline+1); return PREPARE; }
-{PRESERVE} { line = Integer.toString(yyline+1); return PRESERVE; }
-{PRIOR} { line = Integer.toString(yyline+1); return PRIOR; }
-{PRIVILEGES} { line = Integer.toString(yyline+1); return PRIVILEGES; }
-{REAL} { line = Integer.toString(yyline+1); return REAL; }
-{RELATIVE} { line = Integer.toString(yyline+1); return RELATIVE; }
-{ROWS} { line = Integer.toString(yyline+1); return ROWS; }
-{SCROLL} { line = Integer.toString(yyline+1); return SCROLL; }
-{SECOND} { line = Integer.toString(yyline+1); return SECOND; }
-{SECTION} { line = Integer.toString(yyline+1); return SECTION; }
-{SESSION} { line = Integer.toString(yyline+1); return SESSION; }
-{SIZE} { line = Integer.toString(yyline+1); return SIZE; }
-{SMALLINT} { line = Integer.toString(yyline+1); return SMALLINT; }
-{SPACE} { line = Integer.toString(yyline+1); return SPACE; }
-{SQL} { line = Integer.toString(yyline+1); return SQL; }
-{SQLCA} { line = Integer.toString(yyline+1); return SQLCA; }
-{SQLCODE} { line = Integer.toString(yyline+1); return SQLCODE; }
-{SQLERROR} { line = Integer.toString(yyline+1); return SQLERROR; }
-{SQLSTATE} { line = Integer.toString(yyline+1); return SQLSTATE; }
-{SQLWARNING} { line = Integer.toString(yyline+1); return SQLWARNING; }
-{SUBSTRING} { line = Integer.toString(yyline+1); return SUBSTRING; }
-{SUM} { line = Integer.toString(yyline+1); return SUM; }
-{TEMPORARY} { line = Integer.toString(yyline+1); return TEMPORARY; }
-{TIME} { line = Integer.toString(yyline+1); return TIME; }
-{TIMESTAMP} { line = Integer.toString(yyline+1); return TIMESTAMP; }
-{TIMEZONE_HOUR} { line = Integer.toString(yyline+1); return TIMEZONE_HOUR; }
-{TIMEZONE_MINUTE} { line = Integer.toString(yyline+1); return TIMEZONE_MINUTE; }
-{TRAILING} { line = Integer.toString(yyline+1); return TRAILING; }
-{TRANSLATE} { line = Integer.toString(yyline+1); return TRANSLATE; }
-{TRANSLATION} { line = Integer.toString(yyline+1); return TRANSLATION; }
-{TRIM} { line = Integer.toString(yyline+1); return TRIM; }
-{TRUE} { line = Integer.toString(yyline+1); return TRUE; }
-{UNKNOWN} { line = Integer.toString(yyline+1); return UNKNOWN; }
-{UPPER} { line = Integer.toString(yyline+1); return UPPER; }
-{USAGE} { line = Integer.toString(yyline+1); return USAGE; }
-{USING} { line = Integer.toString(yyline+1); return USING; }
-{VALUE} { line = Integer.toString(yyline+1); return VALUE; }
-{VARCHAR} { line = Integer.toString(yyline+1); return VARCHAR; }
-{WHENEVER} { line = Integer.toString(yyline+1); return WHENEVER; }
-{WORK} { line = Integer.toString(yyline+1); return WORK; }
-{WRITE} { line = Integer.toString(yyline+1); return WRITE; }
-{YEAR} { line = Integer.toString(yyline+1); return YEAR; }
-{ZONE} { line = Integer.toString(yyline+1); return ZONE; }
-{LOGIN} { line = Integer.toString(yyline+1); return LOGIN; }
-    "+" { line = Integer.toString(yyline+1); return MAS;}
-    "-" { line = Integer.toString(yyline+1); return MENOS;}
-    "*" { line = Integer.toString(yyline+1); return ASTERISCO;}
-    "/" { line = Integer.toString(yyline+1); return DIV;}
-    "%" { line = Integer.toString(yyline+1); return PORCENTAJE;}
-    "<" { line = Integer.toString(yyline+1); return MENOR;}
-    "<=" { line = Integer.toString(yyline+1); return MENORIGUAL;}
-    ">" { line = Integer.toString(yyline+1); return MAYOR;}
-    ">=" { line = Integer.toString(yyline+1); return MAYORIGUAL;}
-    "=" { line = Integer.toString(yyline+1); return IGUAL;}
-    "==" { line = Integer.toString(yyline+1); return IGUALIGUAL;}
-    "!=" { line = Integer.toString(yyline+1); return NOIGUAL;}
-    "&&" { line = Integer.toString(yyline+1); return AND;}
-    "||" { line = Integer.toString(yyline+1); return OR;}
-    "!" { line = Integer.toString(yyline+1); return ADMIRACION;}
-    ";" { line = Integer.toString(yyline+1); return PUNTOCOMA;}
-    "," { line = Integer.toString(yyline+1); return COMMA;}
-    "." { line = Integer.toString(yyline+1); return PUNTO;}
-    "[" { line = Integer.toString(yyline+1); return CORCHETEOP;}
-    "]" { line = Integer.toString(yyline+1); return CORCHETECLO;}
-    "(" { line = Integer.toString(yyline+1); return PARENTESISOP;}
-    ")" { line = Integer.toString(yyline+1); return PARENTESISCLO;}
-    "{" { line = Integer.toString(yyline+1); return LLAVEOP;}
-    "}" { line = Integer.toString(yyline+1); return LLAVECLO;}
-    "[]" { line = Integer.toString(yyline+1); return CORCHETEDOBLE;}
-    "()" { line = Integer.toString(yyline+1); return PARENTESISDOBLE;}
-    "{}" { line = Integer.toString(yyline+1); return LLAVEDOBLE;}
-    "@" { line = Integer.toString(yyline+1); return ARROBA;}
-    "#" { line = Integer.toString(yyline+1); return NUMERAL;}
-    "##" { line = Integer.toString(yyline+1); return NUMERALDOBLE;}
+{ADD} {return new Symbol(sym.ADD, yychar, yyline, yytext());}
+{ALL} {return new Symbol(sym.ALL, yychar, yyline, yytext());}
+{ALTER} {return new Symbol(sym.ALTER, yychar, yyline, yytext());}
+{AND} {return new Symbol(sym.AND, yychar, yyline, yytext());}
+{ANY} {return new Symbol(sym.ANY, yychar, yyline, yytext());}
+{AS} {return new Symbol(sym.AS, yychar, yyline, yytext());}
+{ASC} {return new Symbol(sym.ASC, yychar, yyline, yytext());}
+{AUTHORIZATION} {return new Symbol(sym.AUTHORIZATION, yychar, yyline, yytext());}
+{BACKUP} {return new Symbol(sym.BACKUP, yychar, yyline, yytext());}
+{BEGIN} {return new Symbol(sym.BEGIN, yychar, yyline, yytext());}
+{BETWEEN} {return new Symbol(sym.BETWEEN, yychar, yyline, yytext());}
+{BREAK} {return new Symbol(sym.BREAK, yychar, yyline, yytext());}
+{BROWSE} {return new Symbol(sym.BROWSE, yychar, yyline, yytext());}
+{BULK} {return new Symbol(sym.BULK, yychar, yyline, yytext());}
+{BY} {return new Symbol(sym.BY, yychar, yyline, yytext());}
+{CASCADE} {return new Symbol(sym.CASCADE, yychar, yyline, yytext());}
+{CASE} {return new Symbol(sym.CASE, yychar, yyline, yytext());}
+{CHECK} {return new Symbol(sym.CHECK, yychar, yyline, yytext());}
+{CHECKPOINT} {return new Symbol(sym.CHECKPOINT, yychar, yyline, yytext());}
+{CLOSE} {return new Symbol(sym.CLOSE, yychar, yyline, yytext());}
+{CLUSTERED} {return new Symbol(sym.CLUSTERED, yychar, yyline, yytext());}
+{COALESCE} {return new Symbol(sym.COALESCE, yychar, yyline, yytext());}
+{COLLATE} {return new Symbol(sym.COLLATE, yychar, yyline, yytext());}
+{COLUMN} {return new Symbol(sym.COLUMN, yychar, yyline, yytext());}
+{COMMIT} {return new Symbol(sym.COMMIT, yychar, yyline, yytext());}
+{COMPUTE} {return new Symbol(sym.COMPUTE, yychar, yyline, yytext());}
+{CONSTRAINT} {return new Symbol(sym.CONSTRAINT, yychar, yyline, yytext());}
+{CONTAINS} {return new Symbol(sym.CONTAINS, yychar, yyline, yytext());}
+{CONTAINSTABLE} {return new Symbol(sym.CONTAINSTABLE, yychar, yyline, yytext());}
+{CONTINUE} {return new Symbol(sym.CONTINUE, yychar, yyline, yytext());}
+{CONVERT} {return new Symbol(sym.CONVERT, yychar, yyline, yytext());}
+{CREATE} {return new Symbol(sym.CREATE, yychar, yyline, yytext());}
+{CROSS} {return new Symbol(sym.CROSS, yychar, yyline, yytext());}
+{CURRENT} {return new Symbol(sym.CURRENT, yychar, yyline, yytext());}
+{CURRENT_DATE} {return new Symbol(sym.CURRENT_DATE, yychar, yyline, yytext());}
+{CURRENT_TIME} {return new Symbol(sym.CURRENT_TIME, yychar, yyline, yytext());}
+{CURRENT_TIMESTAMP} {return new Symbol(sym.CURRENT_TIMESTAMP, yychar, yyline, yytext());}
+{CURRENT_USER} {return new Symbol(sym.CURRENT_USER, yychar, yyline, yytext());}
+{CURSOR} {return new Symbol(sym.CURSOR, yychar, yyline, yytext());}
+{DATABASE} {return new Symbol(sym.DATABASE, yychar, yyline, yytext());}
+{DBCC} {return new Symbol(sym.DBCC, yychar, yyline, yytext());}
+{DEALLOCATE} {return new Symbol(sym.DEALLOCATE, yychar, yyline, yytext());}
+{DECLARE} {return new Symbol(sym.DECLARE, yychar, yyline, yytext());}
+{DEFAULT} {return new Symbol(sym.DEFAULT, yychar, yyline, yytext());}
+{DELETE} {return new Symbol(sym.DELETE, yychar, yyline, yytext());}
+{DENY} {return new Symbol(sym.DENY, yychar, yyline, yytext());}
+{DESC} {return new Symbol(sym.DESC, yychar, yyline, yytext());}
+{DISK} {return new Symbol(sym.DISK, yychar, yyline, yytext());}
+{DISTINCT} {return new Symbol(sym.DISTINCT, yychar, yyline, yytext());}
+{DISTRIBUTED} {return new Symbol(sym.DISTRIBUTED, yychar, yyline, yytext());}
+{DOUBLE} {return new Symbol(sym.DOUBLE, yychar, yyline, yytext());}
+{DROP} {return new Symbol(sym.DROP, yychar, yyline, yytext());}
+{DUMP} {return new Symbol(sym.DUMP, yychar, yyline, yytext());}
+{ELSE} {return new Symbol(sym.ELSE, yychar, yyline, yytext());}
+{END} {return new Symbol(sym.END, yychar, yyline, yytext());}
+{ERRLVL} {return new Symbol(sym.ERRLVL, yychar, yyline, yytext());}
+{ESCAPE} {return new Symbol(sym.ESCAPE, yychar, yyline, yytext());}
+{EXCEPT} {return new Symbol(sym.EXCEPT, yychar, yyline, yytext());}
+{EXEC} {return new Symbol(sym.EXEC, yychar, yyline, yytext());}
+{EXECUTE} {return new Symbol(sym.EXECUTE, yychar, yyline, yytext());}
+{EXISTS} {return new Symbol(sym.EXISTS, yychar, yyline, yytext());}
+{EXIT} {return new Symbol(sym.EXIT, yychar, yyline, yytext());}
+{EXTERNAL} {return new Symbol(sym.EXTERNAL, yychar, yyline, yytext());}
+{FETCH} {return new Symbol(sym.FETCH, yychar, yyline, yytext());}
+{FILE} {return new Symbol(sym.FILE, yychar, yyline, yytext());}
+{FILLFACTOR} {return new Symbol(sym.FILLFACTOR, yychar, yyline, yytext());}
+{FOR} {return new Symbol(sym.FOR, yychar, yyline, yytext());}
+{FOREIGN} {return new Symbol(sym.FOREIGN, yychar, yyline, yytext());}
+{FREETEXT} {return new Symbol(sym.FREETEXT, yychar, yyline, yytext());}
+{FREETEXTTABLE} {return new Symbol(sym.FREETEXTTABLE, yychar, yyline, yytext());}
+{FROM} {return new Symbol(sym.FROM, yychar, yyline, yytext());}
+{FULL} {return new Symbol(sym.FULL, yychar, yyline, yytext());}
+{FUNCTION} {return new Symbol(sym.FUNCTION, yychar, yyline, yytext());}
+{GOTO} {return new Symbol(sym.GOTO, yychar, yyline, yytext());}
+{GRANT} {return new Symbol(sym.GRANT, yychar, yyline, yytext());}
+{GROUP} {return new Symbol(sym.GROUP, yychar, yyline, yytext());}
+{HAVING} {return new Symbol(sym.HAVING, yychar, yyline, yytext());}
+{HOLDLOCK} {return new Symbol(sym.HOLDLOCK, yychar, yyline, yytext());}
+{IDENTITY} {return new Symbol(sym.IDENTITY, yychar, yyline, yytext());}
+{IDENTITY_INSERT} {return new Symbol(sym.IDENTITY_INSERT, yychar, yyline, yytext());}
+{IDENTITYCOL} {return new Symbol(sym.IDENTITYCOL, yychar, yyline, yytext());}
+{IF} {return new Symbol(sym.IF, yychar, yyline, yytext());}
+{IN} {return new Symbol(sym.IN, yychar, yyline, yytext());}
+{INDEX} {return new Symbol(sym.INDEX, yychar, yyline, yytext());}
+{INNER} {return new Symbol(sym.INNER, yychar, yyline, yytext());}
+{INSERT} {return new Symbol(sym.INSERT, yychar, yyline, yytext());}
+{INTERSECT} {return new Symbol(sym.INTERSECT, yychar, yyline, yytext());}
+{INTO} {return new Symbol(sym.INTO, yychar, yyline, yytext());}
+{IS} {return new Symbol(sym.IS, yychar, yyline, yytext());}
+{JOIN} {return new Symbol(sym.JOIN, yychar, yyline, yytext());}
+{KEY} {return new Symbol(sym.KEY, yychar, yyline, yytext());}
+{KILL} {return new Symbol(sym.KILL, yychar, yyline, yytext());}
+{LEFT} {return new Symbol(sym.LEFT, yychar, yyline, yytext());}
+{LIKE} {return new Symbol(sym.LIKE, yychar, yyline, yytext());}
+{LINENO} {return new Symbol(sym.LINENO, yychar, yyline, yytext());}
+{LOAD} {return new Symbol(sym.LOAD, yychar, yyline, yytext());}
+{MERGE} {return new Symbol(sym.MERGE, yychar, yyline, yytext());}
+{NATIONAL} {return new Symbol(sym.NATIONAL, yychar, yyline, yytext());}
+{NOCHECK} {return new Symbol(sym.NOCHECK, yychar, yyline, yytext());}
+{NONCLUSTERED} {return new Symbol(sym.NONCLUSTERED, yychar, yyline, yytext());}
+{NOT} {return new Symbol(sym.NOT, yychar, yyline, yytext());}
+{NULL} {return new Symbol(sym.NULL, yychar, yyline, yytext());}
+{NULLIF} {return new Symbol(sym.NULLIF, yychar, yyline, yytext());}
+{OF} {return new Symbol(sym.OF, yychar, yyline, yytext());}
+{OFF} {return new Symbol(sym.OFF, yychar, yyline, yytext());}
+{OFFSETS} {return new Symbol(sym.OFFSETS, yychar, yyline, yytext());}
+{ON} {return new Symbol(sym.ON, yychar, yyline, yytext());}
+{OPEN} {return new Symbol(sym.OPEN, yychar, yyline, yytext());}
+{OPENDATASOURCE} {return new Symbol(sym.OPENDATASOURCE, yychar, yyline, yytext());}
+{OPENQUERY} {return new Symbol(sym.OPENQUERY, yychar, yyline, yytext());}
+{OPENROWSET} {return new Symbol(sym.OPENROWSET, yychar, yyline, yytext());}
+{OPENXML} {return new Symbol(sym.OPENXML, yychar, yyline, yytext());}
+{OPTION} {return new Symbol(sym.OPTION, yychar, yyline, yytext());}
+{OR} {return new Symbol(sym.OR, yychar, yyline, yytext());}
+{ORDER} {return new Symbol(sym.ORDER, yychar, yyline, yytext());}
+{OUTER} {return new Symbol(sym.OUTER, yychar, yyline, yytext());}
+{OVER} {return new Symbol(sym.OVER, yychar, yyline, yytext());}
+{PERCENT} {return new Symbol(sym.PERCENT, yychar, yyline, yytext());}
+{PIVOT} {return new Symbol(sym.PIVOT, yychar, yyline, yytext());}
+{PLAN} {return new Symbol(sym.PLAN, yychar, yyline, yytext());}
+{PRECISION} {return new Symbol(sym.PRECISION, yychar, yyline, yytext());}
+{PRIMARY} {return new Symbol(sym.PRIMARY, yychar, yyline, yytext());}
+{PRINT} {return new Symbol(sym.PRINT, yychar, yyline, yytext());}
+{PROC} {return new Symbol(sym.PROC, yychar, yyline, yytext());}
+{PROCEDURE} {return new Symbol(sym.PROCEDURE, yychar, yyline, yytext());}
+{PUBLIC} {return new Symbol(sym.PUBLIC, yychar, yyline, yytext());}
+{RAISERROR} {return new Symbol(sym.RAISERROR, yychar, yyline, yytext());}
+{READ} {return new Symbol(sym.READ, yychar, yyline, yytext());}
+{READTEXT} {return new Symbol(sym.READTEXT, yychar, yyline, yytext());}
+{RECONFIGURE} {return new Symbol(sym.RECONFIGURE, yychar, yyline, yytext());}
+{REFERENCES} {return new Symbol(sym.REFERENCES, yychar, yyline, yytext());}
+{REPLICATION} {return new Symbol(sym.REPLICATION, yychar, yyline, yytext());}
+{RESTORE} {return new Symbol(sym.RESTORE, yychar, yyline, yytext());}
+{RESTRICT} {return new Symbol(sym.RESTRICT, yychar, yyline, yytext());}
+{RETURN} {return new Symbol(sym.RETURN, yychar, yyline, yytext());}
+{REVERT} {return new Symbol(sym.REVERT, yychar, yyline, yytext());}
+{REVOKE} {return new Symbol(sym.REVOKE, yychar, yyline, yytext());}
+{RIGHT} {return new Symbol(sym.RIGHT, yychar, yyline, yytext());}
+{ROLLBACK} {return new Symbol(sym.ROLLBACK, yychar, yyline, yytext());}
+{ROWCOUNT} {return new Symbol(sym.ROWCOUNT, yychar, yyline, yytext());}
+{ROWGUIDCOL} {return new Symbol(sym.ROWGUIDCOL, yychar, yyline, yytext());}
+{RULE} {return new Symbol(sym.RULE, yychar, yyline, yytext());}
+{SAVE} {return new Symbol(sym.SAVE, yychar, yyline, yytext());}
+{SCHEMA} {return new Symbol(sym.SCHEMA, yychar, yyline, yytext());}
+{SECURITYAUDIT} {return new Symbol(sym.SECURITYAUDIT, yychar, yyline, yytext());}
+{SELECT} {return new Symbol(sym.SELECT, yychar, yyline, yytext());}
+{SEMANTICKEYPHRASETABLE} {return new Symbol(sym.SEMANTICKEYPHRASETABLE, yychar, yyline, yytext());}
+{SEMANTICSIMILARITYDETAILSTABLE} {return new Symbol(sym.SEMANTICSIMILARITYDETAILSTABLE, yychar, yyline, yytext());}
+{SEMANTICSIMILARITYTABLE} {return new Symbol(sym.SEMANTICSIMILARITYTABLE, yychar, yyline, yytext());}
+{SESSION_USER} {return new Symbol(sym.SESSION_USER, yychar, yyline, yytext());}
+{SET} {return new Symbol(sym.SET, yychar, yyline, yytext());}
+{SETUSER} {return new Symbol(sym.SETUSER, yychar, yyline, yytext());}
+{SHUTDOWN} {return new Symbol(sym.SHUTDOWN, yychar, yyline, yytext());}
+{SOME} {return new Symbol(sym.SOME, yychar, yyline, yytext());}
+{STATISTICS} {return new Symbol(sym.STATISTICS, yychar, yyline, yytext());}
+{SYSTEM_USER} {return new Symbol(sym.SYSTEM_USER, yychar, yyline, yytext());}
+{TABLE} {return new Symbol(sym.TABLE, yychar, yyline, yytext());}
+{TABLESAMPLE} {return new Symbol(sym.TABLESAMPLE, yychar, yyline, yytext());}
+{TEXTSIZE} {return new Symbol(sym.TEXTSIZE, yychar, yyline, yytext());}
+{THEN} {return new Symbol(sym.THEN, yychar, yyline, yytext());}
+{TO} {return new Symbol(sym.TO, yychar, yyline, yytext());}
+{TOP} {return new Symbol(sym.TOP, yychar, yyline, yytext());}
+{TRAN} {return new Symbol(sym.TRAN, yychar, yyline, yytext());}
+{TRANSACTION} {return new Symbol(sym.TRANSACTION, yychar, yyline, yytext());}
+{TRIGGER} {return new Symbol(sym.TRIGGER, yychar, yyline, yytext());}
+{TRUNCATE} {return new Symbol(sym.TRUNCATE, yychar, yyline, yytext());}
+{TRY_CONVERT} {return new Symbol(sym.TRY_CONVERT, yychar, yyline, yytext());}
+{TSEQUAL} {return new Symbol(sym.TSEQUAL, yychar, yyline, yytext());}
+{UNION} {return new Symbol(sym.UNION, yychar, yyline, yytext());}
+{UNIQUE} {return new Symbol(sym.UNIQUE, yychar, yyline, yytext());}
+{UNPIVOT} {return new Symbol(sym.UNPIVOT, yychar, yyline, yytext());}
+{UPDATE} {return new Symbol(sym.UPDATE, yychar, yyline, yytext());}
+{UPDATETEXT} {return new Symbol(sym.UPDATETEXT, yychar, yyline, yytext());}
+{USE} {return new Symbol(sym.USE, yychar, yyline, yytext());}
+{USER} {return new Symbol(sym.USER, yychar, yyline, yytext());}
+{VALUES} {return new Symbol(sym.VALUES, yychar, yyline, yytext());}
+{VARYING} {return new Symbol(sym.VARYING, yychar, yyline, yytext());}
+{VIEW} {return new Symbol(sym.VIEW, yychar, yyline, yytext());}
+{WAITFOR} {return new Symbol(sym.WAITFOR, yychar, yyline, yytext());}
+{WHEN} {return new Symbol(sym.WHEN, yychar, yyline, yytext());}
+{WHERE} {return new Symbol(sym.WHERE, yychar, yyline, yytext());}
+{WHILE} {return new Symbol(sym.WHILE, yychar, yyline, yytext());}
+{WITH} {return new Symbol(sym.WITH, yychar, yyline, yytext());}
+{WITHIN_GROUP} {return new Symbol(sym.WITHIN_GROUP, yychar, yyline, yytext());}
+{WRITETEXT} {return new Symbol(sym.WRITETEXT, yychar, yyline, yytext());}
+{ABSOLUTE} {return new Symbol(sym.ABSOLUTE, yychar, yyline, yytext());}
+{ACTION} {return new Symbol(sym.ACTION, yychar, yyline, yytext());}
+{ADA} {return new Symbol(sym.ADA, yychar, yyline, yytext());}
+{ALLOCATE} {return new Symbol(sym.ALLOCATE, yychar, yyline, yytext());}
+{ARE} {return new Symbol(sym.ARE, yychar, yyline, yytext());}
+{ASSERTION} {return new Symbol(sym.ASSERTION, yychar, yyline, yytext());}
+{AT} {return new Symbol(sym.AT, yychar, yyline, yytext());}
+{AVG} {return new Symbol(sym.AVG, yychar, yyline, yytext());}
+{BIT} {return new Symbol(sym.BIT, yychar, yyline, yytext());}
+{BIT_LENGTH} {return new Symbol(sym.BIT_LENGTH, yychar, yyline, yytext());}
+{BOTH} {return new Symbol(sym.BOTH, yychar, yyline, yytext());}
+{CASCADED} {return new Symbol(sym.CASCADED, yychar, yyline, yytext());}
+{CAST} {return new Symbol(sym.CAST, yychar, yyline, yytext());}
+{CATALOG} {return new Symbol(sym.CATALOG, yychar, yyline, yytext());}
+{CHAR} {return new Symbol(sym.CHAR, yychar, yyline, yytext());}
+{CHAR_LENGTH} {return new Symbol(sym.CHAR_LENGTH, yychar, yyline, yytext());}
+{CHARACTER} {return new Symbol(sym.CHARACTER, yychar, yyline, yytext());}
+{CHARACTER_LENGTH} {return new Symbol(sym.CHARACTER_LENGTH, yychar, yyline, yytext());}
+{COLLATION} {return new Symbol(sym.COLLATION, yychar, yyline, yytext());}
+{CONNECT} {return new Symbol(sym.CONNECT, yychar, yyline, yytext());}
+{CONNECTION} {return new Symbol(sym.CONNECTION, yychar, yyline, yytext());}
+{CONSTRAINTS} {return new Symbol(sym.CONSTRAINTS, yychar, yyline, yytext());}
+{CORRESPONDING} {return new Symbol(sym.CORRESPONDING, yychar, yyline, yytext());}
+{COUNT} {return new Symbol(sym.COUNT, yychar, yyline, yytext());}
+{DATE} {return new Symbol(sym.DATE, yychar, yyline, yytext());}
+{DAY} {return new Symbol(sym.DAY, yychar, yyline, yytext());}
+{DEC} {return new Symbol(sym.DEC, yychar, yyline, yytext());}
+{DECIMAL} {return new Symbol(sym.DECIMAL, yychar, yyline, yytext());}
+{DEFERRABLE} {return new Symbol(sym.DEFERRABLE, yychar, yyline, yytext());}
+{DEFERRED} {return new Symbol(sym.DEFERRED, yychar, yyline, yytext());}
+{DESCRIBE} {return new Symbol(sym.DESCRIBE, yychar, yyline, yytext());}
+{DESCRIPTOR} {return new Symbol(sym.DESCRIPTOR, yychar, yyline, yytext());}
+{DIAGNOSTICS} {return new Symbol(sym.DIAGNOSTICS, yychar, yyline, yytext());}
+{DISCONNECT} {return new Symbol(sym.DISCONNECT, yychar, yyline, yytext());}
+{DOMAIN} {return new Symbol(sym.DOMAIN, yychar, yyline, yytext());}
+{END_EXEC} {return new Symbol(sym.END_EXEC, yychar, yyline, yytext());}
+{EXCEPTION} {return new Symbol(sym.EXCEPTION, yychar, yyline, yytext());}
+{EXTRACT} {return new Symbol(sym.EXTRACT, yychar, yyline, yytext());}
+{FALSE} {return new Symbol(sym.FALSE, yychar, yyline, yytext());}
+{FIRST} {return new Symbol(sym.FIRST, yychar, yyline, yytext());}
+{FLOAT} {return new Symbol(sym.FLOAT, yychar, yyline, yytext());}
+{FORTRAN} {return new Symbol(sym.FORTRAN, yychar, yyline, yytext());}
+{FOUND} {return new Symbol(sym.FOUND, yychar, yyline, yytext());}
+{GET} {return new Symbol(sym.GET, yychar, yyline, yytext());}
+{GLOBAL} {return new Symbol(sym.GLOBAL, yychar, yyline, yytext());}
+{GO} {return new Symbol(sym.GO, yychar, yyline, yytext());}
+{HOUR} {return new Symbol(sym.HOUR, yychar, yyline, yytext());}
+{IMMEDIATE} {return new Symbol(sym.IMMEDIATE, yychar, yyline, yytext());}
+{INCLUDE} {return new Symbol(sym.INCLUDE, yychar, yyline, yytext());}
+{INDICATOR} {return new Symbol(sym.INDICATOR, yychar, yyline, yytext());}
+{INITIALLY} {return new Symbol(sym.INITIALLY, yychar, yyline, yytext());}
+{INPUT} {return new Symbol(sym.INPUT, yychar, yyline, yytext());}
+{INSENSITIVE} {return new Symbol(sym.INSENSITIVE, yychar, yyline, yytext());}
+{INT} {return new Symbol(sym.INT, yychar, yyline, yytext());}
+{INTEGER} {return new Symbol(sym.INTEGER, yychar, yyline, yytext());}
+{INTERVAL} {return new Symbol(sym.INTERVAL, yychar, yyline, yytext());}
+{ISOLATION} {return new Symbol(sym.ISOLATION, yychar, yyline, yytext());}
+{LANGUAGE} {return new Symbol(sym.LANGUAGE, yychar, yyline, yytext());}
+{LAST} {return new Symbol(sym.LAST, yychar, yyline, yytext());}
+{LEADING} {return new Symbol(sym.LEADING, yychar, yyline, yytext());}
+{LEVEL} {return new Symbol(sym.LEVEL, yychar, yyline, yytext());}
+{LOCAL} {return new Symbol(sym.LOCAL, yychar, yyline, yytext());}
+{LOWER} {return new Symbol(sym.LOWER, yychar, yyline, yytext());}
+{MATCH} {return new Symbol(sym.MATCH, yychar, yyline, yytext());}
+{MAX} {return new Symbol(sym.MAX, yychar, yyline, yytext());}
+{MIN} {return new Symbol(sym.MIN, yychar, yyline, yytext());}
+{MINUTE} {return new Symbol(sym.MINUTE, yychar, yyline, yytext());}
+{MODULE} {return new Symbol(sym.MODULE, yychar, yyline, yytext());}
+{MONTH} {return new Symbol(sym.MONTH, yychar, yyline, yytext());}
+{NAMES} {return new Symbol(sym.NAMES, yychar, yyline, yytext());}
+{NATURAL} {return new Symbol(sym.NATURAL, yychar, yyline, yytext());}
+{NCHAR} {return new Symbol(sym.NCHAR, yychar, yyline, yytext());}
+{NEXT} {return new Symbol(sym.NEXT, yychar, yyline, yytext());}
+{NO} {return new Symbol(sym.NO, yychar, yyline, yytext());}
+{NONE} {return new Symbol(sym.NONE, yychar, yyline, yytext());}
+{NUMERIC} {return new Symbol(sym.NUMERIC, yychar, yyline, yytext());}
+{OCTET_LENGTH} {return new Symbol(sym.OCTET_LENGTH, yychar, yyline, yytext());}
+{ONLY} {return new Symbol(sym.ONLY, yychar, yyline, yytext());}
+{OUTPUT} {return new Symbol(sym.OUTPUT, yychar, yyline, yytext());}
+{OVERLAPS} {return new Symbol(sym.OVERLAPS, yychar, yyline, yytext());}
+{PAD} {return new Symbol(sym.PAD, yychar, yyline, yytext());}
+{PARTIAL} {return new Symbol(sym.PARTIAL, yychar, yyline, yytext());}
+{PASCAL} {return new Symbol(sym.PASCAL, yychar, yyline, yytext());}
+{POSITION} {return new Symbol(sym.POSITION, yychar, yyline, yytext());}
+{PREPARE} {return new Symbol(sym.PREPARE, yychar, yyline, yytext());}
+{PRESERVE} {return new Symbol(sym.PRESERVE, yychar, yyline, yytext());}
+{PRIOR} {return new Symbol(sym.PRIOR, yychar, yyline, yytext());}
+{PRIVILEGES} {return new Symbol(sym.PRIVILEGES, yychar, yyline, yytext());}
+{REAL} {return new Symbol(sym.REAL, yychar, yyline, yytext());}
+{RELATIVE} {return new Symbol(sym.RELATIVE, yychar, yyline, yytext());}
+{ROWS} {return new Symbol(sym.ROWS, yychar, yyline, yytext());}
+{SCROLL} {return new Symbol(sym.SCROLL, yychar, yyline, yytext());}
+{SECOND} {return new Symbol(sym.SECOND, yychar, yyline, yytext());}
+{SECTION} {return new Symbol(sym.SECTION, yychar, yyline, yytext());}
+{SESSION} {return new Symbol(sym.SESSION, yychar, yyline, yytext());}
+{SIZE} {return new Symbol(sym.SIZE, yychar, yyline, yytext());}
+{SMALLINT} {return new Symbol(sym.SMALLINT, yychar, yyline, yytext());}
+{SPACE} {return new Symbol(sym.SPACE, yychar, yyline, yytext());}
+{SQL} {return new Symbol(sym.SQL, yychar, yyline, yytext());}
+{SQLCA} {return new Symbol(sym.SQLCA, yychar, yyline, yytext());}
+{SQLCODE} {return new Symbol(sym.SQLCODE, yychar, yyline, yytext());}
+{SQLERROR} {return new Symbol(sym.SQLERROR, yychar, yyline, yytext());}
+{SQLSTATE} {return new Symbol(sym.SQLSTATE, yychar, yyline, yytext());}
+{SQLWARNING} {return new Symbol(sym.SQLWARNING, yychar, yyline, yytext());}
+{SUBSTRING} {return new Symbol(sym.SUBSTRING, yychar, yyline, yytext());}
+{SUM} {return new Symbol(sym.SUM, yychar, yyline, yytext());}
+{TEMPORARY} {return new Symbol(sym.TEMPORARY, yychar, yyline, yytext());}
+{TIME} {return new Symbol(sym.TIME, yychar, yyline, yytext());}
+{TIMESTAMP} {return new Symbol(sym.TIMESTAMP, yychar, yyline, yytext());}
+{TIMEZONE_HOUR} {return new Symbol(sym.TIMEZONE_HOUR, yychar, yyline, yytext());}
+{TIMEZONE_MINUTE} {return new Symbol(sym.TIMEZONE_MINUTE, yychar, yyline, yytext());}
+{TRAILING} {return new Symbol(sym.TRAILING, yychar, yyline, yytext());}
+{TRANSLATE} {return new Symbol(sym.TRANSLATE, yychar, yyline, yytext());}
+{TRANSLATION} {return new Symbol(sym.TRANSLATION, yychar, yyline, yytext());}
+{TRIM} {return new Symbol(sym.TRIM, yychar, yyline, yytext());}
+{TRUE} {return new Symbol(sym.TRUE, yychar, yyline, yytext());}
+{UNKNOWN} {return new Symbol(sym.UNKNOWN, yychar, yyline, yytext());}
+{UPPER} {return new Symbol(sym.UPPER, yychar, yyline, yytext());}
+{USAGE} {return new Symbol(sym.USAGE, yychar, yyline, yytext());}
+{USING} {return new Symbol(sym.USING, yychar, yyline, yytext());}
+{VALUE} {return new Symbol(sym.VALUE, yychar, yyline, yytext());}
+{VARCHAR} {return new Symbol(sym.VARCHAR, yychar, yyline, yytext());}
+{WHENEVER} {return new Symbol(sym.WHENEVER, yychar, yyline, yytext());}
+{WORK} {return new Symbol(sym.WORK, yychar, yyline, yytext());}
+{WRITE} {return new Symbol(sym.WRITE, yychar, yyline, yytext());}
+{YEAR} {return new Symbol(sym.YEAR, yychar, yyline, yytext());}
+{ZONE} {return new Symbol(sym.ZONE, yychar, yyline, yytext());}
+{LOGIN} {return new Symbol(sym.LOGIN, yychar, yyline, yytext());}
+    "+" {return new Symbol(sym.MAS, yychar, yyline, yytext());}
+    "-" {return new Symbol(sym.MENOS, yychar, yyline, yytext());}
+    "*" {return new Symbol(sym.ASTERISCO, yychar, yyline, yytext());}
+    "/" {return new Symbol(sym.DIV, yychar, yyline, yytext());}
+    "%" {return new Symbol(sym.PORCENTAJE, yychar, yyline, yytext());}
+    "<" {return new Symbol(sym.MENOR, yychar, yyline, yytext());}
+    "<=" {return new Symbol(sym.MENORIGUAL, yychar, yyline, yytext());}
+    ">" {return new Symbol(sym.MAYOR, yychar, yyline, yytext());}
+    ">=" {return new Symbol(sym.MAYORIGUAL, yychar, yyline, yytext());}
+    "=" {return new Symbol(sym.IGUAL, yychar, yyline, yytext());}
+    "==" {return new Symbol(sym.IGUALIGUAL, yychar, yyline, yytext());}
+    "!=" {return new Symbol(sym.NOIGUAL, yychar, yyline, yytext());}
+    "&&" {return new Symbol(sym.And, yychar, yyline, yytext());}
+    "||" {return new Symbol(sym.Or, yychar, yyline, yytext());}
+    "!" {return new Symbol(sym.ADMIRACION, yychar, yyline, yytext());}
+    ";" {return new Symbol(sym.PUNTOCOMA, yychar, yyline, yytext());}
+    "," {return new Symbol(sym.COMMA, yychar, yyline, yytext());}
+    "." {return new Symbol(sym.PUNTO, yychar, yyline, yytext());}
+    "[" {return new Symbol(sym.CORCHETEOP, yychar, yyline, yytext());}
+    "]" {return new Symbol(sym.CORCHETECLO, yychar, yyline, yytext());}
+    "(" {return new Symbol(sym.PARENTESISOP, yychar, yyline, yytext());}
+    ")" {return new Symbol(sym.PARENTESISCLO, yychar, yyline, yytext());}
+    "{" {return new Symbol(sym.LLAVEOP, yychar, yyline, yytext());}
+    "}" {return new Symbol(sym.LLAVECLO, yychar, yyline, yytext());}
+    "[]" {return new Symbol(sym.CORCHETEDOBLE, yychar, yyline, yytext());}
+    "()" {return new Symbol(sym.PARENTESISDOBLE, yychar, yyline, yytext());}
+    "{}" {return new Symbol(sym.LLAVEDOBLE, yychar, yyline, yytext());}
+    "@" {return new Symbol(sym.ARROBA, yychar, yyline, yytext());}
+    "#" {return new Symbol(sym.NUMERAL, yychar, yyline, yytext());}
+    "##" {return new Symbol(sym.NUMERALDOBLE, yychar, yyline, yytext());}
 
-[a-zA-Z][a-zA-Z0-9_]* {line = Integer.toString(yyline+1); return Identificador;} 
+[a-zA-Z][a-zA-Z0-9_]* {return new Symbol(sym.Identificador, yychar, yyline, yytext());}
 
 [ \t\r\n]+  { /*se ignoran los espacios*/}
-{in} {  line = Integer.toString(yyline+1); return ComentarioE;}
+{in} {  /*se ignoran los espacios*/}
 {TC}|{EC} {/*se ignoran los comentario*/}
 
-. { line = Integer.toString(yyline+1); return ERROR;}
+. { System.out.print("ERROR Caracter no valido " + yytext() + " en linea: "+(yyline+1)+ " columna: "+ (yycolumn + 1) + " - " + ((yycolumn+1) + yylength() -1) +"\n");}
