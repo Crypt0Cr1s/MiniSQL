@@ -33,7 +33,7 @@ terminal           Puntuacion,Entero,Bit,Cadena,Float,ADD,ALL,ALTER,AND,ANY,AS,A
    Primero se lista los no terminales que tienen un valor Object y despues
    se lista los no terminales que tienen un entero. Un Object se refiere a que
    no tienen tipo, pudiendo ser entero o String. */
-non terminal Object     INIT,DECL,ROLLB,ROLLB1,ROLLB2,COMF,SAVEP,SAVEP1,SAVEP2,COM,COM1,COM2;
+non terminal Object     INIT,DECL,ROLLB,ROLLB1,ROLLB2,COMF,SAVEP,SAVEP1,SAVEP2,COM,COM1,COM2,DELETE1,DELETE2,DELETE3,DELETE4,DELETE5,DELETE6,DELETE7,DELETE8,DELETE9,OBJECT,OBJECT1,OBJECT2,OBJECT3,SEXP,SEXP2,SEXP3,SEXP4,SEXP5,OUTCL,OUTCL1,OUTCL2,OUTCL3,EXPRESSION,EXPRESSION1,EXPRESSION2,EXPRESSION3,EXPRESSION4,SEL_AVG,SEL_AVG2,SEL_AVG3,SEL_AD,SEL_COUNT,SEL_COUNT2,SEL_COUNT3,SEL_AGR,SEL_AGR2,SEL_AGR3,DML,DML2,DML3,DML4,COLST,COLST1,COLST2,AR_OPR,SUM_OPR,ASIG_OPR,BIT_OPR,COMPARE_OPR,LOGIC_OPR,COLNAME,COLNAME1;
 
    
 
@@ -48,6 +48,7 @@ INIT ::= INIT DECL
 DECL ::= ROLLB
     |SAVEP
     |COM
+    |DELETE1
     |error PUNTOCOMA
     |error GO;
 
@@ -82,4 +83,171 @@ COM2 ::= Identificador
     | ARROBA Identificador
     | /* ε */ ;
 
+////////////////////////////////////////////////////////////////////////////////////// Comienza Viejo////////////////////////////
+DELETE1 ::= DELETE DELETE2; 
 
+DELETE2 ::= TOP PARENTESISOP SEXP PARENTESISCLO DELETE3 
+    | DELETE4;
+
+DELETE3 ::= PORCENTAJE DELETE4 
+    | DELETE4;
+
+DELETE4 ::= FROM DELETE5 
+    | DELETE5;
+
+DELETE5 ::= OBJECT DELETE6 
+    | ARROBA Identificador DELETE6;
+
+DELETE6 ::= OUTCL DELETE7 
+    | DELETE7;
+
+DELETE7 ::= FROM JOINTB DELETE8 
+    | DELETE9;
+
+DELETE8 ::= COMMA JOINTB DELETE8 
+    | DELETE9;
+
+DELETE9 ::= WHERE EXPRESSION COMF 
+    | COMF;
+
+
+OBJECT ::= Identificador OBJECT1; 
+
+OBJECT1 ::= PUNTO Identificador OBJECT2 
+    | /* ε */ ;
+
+OBJECT2 ::= PUNTO Identificador OBJECT3 
+    | /* ε */ ;
+
+OBJECT3 ::= PUNTO Identificador
+    | /* ε */ ;
+
+SEXP ::= SEXP3 SEXP2; 
+
+SEXP2 ::= MAS SEXP3 SEXP2 
+    | MENOS SEXP3 SEXP2 
+    | /* ε */ ;
+
+SEXP3 ::= SEXP5 SEXP4 ;
+
+SEXP4 ::= ASTERISCO SEXP5 SEXP4 
+    | DIV SEXP5 SEXP4 
+    | /* ε */ ;
+
+SEXP5 ::= PARENTESISOP SEXP PARENTESISCLO 
+    | Entero 
+    | Float
+    | ARROBA Identificador
+    | AGG_FN ;
+
+OUTCL ::= OUTPUT DML OUTCL1 
+    | /* ε */ ;
+
+OUTCL1 ::= INTO OUTCL2 
+    | /* ε */ ;
+
+OUTCL2 ::= ARROBA Identificador OUTCL3 
+    | Identificador OUTCL3 ;
+
+OUTCL3 ::= COLST 
+    | /* ε */ ;
+
+EXPRESSION ::= SEXP EXPRESSION1 EXPRESSION3 
+    | EXPRESSION2 SUM_OPR EXPRESSION2 
+    | NOT EXPRESSION EXPRESSION4 
+    |  /* ε */ ;
+
+EXPRESSION1 ::= AR_OPR 
+    | COMPARE_OPR 
+    | SUM_OPR ;
+
+EXPRESSION2 ::= Cadena 
+    | Identificador;
+
+EXPRESSION3 ::= SEXP
+    | Identificador 
+    | STRING ;
+
+EXPRESSION4 ::= COMPARE_OPR 
+    | LOGIC_OPR ;
+
+AGG_FN ::= AVG PARENTESISOP SEL_AVG PARENTESISCLO 
+    | COUNT PARENTESISOP SEL_COUNT PARENTESISCLO 
+    | MAX PARENTESISOP SEL_AGR PARENTESISCLO 
+    | MIN PARENTESISOP SEL_AGR PARENTESISCLO 
+    | SUM PARENTESISOP SEL_AGR PARENTESISCLO ;
+
+SEL_AVG ::= SEL_AD SEL_AVG2; 
+
+SEL_AD ::= ALL 
+    | DISTINCT 
+    | /* ε */ ;
+
+SEL_AVG2 ::= SEXP 
+    | Identificador SEL_AVG3; 
+
+SEL_AVG3 ::= PUNTO Identificador 
+    | /* ε */ ; 
+
+SEL_COUNT ::= SEL_AD SEL_COUNT2 ;
+
+SEL_COUNT2 ::= ASTERISCO
+    | Identificador SEL_COUNT3 
+    | SEXP  ;
+
+SEL_COUNT3 ::= PUNTO Identificador 
+    | /* ε */ ; 
+
+SEL_AGR ::= SEL_AD SEL_AGR2 ;
+
+SEL_AGR2 ::= Identificador SEL_AGR3 
+    | SEXP;  
+
+SEL_AGR3 ::= PUNTO Identificador 
+    | /* ε */ ;
+
+DML ::= DML2 DML3 ;
+
+DML2 ::= COLNAME 
+    | SEXP ;
+
+DML3 ::= AS Identificador DML4 
+    | /* ε */ ;
+
+DML4 ::= COMMA DML
+    | /* ε */ ;
+
+COLST ::= PARENTESISOP COLST1 ;
+
+COLST1 ::= Identificador COLST2 ;
+
+COLST2 ::= COMMA COLST1 
+    | PARENTESISCLO ;
+
+AR_OPR ::= MENOS 
+    | ASTERISCO 
+    | DIV
+    | PORCENTAJE ;
+
+SUM_OPR ::= MAS;
+
+ASIG_OPR ::= IGUAL;
+
+BIT_OPR ::= AND 
+    | OR; 
+
+COMPARE_OPR ::= MAYOR 
+    | MENOR 
+    | MAYORIGUAL 
+    | MENORIGUAL;
+
+LOGIC_OPR ::= BETWEEN 
+    | IN 
+    | LIKE;
+
+COLNAME ::= Identificador PUNTO COLNAME1 ;
+
+COLNAME1 ::= ASTERISCO 
+    | Identificador ; 
+
+///////////////////FALTA JOIN TB/////////////
