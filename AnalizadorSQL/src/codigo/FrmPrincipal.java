@@ -101,8 +101,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(btnAnalizar)
                     .addComponent(btnExaminar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,7 +120,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             String resultado = "";
             Sintax s = new Sintax (lexer);
             s.parse();
-            
+            txtResultado.setText("FINALIZADO!!");
             
             
         } catch (FileNotFoundException ex) {

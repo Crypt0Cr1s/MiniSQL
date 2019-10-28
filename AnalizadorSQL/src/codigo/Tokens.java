@@ -150,6 +150,7 @@ public enum Tokens {
     RESTORE,
     RESTRICT,
     RETURN,
+    RETURNS,
     REVERT,
     REVOKE,
     RIGHT,
@@ -361,5 +362,14 @@ public enum Tokens {
     ARROBA,
     NUMERAL,
     NUMERALDOBLE,
+    FORWARD_ONLY,
+    STATIC,
+    KEYSET,
+    DYNAMIC,
+    FAST_FORWARD,
+    READ_ONLY,
+    SCROLL_LOCKS,
+    OPTIMISTIC,
+    TYPE_WARNING,
     ERROR
 }

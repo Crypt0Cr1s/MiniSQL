@@ -18,18 +18,18 @@ import java.nio.file.Paths;
 public class Principal {
 
     public static void main(String[] args) throws Exception {
-        
+
         String ruta2 = "/home/cristobal/Documentos/MiniSQL/AnalizadorSQL/src/codigo/Lexer.flex";
-        String[] rutaS = {"-parser", "Sintax", "/home/cristobal/Documentos/MiniSQL/AnalizadorSQL/src/codigo/Sintax.cup"};
-        generarLexer( ruta2, rutaS);
+        String[] rutaS = {"-expect", "111", "-parser", "Sintax", "/home/cristobal/Documentos/MiniSQL/AnalizadorSQL/src/codigo/Sintax.cup"};
+        generarLexer(ruta2, rutaS);
     }
 
-    public static void generarLexer( String ruta2, String[] rutaS) throws IOException, Exception {
+    public static void generarLexer(String ruta2, String[] rutaS) throws IOException, Exception {
         File archivo;
         archivo = new File(ruta2);
         JFlex.Main.generate(archivo);
         java_cup.Main.main(rutaS);
-        
+
         Path rutaSym = Paths.get("/home/cristobal/Documentos/MiniSQL/AnalizadorSQL/src/codigo/sym.java");
         if (Files.exists(rutaSym)) {
             Files.delete(rutaSym);
@@ -45,7 +45,7 @@ public class Principal {
         Files.move(
                 Paths.get("/home/cristobal/Documentos/MiniSQL/AnalizadorSQL/Sintax.java"),
                 Paths.get("/home/cristobal/Documentos/MiniSQL/AnalizadorSQL/src/codigo/Sintax.java"));
-       
+
     }
 
 }
