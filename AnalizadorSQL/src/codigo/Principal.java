@@ -20,7 +20,7 @@ public class Principal {
     public static void main(String[] args) throws Exception {
 
         String ruta2 = "/home/cristobal/Documentos/MiniSQL/AnalizadorSQL/src/codigo/Lexer.flex";
-        String[] rutaS = {"-expect", "111", "-parser", "Sintax", "/home/cristobal/Documentos/MiniSQL/AnalizadorSQL/src/codigo/Sintax.cup"};
+        String[] rutaS = {"-expect", "941", "-parser", "Sintax", "/home/cristobal/Documentos/MiniSQL/AnalizadorSQL/src/codigo/Sintax.cup"};
         generarLexer(ruta2, rutaS);
     }
 

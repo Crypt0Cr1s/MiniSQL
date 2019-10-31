@@ -371,5 +371,9 @@ public enum Tokens {
     SCROLL_LOCKS,
     OPTIMISTIC,
     TYPE_WARNING,
+    ENCRYPTION,
+    RECOMPILE,
+    OUT,
+    MARK,
     ERROR
 }

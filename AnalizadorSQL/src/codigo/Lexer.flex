@@ -66,7 +66,7 @@ COMPUTE = "COMPUTE"
 CONSTRAINT = "CONSTRAINT"
 CONTAINS = "CONTAINS"
 CONTAINSTABLE = "CONTAINSTABLE"
-CONTINUE = "CONTINUE"
+CONTINUE = "CONTINUE"/* ε */ ;
 CONVERT = "CONVERT"
 CREATE = "CREATE"
 CROSS = "CROSS"
@@ -223,7 +223,7 @@ WITH = "WITH"
 WITHIN_GROUP = "WITHIN GROUP"
 WRITETEXT = "WRITETEXT"
 DELAYED_DURABILITY = "DELAYED_DURABILITY"
-
+ENCRYPTION = "ENCRYPTION"
 
 /* Empiezan ODBC*/
 
@@ -364,6 +364,9 @@ READ_ONLY = "READ_ONLY"
 SCROLL_LOCKS = "SCROLL_LOCKS"
 OPTIMISTIC = "OPTIMISTIC"
 TYPE_WARNING = "TYPE_WARNING"
+RECOMPILE = "RECOMPILE"
+OUT = "OUT"
+MARK = "MARK"
 
 
 %{
@@ -704,6 +707,10 @@ TYPE_WARNING = "TYPE_WARNING"
 {SCROLL_LOCKS} {return new Symbol(sym.SCROLL_LOCKS, yycolumn, yyline, yytext());}
 {OPTIMISTIC} {return new Symbol(sym.OPTIMISTIC, yycolumn, yyline, yytext());}
 {TYPE_WARNING} {return new Symbol(sym.TYPE_WARNING, yycolumn, yyline, yytext());}
+{ENCRYPTION} {return new Symbol(sym.ENCRYPTION, yycolumn, yyline, yytext());}
+{RECOMPILE} {return new Symbol(sym.RECOMPILE, yycolumn, yyline, yytext());}
+{OUT} {return new Symbol(sym.OUT, yycolumn, yyline, yytext());}
+{MARK} {return new Symbol(sym.MARK, yycolumn, yyline, yytext());}
     "+" {return new Symbol(sym.MAS, yycolumn, yyline, yytext());}
     "-" {return new Symbol(sym.MENOS, yycolumn, yyline, yytext());}
     "*" {return new Symbol(sym.ASTERISCO, yycolumn, yyline, yytext());}
